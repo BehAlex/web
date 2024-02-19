@@ -6,9 +6,10 @@
 </head>
 <body>
     <div id="main">
-         <h1>Создание ПМ</h1>
+        <h1>Создание ПМ</h1>
         <button id="Авария">Авария</button>
         <button id="Инцидент">Инцидент</button>
         </div>
+<script src="https://telegram.org/js/telegram-web-app.js"></script>
 </body>
 </html>
