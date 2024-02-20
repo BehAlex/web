@@ -33,9 +33,9 @@
         <!-- Тип события -->
         <div class="field-label">
             <label for="eventType" >Тип события</label>
-            <select name="eventType"  id="eventType">
-                <option value="#Авария">Авария</option>
-                <option value="#Инцидент">Инцидент</option>
+            <select name="eventType">
+                <option value="#Авария" id="Acident">Авария</option>
+                <option value="#Инцидент" id="Incident">Инцидент</option>
             </select>
         </div>
         <!-- Проблематика -->
@@ -109,7 +109,9 @@
         tg.expand();
         send.addEventListener(
             "click", () => {
-                let eventType = document.getElementById("eventType").value;
+                let eventType = {"Acident": document.getElementById("Acident").value,
+                    "Icident": document.getElementById("Icident").value
+                };
                 let problematic = document.getElementById("problematic").value;
                 let influenceAndMass = document.getElementById("influenceAndMass").value;
                 let currentStatus = document.getElementById("currentStatus").value;
