@@ -119,7 +119,11 @@
                 let endDate = document.getElementById("endDate").value;
                 let restoration = document.getElementById("restoration").value;
                 let source = document.getElementById("source").value;
-                let impact = document.querySelector("#1")
+                let checkboxes = document.querySelectorAll('input[type="checkbox"]:checked');
+                let impact = [];
+                checkboxes.forEach(checkbox => {
+                  impact.push(checkbox.value);
+                });
                 //     "МП": document.getElementById("МП").value,
                 //     "Поиск": document.getElementById("Поиск").value,
                 //     "КЦ": document.getElementById("КЦ").value,
