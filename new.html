@@ -83,20 +83,29 @@
         <!-- Влияние -->
         <div class="field-label">
             <label for="impact">Влияние</label>
-        <div class="dropdown-checkbox form-group">
-            <input type="checkbox" name="place" value="Сайт"> Сайт
-            <input type="checkbox" name="place" value="МП" > МП
-            <input type="checkbox" name="place" value="Поиск" > Поиск
-            <input type="checkbox" name="place" value="КЦ" > КЦ
-            <input type="checkbox" name="place" value="БО" > БО
-            <input type="checkbox" name="place" value="ВМС" > ВМС
-            <input type="checkbox" name="place" value="Логистика" > Логистика
-            <input type="checkbox" name="place" value="Курьерская служба" > Курьерская служба
-            <input type="checkbox" name="place" value="Промо" > Промо
-        </div>
+            <div class="dropdown-checkbox form-group">
+                <input type="checkbox" name="place" value="Сайт"> Сайт
+                <input type="checkbox" name="place" value="МП" > МП
+                <input type="checkbox" name="place" value="Поиск" > Поиск
+                <input type="checkbox" name="place" value="КЦ" > КЦ
+                <input type="checkbox" name="place" value="БО" > БО
+                <input type="checkbox" name="place" value="ВМС" > ВМС
+                <input type="checkbox" name="place" value="Логистика" > Логистика
+                <input type="checkbox" name="place" value="Курьерская служба" > Курьерская служба
+                <input type="checkbox" name="place" value="Промо" > Промо
+            </div>
         </div>
         <!-- План действий -->
         <div class="field-label">
             <label for="planOfAction">План действий</label>
             <input type="text" name="planOfAction" placeholder="Подключение дежурных SRE, разработчика и владельца продукта.">
         </div>
+        <button id ="send">Отправить</button>
+        </form>
+    <script src="https://telegram.org/js/telegram-web-app.js"></script>
+    <script>
+        let tg = window.Telegram.WebApp;
+        let send = document.getElementById("send");
+    </script>
+</body>
+</html>
