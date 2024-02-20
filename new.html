@@ -32,7 +32,7 @@
     <form action="#">
         <!-- Тип события -->
         <div class="field-label">
-            <label for="eventType">Тип события</label>
+            <label for="eventType" id="eventType">Тип события</label>
             <select name="eventType">
                 <option value="Accident">Авария</option>
                 <option value="Incident">Инцидент</option>
@@ -41,17 +41,17 @@
         <!-- Проблематика -->
         <div class="field-label">
             <label for="problematic">Проблематика</label>
-            <input type="text" name="problematic" placeholder="Проблематика">
+            <input type="text" name="problematic" placeholder="Проблематика" id="problematic">
         </div>
         <!-- Оказанное влияние и массовость -->
         <div class="field-label">
             <label for="influenceAndMass">Оказанное влияние и массовость</label>
-            <input type="text" name="influenceAndMass" placeholder="Оказанное влияние и массовость">
+            <input type="text" name="influenceAndMass" placeholder="Оказанное влияние и массовость" id="influenceAndMass">
         </div>
         <!-- Текущий статус -->
         <div class="field-label">
             <label for="currentStatus">Текущий статус</label>
-            <select name="currentStatus">
+            <select name="currentStatus" id="currentStatus">
                 <option value="InProgress">В работе</option>
                 <option value="Completed">Завершён</option>
             </select>
@@ -59,22 +59,22 @@
         <!-- Начало события -->
         <div class="field-label">
             <label for="startDate">Начало события</label>
-            <input type="datetime-local" name="startDate">
+            <input type="datetime-local" name="startDate" id="startDate">
         </div>
         <!-- Конец события -->
         <div class="field-label">
             <label for="endDate">Конец события</label>
-            <input type="datetime-local" name="endDate">
+            <input type="datetime-local" name="endDate" id="endDate">
         </div>
         <!-- Восстановление -->
         <div class="field-label">
             <label for="restoration">Восстановление</label>
-            <input type="datetime-local" name="restoration" placeholder="Восстановление">
+            <input type="datetime-local" name="restoration" placeholder="Восстановление" id="restoration">
         </div>
         <!-- Источник -->
         <div class="field-label">
             <label for="source">Источник</label>
-            <select name="source">
+            <select name="source" id="source">
                 <option value="Monitoring">Мониторинг</option>
                 <option value="UserRequest">Заявка от пользователя</option>
                 <option value="PartnerRequest">Заявка от партнера</option>
@@ -83,7 +83,7 @@
         <!-- Влияние -->
         <div class="field-label">
             <label for="impact">Влияние</label>
-            <div class="dropdown-checkbox form-group">
+            <div class="dropdown-checkbox form-group" id="impact">
                 <input type="checkbox" name="place" value="Сайт"> Сайт
                 <input type="checkbox" name="place" value="МП" > МП
                 <input type="checkbox" name="place" value="Поиск" > Поиск
@@ -98,7 +98,7 @@
         <!-- План действий -->
         <div class="field-label">
             <label for="planOfAction">План действий</label>
-            <input type="text" name="planOfAction" placeholder="Подключение дежурных SRE, разработчика и владельца продукта.">
+            <input type="text" id="planOfAction" name="planOfAction" placeholder="Подключение дежурных SRE, разработчика и владельца продукта.">
         </div>
         <button id ="send">Отправить</button>
         </form>
@@ -106,6 +106,22 @@
     <script>
         let tg = window.Telegram.WebApp;
         let send = document.getElementById("send");
+        tg.expand();
+        send.addEventListener(
+            "click", () => {
+                let eventType = document.getElementById("eventType").value;
+                let problematic = document.getElementById("problematic").value;
+                let influenceAndMass = document.getElementById("influenceAndMass").value;
+                let currentStatus = document.getElementById("currentStatus").value;
+                let startDate = document.getElementById("startDate").value;
+                let endDate = document.getElementById("endDate").value;
+                let restoration = document.getElementById("restoration").value;
+                let source = document.getElementById("source").value;
+                let impact = document.getElementById("impact").value;
+                let planOfAction = document.getElementById("planOfAction").value;
+                tg.close();
+            }
+        )
     </script>
 </body>
 </html>
