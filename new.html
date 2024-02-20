@@ -1,0 +1,101 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Event Type Form</title>
+    <style>
+        body {
+            text-align: center;
+            margin: 0;
+        }
+
+        form {
+            display: block;
+            margin: auto;
+            width: 50%;
+        }
+
+        .field-label {
+            display: flex;
+            flex-direction: column;
+            margin-bottom: 10px;
+        }
+
+        .field-label label {
+            font-weight: bold;
+            margin-bottom: 5px;
+        }
+    </style>
+</head>
+<body>
+    <form action="#">
+        <!-- Тип события -->
+        <div class="field-label">
+            <label for="eventType">Тип события</label>
+            <select name="eventType">
+                <option value="Accident">Авария</option>
+                <option value="Incident">Инцидент</option>
+            </select>
+        </div>
+        <!-- Проблематика -->
+        <div class="field-label">
+            <label for="problematic">Проблематика</label>
+            <input type="text" name="problematic" placeholder="Проблематика">
+        </div>
+        <!-- Оказанное влияние и массовость -->
+        <div class="field-label">
+            <label for="influenceAndMass">Оказанное влияние и массовость</label>
+            <input type="text" name="influenceAndMass" placeholder="Оказанное влияние и массовость">
+        </div>
+        <!-- Текущий статус -->
+        <div class="field-label">
+            <label for="currentStatus">Текущий статус</label>
+            <select name="currentStatus">
+                <option value="InProgress">В работе</option>
+                <option value="Completed">Завершён</option>
+            </select>
+        </div>
+        <!-- Начало события -->
+        <div class="field-label">
+            <label for="startDate">Начало события</label>
+            <input type="date" name="startDate">
+        </div>
+        <!-- Конец события -->
+        <div class="field-label">
+            <label for="endDate">Конец события</label>
+            <input type="date" name="endDate">
+        </div>
+        <!-- Восстановление -->
+        <div class="field-label">
+            <label for="restoration">Восстановление</label>
+            <input type="text" name="restoration" placeholder="Восстановление">
+        </div>
+        <!-- Источник -->
+        <div class="field-label">
+            <label for="source">Источник</label>
+            <select name="source">
+                <option value="Monitoring">Мониторинг</option>
+                <option value="UserRequest">Заявка от пользователя</option>
+                <option value="PartnerRequest">Заявка от партнера</option>
+            </select>
+        </div>
+        <!-- Влияние -->
+        <div class="field-label">
+            <label for="impact">Влияние</label>
+            <select name="impact">
+                <option value="Site">Сайт</option>
+                <option value="MP">МП</option>
+                <option value="Search">Поиск</option>
+                <option value="CC">КЦ</option>
+                <option value="BO">БО</option>
+                <option value="VMC">ВМС</option>
+                <option value="Logistics">Логистика</option>
+                <option value="CourierService">Курьерская служба</option>
+                <option value="Promo">Промо</option>
+            </select>
+        </div>
+        <!-- План действий -->
+        <div class="field-label">
+            <label for="planOfAction">План действий</label>
+            <textarea name="planOfAction" placeholder="Подключение де
