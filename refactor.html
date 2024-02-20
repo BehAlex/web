@@ -29,78 +29,123 @@
     </style>
 </head>
 <body>
-    <form action="#">
-         <!-- ИД сообщения -->
+    <form action="action">
+        <!-- ИД сообщения -->
         <div class="field-label">
-            <label for="Id">Ид сообщения</label>
-            <input type="text" name="Id" placeholder="Ид сообщения">
+            <label for="idmess">Ид сообщения для корректировки</label>
+            <input type="text" name="idmess" placeholder="Ид сообщения" id="idmess">
         </div>
         <!-- Тип события -->
         <div class="field-label">
-            <label for="eventType">Тип события</label>
-            <select name="eventType">
-                <option value="Accident">Авария</option>
-                <option value="Incident">Инцидент</option>
+            <label for="eventType" >Тип события</label>
+            <select name="eventType" id="eventType">
+                <option value="#Авария" id="acident">Авария</option>
+                <option value="#Инцидент" id="incident">Инцидент</option>
             </select>
         </div>
         <!-- Проблематика -->
         <div class="field-label">
             <label for="problematic">Проблематика</label>
-            <input type="text" name="problematic" placeholder="Проблематика">
+            <input type="text" name="problematic" placeholder="Проблематика" id="problematic">
         </div>
         <!-- Оказанное влияние и массовость -->
         <div class="field-label">
             <label for="influenceAndMass">Оказанное влияние и массовость</label>
-            <input type="text" name="influenceAndMass" placeholder="Оказанное влияние и массовость">
+            <input type="text" name="influenceAndMass" placeholder="Оказанное влияние и массовость" id="influenceAndMass">
         </div>
         <!-- Текущий статус -->
         <div class="field-label">
             <label for="currentStatus">Текущий статус</label>
-            <select name="currentStatus">
-                <option value="InProgress">В работе</option>
-                <option value="Completed">Завершён</option>
+            <select name="currentStatus" id="currentStatus">
+                <option value="В работе">В работе</option>
+                <option value="Завершён">Завершён</option>
             </select>
         </div>
         <!-- Начало события -->
         <div class="field-label">
             <label for="startDate">Начало события</label>
-            <input type="date" name="startDate">
+            <input type="datetime-local" name="startDate" id="startDate">
         </div>
         <!-- Конец события -->
         <div class="field-label">
             <label for="endDate">Конец события</label>
-            <input type="date" name="endDate">
+            <input type="datetime-local" name="endDate" id="endDate">
         </div>
         <!-- Восстановление -->
         <div class="field-label">
             <label for="restoration">Восстановление</label>
-            <input type="text" name="restoration" placeholder="Восстановление">
+            <input type="datetime-local" name="restoration" placeholder="Восстановление" id="restoration">
         </div>
         <!-- Источник -->
         <div class="field-label">
             <label for="source">Источник</label>
-            <select name="source">
-                <option value="Monitoring">Мониторинг</option>
-                <option value="UserRequest">Заявка от пользователя</option>
-                <option value="PartnerRequest">Заявка от партнера</option>
+            <select name="source" id="source">
+                <option value="Мониторинг">Мониторинг</option>
+                <option value="Заявка от пользователя">Заявка от пользователя</option>
+                <option value="Заявка от партнера">Заявка от партнера</option>
             </select>
         </div>
         <!-- Влияние -->
         <div class="field-label">
             <label for="impact">Влияние</label>
-            <select name="impact">
-                <option value="Site">Сайт</option>
-                <option value="MP">МП</option>
-                <option value="Search">Поиск</option>
-                <option value="CC">КЦ</option>
-                <option value="BO">БО</option>
-                <option value="VMC">ВМС</option>
-                <option value="Logistics">Логистика</option>
-                <option value="CourierService">Курьерская служба</option>
-                <option value="Promo">Промо</option>
-            </select>
+            <div class="dropdown-checkbox form-group">
+                <input type="checkbox"  name="place" value="Сайт" id="1"> Сайт
+                <input type="checkbox"  name="place" value="МП" id="2"> МП
+                <input type="checkbox"  name="place" value="Поиск" id="3"> Поиск
+                <input type="checkbox"  name="place" value="КЦ" id="4"> КЦ
+                <input type="checkbox"  name="place" value="БО" id="5"> БО
+                <input type="checkbox"  name="place" value="ВМС" id="6"> ВМС
+                <input type="checkbox"  name="place" value="Логистика" id="7"> Логистика
+                <input type="checkbox"  name="place" value="Курьерская служба" id="8"> Курьерская служба
+                <input type="checkbox"  name="place" value="Промо" id="9"> Промо
+            </div>
         </div>
         <!-- План действий -->
         <div class="field-label">
             <label for="planOfAction">План действий</label>
-            <textarea name="planOfAction" placeholder="Подключение де
+            <input type="text" id="planOfAction" name="planOfAction" placeholder="Подключение дежурных SRE, разработчика и владельца продукта.">
+        </div>
+        <button id ="send">Отправить</button>
+    </form>
+    <script src="https://telegram.org/js/telegram-web-app.js"></script>
+    <script>
+        let tg = window.Telegram.WebApp;
+        let send = document.getElementById("send");
+        tg.expand();
+        send.addEventListener(
+            "click", () => {
+                let eventType = document.getElementById("eventType").value;
+                let problematic = document.getElementById("problematic").value;
+                let influenceAndMass = document.getElementById("influenceAndMass").value;
+                let currentStatus = document.getElementById("currentStatus").value;
+                let startDate = document.getElementById("startDate").value;
+                let endDate = document.getElementById("endDate").value;
+                let restoration = document.getElementById("restoration").value;
+                let source = document.getElementById("source").value;
+                let checkboxes = document.querySelectorAll('input[type="checkbox"]:checked');
+                let impact = [];
+                checkboxes.forEach(checkbox => {
+                  impact.push(checkbox.value);
+                });
+                let planOfAction = document.getElementById("planOfAction").value;
+                let idmess = document.getElementById("idmess").value;
+                let data = {
+                    idmess: idmess,
+                    eventType: eventType,
+                    "Проблематика": problematic,
+                    "Оказанное влияние и массовость": influenceAndMass,
+                    "Текущий статус": currentStatus,
+                    "Начало события": startDate,
+                    "Конец события": endDate,
+                    "Восстановление": restoration,
+                    "Источник": source,
+                    "Влияние": impact,
+                    "План действий": planOfAction
+                }
+                tg.sendData(JSON.stringify(data))
+                tg.close();
+            }
+        )
+    </script>
+</body>
+</html>
