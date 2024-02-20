@@ -32,8 +32,8 @@
     <form action="action">
         <!-- Тип события -->
         <div class="field-label">
-            <label for="eventType" id="eventType">Тип события</label>
-            <select name="eventType">
+            <label for="eventType">Тип события</label>
+            <select name="eventType" id="eventType">
                 <option value="Accident">#Авария</option>
                 <option value="Incident">#Инцидент</option>
             </select>
@@ -83,10 +83,10 @@
         <!-- Влияние -->
         <div class="field-label">
             <label for="impact">Влияние</label>
-            <div class="dropdown-checkbox form-group" id="impact">
-                <input type="checkbox" name="place" value="Сайт"> Сайт
-                <input type="checkbox" name="place" value="МП" > МП
-                <input type="checkbox" name="place" value="Поиск" > Поиск
+            <div class="dropdown-checkbox form-group">
+                <input type="checkbox" name="place" value="Сайт" id="1"> Сайт
+                <input type="checkbox" name="place" value="МП" id="2"> МП
+                <input type="checkbox" name="place" value="Поиск" id="3"> Поиск
                 <input type="checkbox" name="place" value="КЦ" > КЦ
                 <input type="checkbox" name="place" value="БО" > БО
                 <input type="checkbox" name="place" value="ВМС" > ВМС
