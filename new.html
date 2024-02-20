@@ -59,17 +59,17 @@
         <!-- Начало события -->
         <div class="field-label">
             <label for="startDate">Начало события</label>
-            <input type="date" name="startDate">
+            <input type="datetime-local" name="startDate">
         </div>
         <!-- Конец события -->
         <div class="field-label">
             <label for="endDate">Конец события</label>
-            <input type="date" name="endDate">
+            <input type="datetime-local" name="endDate">
         </div>
         <!-- Восстановление -->
         <div class="field-label">
             <label for="restoration">Восстановление</label>
-            <input type="text" name="restoration" placeholder="Восстановление">
+            <input type="datetime-local" name="restoration" placeholder="Восстановление">
         </div>
         <!-- Источник -->
         <div class="field-label">
@@ -83,19 +83,20 @@
         <!-- Влияние -->
         <div class="field-label">
             <label for="impact">Влияние</label>
-            <select name="impact">
-                <option value="Site">Сайт</option>
-                <option value="MP">МП</option>
-                <option value="Search">Поиск</option>
-                <option value="CC">КЦ</option>
-                <option value="BO">БО</option>
-                <option value="VMC">ВМС</option>
-                <option value="Logistics">Логистика</option>
-                <option value="CourierService">Курьерская служба</option>
-                <option value="Promo">Промо</option>
-            </select>
+        <div class="dropdown-checkbox form-group">
+            <input type="checkbox" name="place" value="Сайт"> Сайт
+            <input type="checkbox" name="place" value="МП" > МП
+            <input type="checkbox" name="place" value="Поиск" > Поиск
+            <input type="checkbox" name="place" value="КЦ" > КЦ
+            <input type="checkbox" name="place" value="БО" > БО
+            <input type="checkbox" name="place" value="ВМС" > ВМС
+            <input type="checkbox" name="place" value="Логистика" > Логистика
+            <input type="checkbox" name="place" value="Курьерская служба" > Курьерская служба
+            <input type="checkbox" name="place" value="Промо" > Промо
+        </div>
         </div>
         <!-- План действий -->
         <div class="field-label">
             <label for="planOfAction">План действий</label>
-            <textarea name="planOfAction" placeholder="Подключение де
+            <input type="text" name="planOfAction" placeholder="Подключение дежурных SRE, разработчика и владельца продукта.">
+        </div>
