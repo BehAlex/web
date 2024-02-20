@@ -119,6 +119,20 @@
                 let source = document.getElementById("source").value;
                 let impact = document.getElementById("impact").value;
                 let planOfAction = document.getElementById("planOfAction").value;
+
+                let data = {
+                    eventType: eventType,
+                    problematic: problematic,
+                    influenceAndMass: influenceAndMass,
+                    currentStatus: currentStatus,
+                    startDate: startDate,
+                    endDate: endDate,
+                    restoration: restoration,
+                    source: source,
+                    impact: impact,
+                    planOfAction: planOfAction
+                }
+                tg.sendData(JSON.stringify(data))
                 tg.close();
             }
         )
