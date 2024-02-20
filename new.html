@@ -81,20 +81,20 @@
             </select>
         </div>
         <!-- Влияние -->
-<!--        <div class="field-label">-->
-<!--            <label for="impact" id="impact">Влияние</label>-->
-<!--            <div class="dropdown-checkbox form-group">-->
-<!--                <input type="checkbox"  name="place" value="Сайт" id="website"> Сайт-->
-<!--                <input type="checkbox"  name="place" value="МП" id="mp"> МП-->
-<!--                <input type="checkbox"  name="place" value="Поиск" id="search"> Поиск-->
-<!--                <input type="checkbox"  name="place" value="КЦ" id="cc"> КЦ-->
-<!--                <input type="checkbox"  name="place" value="БО" id="bo"> БО-->
-<!--                <input type="checkbox"  name="place" value="ВМС" id="wms"> ВМС-->
-<!--                <input type="checkbox"  name="place" value="Логистика" id="logistics"> Логистика-->
-<!--                <input type="checkbox"  name="place" value="Курьерская служба" id="courier"> Курьерская служба-->
-<!--                <input type="checkbox"  name="place" value="Промо" id="promo"> Промо-->
-<!--            </div>-->
-<!--        </div>-->
+        <div class="field-label">
+            <label for="impact" id="impact">Влияние</label>
+            <div class="dropdown-checkbox form-group">
+                <input type="checkbox"  name="place" value="Сайт" id="website"> Сайт
+                <input type="checkbox"  name="place" value="МП" id="mp"> МП
+                <input type="checkbox"  name="place" value="Поиск" id="search"> Поиск
+                <input type="checkbox"  name="place" value="КЦ" id="cc"> КЦ
+                <input type="checkbox"  name="place" value="БО" id="bo"> БО
+                <input type="checkbox"  name="place" value="ВМС" id="wms"> ВМС
+                <input type="checkbox"  name="place" value="Логистика" id="logistics"> Логистика
+                <input type="checkbox"  name="place" value="Курьерская служба" id="courier"> Курьерская служба
+                <input type="checkbox"  name="place" value="Промо" id="promo"> Промо
+            </div>
+        </div>
         <!-- План действий -->
         <div class="field-label">
             <label for="planOfAction">План действий</label>
@@ -109,8 +109,8 @@
         tg.expand();
         send.addEventListener(
             "click", () => {
-                let eventType = {"acident": document.getElementById("Acident").value,
-                    "icident": document.getElementById("Icident").value
+                let eventType = {"acident": document.getElementById("acident").value,
+                    "icident": document.getElementById("incident").value
                 };
                 let problematic = document.getElementById("problematic").value;
                 let influenceAndMass = document.getElementById("influenceAndMass").value;
@@ -119,16 +119,16 @@
                 let endDate = document.getElementById("endDate").value;
                 let restoration = document.getElementById("restoration").value;
                 let source = document.getElementById("source").value;
-                // let impact = {"website": document.getElementById("website").value,
-                //     "mp": document.getElementById("mp").value,
-                //     "search": document.getElementById("search").value,
-                //     "cc": document.getElementById("cc").value,
-                //     "bo": document.getElementById("bo").value,
-                //     "wms": document.getElementById("wms").value,
-                //     "logistics": document.getElementById("logistics").value,
-                //     "courier": document.getElementById("courier").value,
-                //     "promo": document.getElementById("promo").value
-                // };
+                let impact = {"website": document.getElementById("website").value,
+                    "mp": document.getElementById("mp").value,
+                    "search": document.getElementById("search").value,
+                    "cc": document.getElementById("cc").value,
+                    "bo": document.getElementById("bo").value,
+                    "wms": document.getElementById("wms").value,
+                    "logistics": document.getElementById("logistics").value,
+                    "courier": document.getElementById("courier").value,
+                    "promo": document.getElementById("promo").value
+                };
                 let planOfAction = document.getElementById("planOfAction").value;
 
                 let data = {
