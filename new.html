@@ -82,17 +82,17 @@
         </div>
         <!-- Влияние -->
         <div class="field-label">
-            <label for="impact" id="impact">Влияние</label>
-            <div class="dropdown-checkbox form-group">
-                <input type="checkbox"  name="place" value="Сайт" id="website"> Сайт
-                <input type="checkbox"  name="place" value="МП" id="mp"> МП
-                <input type="checkbox"  name="place" value="Поиск" id="search"> Поиск
-                <input type="checkbox"  name="place" value="КЦ" id="cc"> КЦ
-                <input type="checkbox"  name="place" value="БО" id="bo"> БО
-                <input type="checkbox"  name="place" value="ВМС" id="wms"> ВМС
-                <input type="checkbox"  name="place" value="Логистика" id="logistics"> Логистика
-                <input type="checkbox"  name="place" value="Курьерская служба" id="courier"> Курьерская служба
-                <input type="checkbox"  name="place" value="Промо" id="promo"> Промо
+            <label for="impact" >Влияние</label>
+            <div class="dropdown-checkbox form-group" id="impact">
+                <input type="checkbox"  name="place" value="Сайт" id="Сайт"> Сайт
+                <input type="checkbox"  name="place" value="МП" id="МП"> МП
+                <input type="checkbox"  name="place" value="Поиск" id="Поиск"> Поиск
+                <input type="checkbox"  name="place" value="КЦ" id="КЦ"> КЦ
+                <input type="checkbox"  name="place" value="БО" id="БО"> БО
+                <input type="checkbox"  name="place" value="ВМС" id="ВМС"> ВМС
+                <input type="checkbox"  name="place" value="Логистика" id="Логистика"> Логистика
+                <input type="checkbox"  name="place" value="Курьерская служба" id="Курьерская служба"> Курьерская служба
+                <input type="checkbox"  name="place" value="Промо" id="Промо"> Промо
             </div>
         </div>
         <!-- План действий -->
@@ -119,16 +119,17 @@
                 let endDate = document.getElementById("endDate").value;
                 let restoration = document.getElementById("restoration").value;
                 let source = document.getElementById("source").value;
-                let impact = {"website": document.getElementById("website").value,
-                    "mp": document.getElementById("mp").value,
-                    "search": document.getElementById("search").value,
-                    "cc": document.getElementById("cc").value,
-                    "bo": document.getElementById("bo").value,
-                    "wms": document.getElementById("wms").value,
-                    "logistics": document.getElementById("logistics").value,
-                    "courier": document.getElementById("courier").value,
-                    "promo": document.getElementById("promo").value
-                };
+                let impact = document.getElementById("impact").value;
+                // let impact = {"Сайт": document.getElementById("Сайт").value,
+                //     "МП": document.getElementById("МП").value,
+                //     "Поиск": document.getElementById("Поиск").value,
+                //     "КЦ": document.getElementById("КЦ").value,
+                //     "БО": document.getElementById("БО").value,
+                //     "ВМС": document.getElementById("ВМС").value,
+                //     "Логистика": document.getElementById("Логистика").value,
+                //     "Курьерская служба": document.getElementById("Курьерская служба").value,
+                //     "Промо": document.getElementById("Промо").value
+                // };
                 let planOfAction = document.getElementById("planOfAction").value;
 
                 let data = {
