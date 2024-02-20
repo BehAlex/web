@@ -32,8 +32,8 @@
     <form action="action">
         <!-- Тип события -->
         <div class="field-label">
-            <label for="eventType" id="eventType">Тип события</label>
-            <select name="eventType">
+            <label for="eventType" >Тип события</label>
+            <select name="eventType" id="eventType">
                 <option value="#Авария" id="acident">Авария</option>
                 <option value="#Инцидент" id="incident">Инцидент</option>
             </select>
@@ -109,9 +109,7 @@
         tg.expand();
         send.addEventListener(
             "click", () => {
-                let eventType = {"acident": document.getElementById("acident").value,
-                    "icident": document.getElementById("incident").value
-                };
+                let eventType = document.getElementById("acident").value;
                 let problematic = document.getElementById("problematic").value;
                 let influenceAndMass = document.getElementById("influenceAndMass").value;
                 let currentStatus = document.getElementById("currentStatus").value;
@@ -124,28 +122,18 @@
                 checkboxes.forEach(checkbox => {
                   impact.push(checkbox.value);
                 });
-                //     "МП": document.getElementById("МП").value,
-                //     "Поиск": document.getElementById("Поиск").value,
-                //     "КЦ": document.getElementById("КЦ").value,
-                //     "БО": document.getElementById("БО").value,
-                //     "ВМС": document.getElementById("ВМС").value,
-                //     "Логистика": document.getElementById("Логистика").value,
-                //     "Курьерская служба": document.getElementById("Курьерская служба").value,
-                //     "Промо": document.getElementById("Промо").value
-                // };
                 let planOfAction = document.getElementById("planOfAction").value;
-
                 let data = {
                     eventType: eventType,
-                    problematic: problematic,
-                    influenceAndMass: influenceAndMass,
-                    currentStatus: currentStatus,
-                    startDate: startDate,
-                    endDate: endDate,
-                    restoration: restoration,
-                    source: source,
-                    impact: impact,
-                    planOfAction: planOfAction
+                    "Проблематика": problematic,
+                    "Оказанное влияние и массовость": influenceAndMass,
+                    "Текущий статус:": currentStatus,
+                    "Начало события": startDate,
+                    "Конец события": endDate,
+                    "Восстановление": restoration,
+                    "Источник": source,
+                    "Влияние": impact,
+                    "План действий": planOfAction
                 }
                 tg.sendData(JSON.stringify(data))
                 tg.close();
