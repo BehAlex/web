@@ -31,11 +31,11 @@
 <body>
     <form action="action">
         <!-- Тип события -->
-        <div class="field-label">
+        <div class="field-label" >
             <label for="eventType">Тип события</label>
             <select name="eventType" id="eventType">
-                <option value="Accident">#Авария</option>
-                <option value="Incident">#Инцидент</option>
+                <option value="#Авария">Авария</option>
+                <option value="#Инцидент">Инцидент</option>
             </select>
         </div>
         <!-- Проблематика -->
@@ -52,8 +52,8 @@
         <div class="field-label">
             <label for="currentStatus">Текущий статус</label>
             <select name="currentStatus" id="currentStatus">
-                <option value="InProgress">В работе</option>
-                <option value="Completed">Завершён</option>
+                <option value="В работе">В работе</option>
+                <option value="Завершён">Завершён</option>
             </select>
         </div>
         <!-- Начало события -->
@@ -75,15 +75,15 @@
         <div class="field-label">
             <label for="source">Источник</label>
             <select name="source" id="source">
-                <option value="Monitoring">Мониторинг</option>
-                <option value="UserRequest">Заявка от пользователя</option>
-                <option value="PartnerRequest">Заявка от партнера</option>
+                <option value="Мониторинг">Мониторинг</option>
+                <option value="Заявка от пользователя">Заявка от пользователя</option>
+                <option value="Заявка от партнера">Заявка от партнера</option>
             </select>
         </div>
         <!-- Влияние -->
         <div class="field-label">
             <label for="impact">Влияние</label>
-            <div class="dropdown-checkbox form-group">
+            <div class="dropdown-checkbox form-group" id="impact">
                 <input type="checkbox" name="place" value="Сайт" id="1"> Сайт
                 <input type="checkbox" name="place" value="МП" id="2"> МП
                 <input type="checkbox" name="place" value="Поиск" id="3"> Поиск
@@ -109,7 +109,7 @@
         tg.expand();
         send.addEventListener(
             "click", () => {
-                let eventType = document.getElementById("eventType").value;
+                let eventType = document.getElementById("eventType");
                 let problematic = document.getElementById("problematic").value;
                 let influenceAndMass = document.getElementById("influenceAndMass").value;
                 let currentStatus = document.getElementById("currentStatus").value;
@@ -117,7 +117,7 @@
                 let endDate = document.getElementById("endDate").value;
                 let restoration = document.getElementById("restoration").value;
                 let source = document.getElementById("source").value;
-                let impact = document.getElementById("impact").value;
+                let impact = document.getElementById("dropdown-checkbox form-group").value;
                 let planOfAction = document.getElementById("planOfAction").value;
 
                 let data = {
