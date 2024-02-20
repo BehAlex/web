@@ -84,15 +84,15 @@
         <div class="field-label">
             <label for="impact">Влияние</label>
             <div class="dropdown-checkbox form-group" id="impact">
-                <input type="checkbox" name="place" value="Сайт"> Сайт
-                <input type="checkbox" name="place" value="МП"> МП
-                <input type="checkbox" name="place" value="Поиск"> Поиск
-                <input type="checkbox" name="place" value="КЦ" > КЦ
-                <input type="checkbox" name="place" value="БО" > БО
-                <input type="checkbox" name="place" value="ВМС" > ВМС
-                <input type="checkbox" name="place" value="Логистика" > Логистика
-                <input type="checkbox" name="place" value="Курьерская служба" > Курьерская служба
-                <input type="checkbox" name="place" value="Промо" > Промо
+                <input type="checkbox" id="Сайт" name="place" value="Сайт"> Сайт
+                <input type="checkbox" id="МП" name="place" value="МП"> МП
+                <input type="checkbox" id="Поиск" name="place" value="Поиск"> Поиск
+                <input type="checkbox" id="КЦ" name="place" value="КЦ" > КЦ
+                <input type="checkbox" id="БО" name="place" value="БО" > БО
+                <input type="checkbox" id="ВМС" name="place" value="ВМС" > ВМС
+                <input type="checkbox" id="Логистика" name="place" value="Логистика" > Логистика
+                <input type="checkbox" id="Курьерская служба" name="place" value="Курьерская служба" > Курьерская служба
+                <input type="checkbox" id="Промо" name="place" value="Промо" > Промо
             </div>
         </div>
         <!-- План действий -->
@@ -119,7 +119,16 @@
                 let endDate = document.getElementById("endDate").value;
                 let restoration = document.getElementById("restoration").value;
                 let source = document.getElementById("source").value;
-                let impact = document.getElementById("impact").value;
+                let impact = {"Сайт": document.getElementById("Сайт").value,
+                    "МП": document.getElementById("МП").value,
+                    "Поиск": document.getElementById("Поиск").value,
+                    "КЦ": document.getElementById("КЦ").value,
+                    "БО": document.getElementById("БО").value,
+                    "ВМС": document.getElementById("ВМС").value,
+                    "Логистика": document.getElementById("Логистика").value,
+                    "Курьерская служба": document.getElementById("Курьерская служба").value,
+                    "Промо": document.getElementById("Промо").value,
+                };
                 let planOfAction = document.getElementById("planOfAction").value;
 
                 let data = {
