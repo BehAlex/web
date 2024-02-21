@@ -236,22 +236,22 @@
                 "click", () => {
                     document.getElementById("error").innerText = '';
                     let eventType = document.getElementById("eventType").value;
-                    if(typeof eventType !== "undefined" || eventType !== null) {
+                    if(eventType.length < 1) {
                         document.getElementById("eventType").innerText = 'eventType';
                         return;
                     }
                     let problematic = document.getElementById("problematic").value;
-                    if(typeof problematic !== "undefined" || problematic !== null) {
+                    if(problematic.length < 1) {
                         document.getElementById("problematic").innerText = 'problematic';
                         return;
                     }
                     let influenceAndMass = document.getElementById("influenceAndMass").value;
-                     if(typeof influenceAndMass !== "undefined" || influenceAndMass !== null) {
+                     if(influenceAndMass.length < 1) {
                         document.getElementById("influenceAndMass").innerText = 'influenceAndMass';
                         return;
                     }
                     let currentStatus = document.getElementById("currentStatus").value;
-                     if(typeof currentStatus !== "undefined" || currentStatus !== null) {
+                     if(currentStatus.length < 1) {
                         document.getElementById("currentStatus").innerText = 'currentStatus';
                         return;
                     }
@@ -259,7 +259,7 @@
                     let endDate = document.getElementById("endDate").value;
                     let restoration = document.getElementById("restoration").value;
                     let source = document.getElementById("source").value;
-                    if(typeof source !== "undefined" || source !== null) {
+                    if(source.length < 1) {
                         document.getElementById("source").innerText = 'source';
                         return;
                     }
