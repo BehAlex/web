@@ -29,6 +29,12 @@
       input[type="text"] {
             width: 200px;
       }
+
+      .button-wrapper{
+	        display: flex;
+	        justify-content: center;
+      }
+
       .button{
          background: var(--tg-theme-button-color);
          color: var(--tg-theme-button-text-color);
@@ -64,7 +70,7 @@
         <!-- Проблематика -->
         <div class="field-label">
             <label for="problematic">Проблематика</label>
-            <input type="text" name="problematic" placeholder="Проблематика" id="problematic">
+            <input type="text" name="problematic" placeholder="Проблематика" id="problematic" required minlength="4" maxlength="50" size="10">
         </div>
         <!-- Оказанное влияние и массовость -->
         <div class="field-label">
@@ -123,7 +129,7 @@
             <label for="planOfAction">План действий</label>
             <input type="text" id="planOfAction" name="planOfAction" placeholder="Подключение дежурных SRE, разработчика и владельца продукта.">
         </div>
-        <div>
+        <div class="button-wrapper">
         <button style="height:50px;width:100px" id ="send">Отправить</button>
         </div>
     </form>
