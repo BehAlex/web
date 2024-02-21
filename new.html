@@ -213,7 +213,7 @@
         <script>
             let tg = window.Telegram.WebApp;
             tg.expand();
-            let send = document.getElementById("send");
+            let send = document.getElementById("send").required = true;
             let checkList = document.getElementById('impact');
             checkList.getElementsByClassName('anchor')[0].onclick = function(evt) {
                 if (checkList.classList.contains('visible'))
