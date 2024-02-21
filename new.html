@@ -143,6 +143,7 @@
                     <option value="#Авария" id="acident">Авария</option>
                 </select></br>
             </div>
+            <div id="error"></div>
             <!-- Проблематика -->
             <div class="field-label">
                 <br><label for="problematic"><b>Проблематика:</b></label>
@@ -205,7 +206,6 @@
             <div class="field-label">
                 <br><label for="planOfAction"><b>План действий:</b></label>
                     <br><textarea name="planOfAction" id="planOfAction" rows="2" cols="30" placeholder="Подключение дежурных SRE, разработчика и владельца продукта."></textarea>
-            <div id="error"></div>
             </div>
                 <br><div class="button-wrapper">
                 <button style="height:30px;width:100px;background: brown;color: aliceblue" id ="send"><b>Отправить</b></button>
@@ -236,23 +236,23 @@
                 "click", () => {
                     document.getElementById("error").innerText = '';
                     let eventType = document.getElementById("eventType").value;
-                    // if(eventType.length < 1) {
-                    //     document.getElementById("eventType").innerText = 'eventType';
-                    //     return;
-                    // }
+                    if(eventType.length < 1) {
+                        document.getElementById("error").innerText = 'eventType';
+                        return;
+                    }
                     let problematic = document.getElementById("problematic").value;
                     if(problematic.length < 1) {
-                        document.getElementById("problematic").innerText = 'problematic';
+                        document.getElementById("error").innerText = 'problematic';
                         return;
                     }
                     let influenceAndMass = document.getElementById("influenceAndMass").value;
                      if(influenceAndMass.length < 1) {
-                        document.getElementById("influenceAndMass").innerText = 'influenceAndMass';
+                        document.getElementById("error").innerText = 'influenceAndMass';
                         return;
                     }
                     let currentStatus = document.getElementById("currentStatus").value;
                      if(currentStatus.length < 1) {
-                        document.getElementById("currentStatus").innerText = 'currentStatus';
+                        document.getElementById("error").innerText = 'currentStatus';
                         return;
                     }
                     let startDate = document.getElementById("startDate").value;
@@ -260,7 +260,7 @@
                     let restoration = document.getElementById("restoration").value;
                     let source = document.getElementById("source").value;
                     if(source.length < 1) {
-                        document.getElementById("source").innerText = 'source';
+                        document.getElementById("error").innerText = 'source';
                         return;
                     }
                     let checkboxes = document.querySelectorAll('input[type="checkbox"]:checked');
