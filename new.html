@@ -246,17 +246,17 @@
                     document.getElementById("errorSource").innerText = '';
                     document.getElementById("errorImpact").innerText = '';
                     let eventType = document.getElementById("eventType").value;
-                    if(eventType.length < 1) {
+                    if(eventType.length < 5) {
                         document.getElementById("errorEventType").innerText = 'Заполни!';
                         return;
                     }
                     let problematic = document.getElementById("problematic").value;
-                    if(problematic.length < 1) {
+                    if(problematic.length < 5) {
                         document.getElementById("errorProblematic").innerText = 'Заполни!';
                         return;
                     }
                     let influenceAndMass = document.getElementById("influenceAndMass").value;
-                     if(influenceAndMass.length < 1) {
+                     if(influenceAndMass.length < 5) {
                         document.getElementById("errorInfluenceAndMass").innerText = 'Заполни!';
                         return;
                     }
@@ -269,7 +269,7 @@
                     let endDate = document.getElementById("endDate").value;
                     let restoration = document.getElementById("restoration").value;
                     let source = document.getElementById("source").value;
-                    if(source.length < 1) {
+                    if(source.length < 5) {
                         document.getElementById("errorSource").innerText = 'Заполни!';
                         return;
                     }
@@ -279,10 +279,10 @@
                       impact.push(checkbox.value);
                     });
                     let planOfAction = document.getElementById("planOfAction").value;
-                    // if(impact.length < 1) {
-                    //     document.getElementById("errorImpact").innerText = 'Заполни!';
-                    //     return;
-                    // }
+                    if(impact.length === 0) {
+                        document.getElementById("errorImpact").innerText = 'Заполни!';
+                        return;
+                    }
                     let data = {
                         "Событие": eventType,
                         "Проблематика": problematic,
