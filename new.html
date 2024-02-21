@@ -122,10 +122,6 @@
       select:valid {
         border: 2px solid black;
       }
-      input:checked:invalid {
-        border: 2px dashed red;
-      }
-
       textarea:invalid {
           border: 2px dashed red;
       }
@@ -210,6 +206,11 @@
         </div>
     </form>
     <script>
+        let nameInput = document.querySelector('[id="eventType"]');
+
+        nameInput.addEventListener('invalid', () => {
+            nameInput.setCustomValidity('Please enter your name.');
+        });
         let tg = window.Telegram.WebApp;
         tg.expand();
         let send = document.getElementById("send");
