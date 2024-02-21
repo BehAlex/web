@@ -226,6 +226,18 @@
             send.setAttribute('required', '');
             send.addEventListener(
                 "click", () => {
+                    document.getElementById("eventType").required = true;
+                    document.getElementById("problematic").required = true;
+                    document.getElementById("influenceAndMass").required = true;
+                    document.getElementById("currentStatus").required = true;
+                    document.getElementById("startDate").required = true;
+                    document.getElementById("endDate").required = true;
+                    document.getElementById("restoration").required = true;
+                    document.getElementById("source").required = true;
+                    document.querySelectorAll('input[type="checkbox"]:checked').required = true;
+                    });
+            send.addEventListener(
+                "click", () => {
                     let eventType = document.getElementById("eventType").value;
                     let problematic = document.getElementById("problematic").value;
                     let influenceAndMass = document.getElementById("influenceAndMass").value;
