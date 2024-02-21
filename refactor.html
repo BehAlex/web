@@ -228,8 +228,10 @@
                   impact.push(checkbox.value);
                 });
                 let planOfAction = document.getElementById("planOfAction").value;
+                let idmess = document.getElementById("idmess").value;
                 let data = {
                     eventType: eventType,
+                    "idmess": idmess,
                     "Проблематика": problematic,
                     "Оказанное влияние и массовость": influenceAndMass,
                     "Текущий статус": currentStatus,
