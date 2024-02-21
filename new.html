@@ -206,11 +206,6 @@
         </div>
     </form>
     <script>
-        let nameInput = document.querySelector('[id="eventType"]');
-
-        nameInput.addEventListener('invalid', () => {
-            nameInput.setCustomValidity('Please enter your name.');
-        });
         let tg = window.Telegram.WebApp;
         tg.expand();
         let send = document.getElementById("send");
@@ -225,6 +220,9 @@
         send.addEventListener(
             "click", () => {
                 let eventType = document.getElementById("eventType").value;
+                eventType.addEventListener('invalid', () => {
+                    eventType.setCustomValidity('Заполни поле "Тип события"');
+                });
                 let problematic = document.getElementById("problematic").value;
                 let influenceAndMass = document.getElementById("influenceAndMass").value;
                 let currentStatus = document.getElementById("currentStatus").value;
