@@ -11,17 +11,17 @@
        }
        .dropdown-check-list {
           display: inline-block;
-        }
+       }
 
-        .dropdown-check-list .anchor {
+       .dropdown-check-list .anchor {
           position: relative;
           cursor: pointer;
           display: inline-block;
           padding: 5px 50px 5px 10px;
           border: 1px solid #ccc;
-        }
+       }
 
-        .dropdown-check-list .anchor:after {
+       .dropdown-check-list .anchor:after {
           position: absolute;
           content: "";
           border-left: 2px solid black;
@@ -34,32 +34,33 @@
           -o-transform: rotate(-135deg);
           -webkit-transform: rotate(-135deg);
           transform: rotate(-135deg);
-        }
+       }
 
-        .dropdown-check-list .anchor:active:after {
+       .dropdown-check-list .anchor:active:after {
           right: 8px;
           top: 21%;
-        }
+       }
 
-        .dropdown-check-list ul.items {
+       .dropdown-check-list ul.items {
           padding: 2px;
           display: none;
           margin: 0;
           border: 1px solid #ccc;
           border-top: none;
-        }
+       }
 
-        .dropdown-check-list ul.items li {
+       .dropdown-check-list ul.items li {
           list-style: none;
-        }
+       }
 
-        .dropdown-check-list.visible .anchor {
+       .dropdown-check-list.visible .anchor {
           color: #0094ff;
-        }
+       }
 
-        .dropdown-check-list.visible .items {
+       .dropdown-check-list.visible .items {
           display: block;
-        }
+       }
+
       body{
          color: var(--tg-theme-text-color);
          background: var(--tg-theme-bg-color);
@@ -94,18 +95,40 @@
       select {
         font-size: 20px;
       }
-       select option {
+      select option {
         font-size: 20px;
       }
 
-       input { font-size: 20px; }
-       .invalid-control {
-      border-color: red !important;
-        }
+      input { font-size: 20px; }
 
-    .form-control {
-      border: 1px solid;
-    }
+      .invalid-control {
+        border-color: red !important;
+      }
+
+      .form-control {
+        border: 1px solid;
+      }
+
+      input:invalid {
+        border: 2px dashed red;
+      }
+
+      input:valid {
+        border: 2px solid black;
+      }
+      select:invalid {
+        border: 2px dashed red;
+      }
+      select:valid {
+        border: 2px solid black;
+      }
+      input:checked:invalid {
+        border: 2px dashed red;
+      }
+
+      textarea:invalid {
+          border: 2px dashed red;
+      }
    </style>
 </head>
 <body>
@@ -113,7 +136,7 @@
         <!-- Тип события -->
         <div class="field-label">
             <label for="eventType"  ><b>Тип события:</b></label>
-            <br><select name="eventType" id="eventType" >
+            <br><select name="eventType" id="eventType" required="required">
                 <option></option>
                 <option value="#Инцидент" id="incident">Инцидент</option>
                 <option value="#Авария" id="acident">Авария</option>
@@ -166,15 +189,15 @@
         <div id="impact" class="dropdown-check-list" tabindex="100">
             <br><span class="anchor"><b>Влияние:</b></span>
             <ul class="items">
-              <li><input type="checkbox"  name="place" value="Сайт"> Сайт</li>
-              <li><input type="checkbox"  name="place" value="МП"> МП</li>
-              <li><input type="checkbox"  name="place" value="Поиск"> Поиск</li>
-              <li><input type="checkbox"  name="place" value="КЦ"> КЦ</li>
-              <li><input type="checkbox"  name="place" value="БО"> БО</li>
-              <li><input type="checkbox"  name="place" value="ВМС"> ВМС</li>
-              <li><input type="checkbox"  name="place" value="Логистика"> Логистика</li>
-              <li><input type="checkbox"  name="place" value="Курьерская служба"> Курьерская служба</li>
-              <li><input type="checkbox"  name="place" value="Промо"> Промо</li>
+              <li><input type="checkbox"  name="place" value="Сайт">-Сайт</li>
+              <li><input type="checkbox"  name="place" value="МП">-МП</li>
+              <li><input type="checkbox"  name="place" value="Поиск">-Поиск</li>
+              <li><input type="checkbox"  name="place" value="КЦ">-КЦ</li>
+              <li><input type="checkbox"  name="place" value="БО">-БО</li>
+              <li><input type="checkbox"  name="place" value="ВМС">-ВМС</li>
+              <li><input type="checkbox"  name="place" value="Логистика">-Логистика</li>
+              <li><input type="checkbox"  name="place" value="Курьерская служба">-Курьерская служба</li>
+              <li><input type="checkbox"  name="place" value="Промо">-Промо</li>
             </ul>
         </div>
         <!-- План действий -->
@@ -187,18 +210,17 @@
         </div>
     </form>
     <script>
-        const email = document.getElementById("eventType");
-
-        email.addEventListener("select", function (event) {
-          if (email.validity.typeMismatch) {
-            email.setCustomValidity("I am expecting an e-mail address!");
-          } else {
-            email.setCustomValidity("");
-          }
-        });
         let tg = window.Telegram.WebApp;
-        let send = document.getElementById("send");
         tg.expand();
+        let send = document.getElementById("send");
+        let checkList = document.getElementById('impact');
+          checkList.getElementsByClassName('anchor')[0].onclick = function(evt) {
+            if (checkList.classList.contains('visible'))
+              checkList.classList.remove('visible');
+            else
+              checkList.classList.add('visible');
+          }
+
         send.addEventListener(
             "click", () => {
                 let eventType = document.getElementById("eventType").value;
