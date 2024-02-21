@@ -279,10 +279,10 @@
                       impact.push(checkbox.value);
                     });
                     let planOfAction = document.getElementById("planOfAction").value;
-                    if(impact.length === 0) {
-                        document.getElementById("errorImpact").innerText = 'Заполни!';
-                        return;
-                    }
+                    // if(impact.length === 0) {
+                    //     document.getElementById("errorImpact").innerText = 'Заполни!';
+                    //     return;
+                    // }
                     let data = {
                         "Событие": eventType,
                         "Проблематика": problematic,
