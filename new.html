@@ -216,7 +216,9 @@
             else
               checkList.classList.add('visible');
           }
-
+        document.addEventListener('invalid', () => {
+            document.setCustomValidity('Заполни поле');
+        });
         send.addEventListener(
             "click", () => {
                 let eventType = document.getElementById("eventType").value;
