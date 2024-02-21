@@ -6,6 +6,57 @@
     <title>Event Type Form</title>
    <script src="https://telegram.org/js/telegram-web-app.js"></script> <!--Подключаем скрипт от телеграм-->
    <style>
+       .dropdown-check-list {
+          display: inline-block;
+        }
+
+        .dropdown-check-list .anchor {
+          position: relative;
+          cursor: pointer;
+          display: inline-block;
+          padding: 5px 50px 5px 10px;
+          border: 1px solid #ccc;
+        }
+
+        .dropdown-check-list .anchor:after {
+          position: absolute;
+          content: "";
+          border-left: 2px solid black;
+          border-top: 2px solid black;
+          padding: 5px;
+          right: 10px;
+          top: 20%;
+          -moz-transform: rotate(-135deg);
+          -ms-transform: rotate(-135deg);
+          -o-transform: rotate(-135deg);
+          -webkit-transform: rotate(-135deg);
+          transform: rotate(-135deg);
+        }
+
+        .dropdown-check-list .anchor:active:after {
+          right: 8px;
+          top: 21%;
+        }
+
+        .dropdown-check-list ul.items {
+          padding: 2px;
+          display: none;
+          margin: 0;
+          border: 1px solid #ccc;
+          border-top: none;
+        }
+
+        .dropdown-check-list ul.items li {
+          list-style: none;
+        }
+
+        .dropdown-check-list.visible .anchor {
+          color: #0094ff;
+        }
+
+        .dropdown-check-list.visible .items {
+          display: block;
+        }
       body{
          color: var(--tg-theme-text-color);
          background: var(--tg-theme-bg-color);
@@ -58,7 +109,7 @@
         </div>
         <!-- Проблематика -->
         <div class="field-label">
-            <label for="problematic"><b>Проблематика:</b></label>
+            <br><label for="problematic"><b>Проблематика:</b></label>
             <br><textarea id="problematic" name="problematic" rows="2" cols="30" placeholder="Проблематика"></textarea>
         </div>
         <!-- Оказанное влияние и массовость -->
@@ -77,22 +128,22 @@
         </div>
         <!-- Начало события -->
         <div class="field-label">
-            <label for="startDate"><b>Начало события:</b></label>
+            <br><label for="startDate"><b>Начало события:</b></label>
             <br><input type="datetime-local" name="startDate" id="startDate">
         </div>
         <!-- Конец события -->
         <div class="field-label">
-            <label for="endDate"><b>Конец события:</b></label>
+            <br><label for="endDate"><b>Конец события:</b></label>
             <br><input type="datetime-local" name="endDate" id="endDate">
         </div>
         <!-- Восстановление -->
         <div class="field-label">
-            <label for="restoration"><b>Восстановление:</b></label>
+            <br><label for="restoration"><b>Восстановление:</b></label>
             <br><input type="datetime-local" name="restoration" placeholder="Восстановление" id="restoration">
         </div>
         <!-- Источник -->
         <div class="field-label">
-            <label for="source"><b>Источник:</b></label>
+            <br><label for="source"><b>Источник:</b></label>
             <br><select name="source" id="source">
                 <option value="- Выберите значение -">- Выберите значение -</option>
                 <option value="Мониторинг">Мониторинг</option>
@@ -101,23 +152,37 @@
             </select>
         </div>
         <!-- Влияние -->
-        <div class="field-label">
-            <label for="impact"><b>Влияние:</b></label>
-            <div class="dropdown-checkbox form-group">
-                <input type="checkbox"  name="place" value="Сайт" id="1"> Сайт
-                <input type="checkbox"  name="place" value="МП" id="2"> МП
-                <input type="checkbox"  name="place" value="Поиск" id="3"> Поиск
-                <input type="checkbox"  name="place" value="КЦ" id="4"> КЦ
-                <br><input type="checkbox"  name="place" value="БО" id="5"> БО
-                <input type="checkbox"  name="place" value="ВМС" id="6"> ВМС
-                <input type="checkbox"  name="place" value="Логистика" id="7"> Логистика
-                <br><input type="checkbox"  name="place" value="Курьерская служба" id="8"> Курьерская служба
-                <input type="checkbox"  name="place" value="Промо" id="9"> Промо
-            </div>
+<!--        <div class="field-label">-->
+<!--            <label for="impact"><b>Влияние:</b></label>-->
+<!--            <div class="dropdown-checkbox form-group">-->
+<!--                <input type="checkbox"  name="place" value="Сайт" id="1"> Сайт-->
+<!--                <input type="checkbox"  name="place" value="МП" id="2"> МП-->
+<!--                <input type="checkbox"  name="place" value="Поиск" id="3"> Поиск-->
+<!--                <input type="checkbox"  name="place" value="КЦ" id="4"> КЦ-->
+<!--                <br><input type="checkbox"  name="place" value="БО" id="5"> БО-->
+<!--                <input type="checkbox"  name="place" value="ВМС" id="6"> ВМС-->
+<!--                <input type="checkbox"  name="place" value="Логистика" id="7"> Логистика-->
+<!--                <br><input type="checkbox"  name="place" value="Курьерская служба" id="8"> Курьерская служба-->
+<!--                <input type="checkbox"  name="place" value="Промо" id="9"> Промо-->
+<!--            </div>-->
+<!--        </div>-->
+        <div id="list1" class="dropdown-check-list" tabindex="100">
+            <br><span class="anchor"><b>Влияние</b></span>
+            <ul class="items">
+              <li><input type="checkbox"  name="place" value="Сайт" id="1"> Сайт
+              <input type="checkbox"  name="place" value="МП" id="2"> МП
+              <input type="checkbox"  name="place" value="Поиск" id="3"> Поиск
+              <input type="checkbox"  name="place" value="КЦ" id="4"> КЦ</li>
+              <li><input type="checkbox"  name="place" value="БО" id="5"> БО
+              <input type="checkbox"  name="place" value="ВМС" id="6"> ВМС
+              <input type="checkbox"  name="place" value="Логистика" id="7"> Логистика</li>
+              <li><input type="checkbox"  name="place" value="Курьерская служба" id="8"> Курьерская служба
+              <input type="checkbox"  name="place" value="Промо" id="9"> Промо</li>
+            </ul>
         </div>
         <!-- План действий -->
         <div class="field-label">
-            <label for="planOfAction"><b>План действий:</b></label>
+            <br><label for="planOfAction"><b>План действий:</b></label>
                 <br><textarea name="planOfAction" id="planOfAction" rows="2" cols="30" placeholder="Подключение дежурных SRE, разработчика и владельца продукта."></textarea>
 
         </div>
@@ -126,6 +191,13 @@
         </div>
     </form>
     <script>
+        var checkList = document.getElementById('list1');
+          checkList.getElementsByClassName('anchor')[0].onclick = function(evt) {
+            if (checkList.classList.contains('visible'))
+              checkList.classList.remove('visible');
+            else
+              checkList.classList.add('visible');
+          }
         let tg = window.Telegram.WebApp;
         let send = document.getElementById("send");
         tg.expand();
