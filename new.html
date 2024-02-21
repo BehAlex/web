@@ -221,6 +221,12 @@
                     "План действий": planOfAction
                 }
                 tg.sendData(JSON.stringify(data))
+                document.addEventListener('DOMContentLoaded', function () {
+
+               if (window.Telegram && window.Telegram.WebApp) {
+                   window.Telegram.WebApp.expand();
+               }
+                });
                 tg.close();
             }
         )
