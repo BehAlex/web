@@ -4,256 +4,272 @@
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>Event Type Form</title>
-   <script src="https://telegram.org/js/telegram-web-app.js"></script> <!--Подключаем скрипт от телеграм-->
-   <style>
-       textarea { font-size: 18px;
+    <script src="https://telegram.org/js/telegram-web-app.js"></script> <!--Подключаем скрипт от телеграм-->
+    <style>
+        textarea { font-size: 18px;
             resize:vertical;
+        }
+        .dropdown-check-list {
+            display: inline-block;
+        }
+
+        .dropdown-check-list .anchor {
+            position: relative;
+            cursor: pointer;
+            display: inline-block;
+            padding: 5px 50px 5px 10px;
+            border: 1px solid #ccc;
+        }
+
+        .dropdown-check-list .anchor:after {
+            position: absolute;
+            content: "";
+            border-left: 2px solid black;
+            border-top: 2px solid black;
+            padding: 5px;
+            right: 10px;
+            top: 20%;
+            -moz-transform: rotate(-135deg);
+            -ms-transform: rotate(-135deg);
+            -o-transform: rotate(-135deg);
+            -webkit-transform: rotate(-135deg);
+            transform: rotate(-135deg);
+        }
+
+        .dropdown-check-list .anchor:active:after {
+            right: 8px;
+            top: 21%;
+        }
+
+        .dropdown-check-list ul.items {
+            padding: 2px;
+            display: none;
+            margin: 0;
+            border: 1px solid #ccc;
+            border-top: none;
+        }
+
+        .dropdown-check-list ul.items li {
+            list-style: none;
+        }
+
+        .dropdown-check-list.visible .anchor {
+            color: #0094ff;
+        }
+
+        .dropdown-check-list.visible .items {
+            display: block;
        }
-       .dropdown-check-list {
-          display: inline-block;
-       }
 
-       .dropdown-check-list .anchor {
-          position: relative;
-          cursor: pointer;
-          display: inline-block;
-          padding: 5px 50px 5px 10px;
-          border: 1px solid #ccc;
-       }
+        body{
+            color: var(--tg-theme-text-color);
+            background: var(--tg-theme-bg-color);
+            display: flex;
+            flex-direction: column;
+            align-items: center;
+            font-size: 20px;
+        }
+        .hint{
+            color: var(--tg-theme-hint-color);
+        }
 
-       .dropdown-check-list .anchor:after {
-          position: absolute;
-          content: "";
-          border-left: 2px solid black;
-          border-top: 2px solid black;
-          padding: 5px;
-          right: 10px;
-          top: 20%;
-          -moz-transform: rotate(-135deg);
-          -ms-transform: rotate(-135deg);
-          -o-transform: rotate(-135deg);
-          -webkit-transform: rotate(-135deg);
-          transform: rotate(-135deg);
-       }
+        .link{
+            color: var(--tg-theme-link-color);
+        }
 
-       .dropdown-check-list .anchor:active:after {
-          right: 8px;
-          top: 21%;
-       }
+        .button-wrapper{
+            display: flex;
+            justify-content: left;
+        }
 
-       .dropdown-check-list ul.items {
-          padding: 2px;
-          display: none;
-          margin: 0;
-          border: 1px solid #ccc;
-          border-top: none;
-       }
+        .button{
+            background: var(--tg-theme-button-color);
+            color: var(--tg-theme-button-text-color);
+            border: none;
+            font-size: 20px;
+            margin-top: 1rem;
+        }
+        .validation-message {
+            display: block;
+            padding-top: 0.4em;
+            color: red;
+        }
 
-       .dropdown-check-list ul.items li {
-          list-style: none;
-       }
+        .button:not(:last-child){
+            margin-bottom: 20px;
+        }
+        select {
+            font-size: 20px;
+        }
+        select option {
+            font-size: 20px;
+        }
 
-       .dropdown-check-list.visible .anchor {
-          color: #0094ff;
-       }
+        input { font-size: 20px; }
 
-       .dropdown-check-list.visible .items {
-          display: block;
-       }
+        .invalid-control {
+            border-color: red !important;
+        }
 
-      body{
-         color: var(--tg-theme-text-color);
-         background: var(--tg-theme-bg-color);
-         display: flex;
-         flex-direction: column;
-         align-items: center;
-         font-size: 20px;
-      }
-      .hint{
-         color: var(--tg-theme-hint-color);
-      }
+        .form-control {
+            border: 1px solid;
+        }
 
-      .link{
-         color: var(--tg-theme-link-color);
-      }
+        input:invalid {
+            border: 2px dashed red;
+        }
 
-      .button-wrapper{
-	        display: flex;
-	        justify-content: left;
-      }
-
-      .button{
-         background: var(--tg-theme-button-color);
-         color: var(--tg-theme-button-text-color);
-         border: none;
-         font-size: 20px;
-      }
-
-      .button:not(:last-child){
-         margin-bottom: 20px;
-      }
-      select {
-        font-size: 20px;
-      }
-      select option {
-        font-size: 20px;
-      }
-
-      input { font-size: 20px; }
-
-      .invalid-control {
-        border-color: red !important;
-      }
-
-      .form-control {
-        border: 1px solid;
-      }
-
-      input:invalid {
-        border: 2px dashed red;
-      }
-
-      input:valid {
-        border: 2px solid black;
-      }
-      select:invalid {
-        border: 2px dashed red;
-      }
-      select:valid {
-        border: 2px solid black;
-      }
-      textarea:invalid {
-          border: 2px dashed red;
-      }
-   </style>
+        input:valid {
+            border: 2px solid black;
+        }
+        select:invalid {
+            border: 2px dashed red;
+        }
+        select:valid {
+            border: 2px solid black;
+        }
+        textarea:invalid {
+            border: 2px dashed red;
+        }
+    </style>
 </head>
-<body>
-    <form action="action">
-        <!-- Тип события -->
-        <div class="field-label">
-            <label for="eventType"  ><b>Тип события:</b></label>
-            <br><select name="eventType" id="eventType" required="required">
-                <option></option>
-                <option value="#Инцидент" id="incident">Инцидент</option>
-                <option value="#Авария" id="acident">Авария</option>
-            </select></br>
-        </div>
-        <!-- Проблематика -->
-        <div class="field-label">
-            <br><label for="problematic"><b>Проблематика:</b></label>
-            <br><textarea id="problematic" name="problematic" rows="2" cols="30" placeholder="Проблематика" required></textarea>
-        </div>
-        <!-- Оказанное влияние и массовость -->
-        <div class="field-label">
-            <br><label for="influenceAndMass"><b>Оказанное влияние и массовость:</b></label>
-            <br><textarea name="influenceAndMass" id="influenceAndMass" rows="2" cols="30" placeholder="Оказанное влияние и массовость" required></textarea>
-        </div>
-        <!-- Текущий статус -->
-        <div class="field-label">
-            <br><label for="currentStatus"><b>Текущий статус:</b></label>
-            <br><select name="currentStatus" id="currentStatus">
-                <option value="В работе">В работе</option>
-                <option value="Завершён">Завершён</option>
-            </select>
-        </div>
-        <!-- Начало события -->
-        <div class="field-label">
-            <br><label for="startDate"><b>Начало события:</b></label>
-            <br><input type="datetime-local" name="startDate" id="startDate" required>
-        </div>
-        <!-- Конец события -->
-        <div class="field-label">
-            <br><label for="endDate"><b>Конец события:</b></label>
-            <br><input type="datetime-local" name="endDate" id="endDate">
-        </div>
-        <!-- Восстановление -->
-        <div class="field-label">
-            <br><label for="restoration"><b>Восстановление:</b></label>
-            <br><input type="datetime-local" name="restoration" placeholder="Восстановление" id="restoration">
-        </div>
-        <!-- Источник -->
-        <div class="field-label">
-            <br><label for="source"><b>Источник:</b></label>
-            <br><select name="source" id="source" required>
-                <option></option>
-                <option value="Мониторинг">Мониторинг</option>
-                <option value="Заявка от пользователя">Заявка от пользователя</option>
-                <option value="Заявка от партнера">Заявка от партнера</option>
-            </select>
-        </div>
-        <!-- Влияние -->
-        <div id="impact" class="dropdown-check-list" tabindex="100">
-            <br><span class="anchor"><b>Влияние:</b></span>
-            <ul class="items">
-              <li><input type="checkbox"  name="place" value="Сайт">-Сайт</li>
-              <li><input type="checkbox"  name="place" value="МП">-МП</li>
-              <li><input type="checkbox"  name="place" value="Поиск">-Поиск</li>
-              <li><input type="checkbox"  name="place" value="КЦ">-КЦ</li>
-              <li><input type="checkbox"  name="place" value="БО">-БО</li>
-              <li><input type="checkbox"  name="place" value="ВМС">-ВМС</li>
-              <li><input type="checkbox"  name="place" value="Логистика">-Логистика</li>
-              <li><input type="checkbox"  name="place" value="Курьерская служба">-Курьерская служба</li>
-              <li><input type="checkbox"  name="place" value="Промо">-Промо</li>
-            </ul>
-        </div>
-        <!-- План действий -->
-        <div class="field-label">
-            <br><label for="planOfAction"><b>План действий:</b></label>
-                <br><textarea name="planOfAction" id="planOfAction" rows="2" cols="30" placeholder="Подключение дежурных SRE, разработчика и владельца продукта."></textarea>
-        </div>
-        <br><div class="button-wrapper">
-        <button style="height:30px;width:100px;background: brown;color: aliceblue" id ="send"><b>Отправить</b></button>
-        </div>
-    </form>
-    <script>
-        let tg = window.Telegram.WebApp;
-        tg.expand();
-        let send = document.getElementById("send");
-        let checkList = document.getElementById('impact');
-          checkList.getElementsByClassName('anchor')[0].onclick = function(evt) {
-            if (checkList.classList.contains('visible'))
-              checkList.classList.remove('visible');
-            else
-              checkList.classList.add('visible');
-          }
-        document.addEventListener('invalid', () => {
-            document.setCustomValidity('Заполни поле');
-        });
-        send.addEventListener(
-            "click", () => {
-                let eventType = document.getElementById("eventType").value;
-                // eventType.addEventListener('invalid', () => {
-                //     eventType.setCustomValidity('Заполни поле "Тип события"');
-                // });
-                let problematic = document.getElementById("problematic").value;
-                let influenceAndMass = document.getElementById("influenceAndMass").value;
-                let currentStatus = document.getElementById("currentStatus").value;
-                let startDate = document.getElementById("startDate").value;
-                let endDate = document.getElementById("endDate").value;
-                let restoration = document.getElementById("restoration").value;
-                let source = document.getElementById("source").value;
-                let checkboxes = document.querySelectorAll('input[type="checkbox"]:checked');
-                let impact = [];
-                checkboxes.forEach(checkbox => {
-                  impact.push(checkbox.value);
-                });
-                let planOfAction = document.getElementById("planOfAction").value;
-                let data = {
-                    eventType: eventType,
-                    "Проблематика": problematic,
-                    "Оказанное влияние и массовость": influenceAndMass,
-                    "Текущий статус": currentStatus,
-                    "Начало события": startDate,
-                    "Конец события": endDate,
-                    "Восстановление": restoration,
-                    "Источник": source,
-                    "Влияние": impact,
-                    "План действий": planOfAction
+    <body>
+        <form action="action">
+            <!-- Тип события -->
+            <div class="field-label">
+                <label for="eventType"  ><b>Тип события:</b></label>
+                <br><select name="eventType" id="eventType" required="required">
+                    <option></option>
+                    <option value="#Инцидент" id="incident">Инцидент</option>
+                    <option value="#Авария" id="acident">Авария</option>
+                </select></br>
+            </div>
+            <!-- Проблематика -->
+            <div class="field-label">
+                <br><label for="problematic"><b>Проблематика:</b></label>
+                <br><textarea id="problematic" name="problematic" rows="2" cols="30" placeholder="Проблематика" required></textarea>
+            </div>
+            <!-- Оказанное влияние и массовость -->
+            <div class="field-label">
+                <br><label for="influenceAndMass"><b>Оказанное влияние и массовость:</b></label>
+                <br><textarea name="influenceAndMass" id="influenceAndMass" rows="2" cols="30" placeholder="Оказанное влияние и массовость" required></textarea>
+            </div>
+            <!-- Текущий статус -->
+            <div class="field-label">
+                <br><label for="currentStatus"><b>Текущий статус:</b></label>
+                <br><select name="currentStatus" id="currentStatus">
+                    <option value="В работе">В работе</option>
+                    <option value="Завершён">Завершён</option>
+                </select>
+            </div>
+            <!-- Начало события -->
+            <div class="field-label">
+                <br><label for="startDate"><b>Начало события:</b></label>
+                <br><input type="datetime-local" name="startDate" id="startDate" required>
+            </div>
+            <!-- Конец события -->
+            <div class="field-label">
+                <br><label for="endDate"><b>Конец события:</b></label>
+                <br><input type="datetime-local" name="endDate" id="endDate">
+            </div>
+            <!-- Восстановление -->
+            <div class="field-label">
+                <br><label for="restoration"><b>Восстановление:</b></label>
+                <br><input type="datetime-local" name="restoration" placeholder="Восстановление" id="restoration">
+            </div>
+            <!-- Источник -->
+            <div class="field-label">
+                <br><label for="source"><b>Источник:</b></label>
+                <br><select name="source" id="source" required>
+                    <option></option>
+                    <option value="Мониторинг">Мониторинг</option>
+                    <option value="Заявка от пользователя">Заявка от пользователя</option>
+                    <option value="Заявка от партнера">Заявка от партнера</option>
+                </select>
+            </div>
+            <!-- Влияние -->
+            <div id="impact" class="dropdown-check-list" tabindex="100">
+                <br><span class="anchor"><b>Влияние:</b></span>
+                <ul class="items">
+                  <li><input type="checkbox"  name="place" value="Сайт">-Сайт</li>
+                  <li><input type="checkbox"  name="place" value="МП">-МП</li>
+                  <li><input type="checkbox"  name="place" value="Поиск">-Поиск</li>
+                  <li><input type="checkbox"  name="place" value="КЦ">-КЦ</li>
+                  <li><input type="checkbox"  name="place" value="БО">-БО</li>
+                  <li><input type="checkbox"  name="place" value="ВМС">-ВМС</li>
+                  <li><input type="checkbox"  name="place" value="Логистика">-Логистика</li>
+                  <li><input type="checkbox"  name="place" value="Курьерская служба">-Курьерская служба</li>
+                  <li><input type="checkbox"  name="place" value="Промо">-Промо</li>
+                </ul>
+            </div>
+            <!-- План действий -->
+            <div class="field-label">
+                <br><label for="planOfAction"><b>План действий:</b></label>
+                    <br><textarea name="planOfAction" id="planOfAction" rows="2" cols="30" placeholder="Подключение дежурных SRE, разработчика и владельца продукта."></textarea>
+            </div>
+                <br><div class="button-wrapper">
+                <button style="height:30px;width:100px;background: brown;color: aliceblue" id ="send"><b>Отправить</b></button>
+            </div>
+        </form>
+        <script>
+            let tg = window.Telegram.WebApp;
+            tg.expand();
+            let send = document.getElementById("send");
+            let checkList = document.getElementById('impact');
+            checkList.getElementsByClassName('anchor')[0].onclick = function(evt) {
+                if (checkList.classList.contains('visible'))
+                    checkList.classList.remove('visible');
+                else
+                    checkList.classList.add('visible');
+              }
+            document.addEventListener('blur', function (event) {
+                // Validate the field
+                const isValid = event.target.validity.valid;
+                const message = event.target.validationMessage;
+                const connectedValidationId = event.target.getAttribute('aria-describedby');
+                const connectedValidation = connectedValidationId ? document.getElementById(connectedValidationId) : false;
+
+                if (connectedValidation && message && !isValid) {
+                    connectedValidation.innerText = message;
+                } else {
+                    connectedValidation.innerText = '';
                 }
-                tg.sendData(JSON.stringify(data))
-                tg.close();
-            }
-        )
-    </script>
-</body>
+            }, true);
+            send.addEventListener(
+                "click", () => {
+                    let eventType = document.getElementById("eventType").value;
+                    // eventType.addEventListener('invalid', () => {
+                    //     eventType.setCustomValidity('Заполни поле "Тип события"');
+                    // });
+                    let problematic = document.getElementById("problematic").value;
+                    let influenceAndMass = document.getElementById("influenceAndMass").value;
+                    let currentStatus = document.getElementById("currentStatus").value;
+                    let startDate = document.getElementById("startDate").value;
+                    let endDate = document.getElementById("endDate").value;
+                    let restoration = document.getElementById("restoration").value;
+                    let source = document.getElementById("source").value;
+                    let checkboxes = document.querySelectorAll('input[type="checkbox"]:checked');
+                    let impact = [];
+                    checkboxes.forEach(checkbox => {
+                      impact.push(checkbox.value);
+                    });
+                    let planOfAction = document.getElementById("planOfAction").value;
+                    let data = {
+                        eventType: eventType,
+                        "Проблематика": problematic,
+                        "Оказанное влияние и массовость": influenceAndMass,
+                        "Текущий статус": currentStatus,
+                        "Начало события": startDate,
+                        "Конец события": endDate,
+                        "Восстановление": restoration,
+                        "Источник": source,
+                        "Влияние": impact,
+                        "План действий": planOfAction
+                    }
+                    tg.sendData(JSON.stringify(data))
+                    tg.close();
+                }
+            )
+        </script>
+    </body>
 </html>
