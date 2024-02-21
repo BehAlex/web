@@ -227,12 +227,12 @@
             // for (const input of inputs) {
             //   input.setAttribute('required', '');
             // }
-            document.querySelector('input[type="text"]').required = true;
-            document.querySelector('select[type="text"]').required = true;
-            document.querySelector('textarea[type="text"]').required = true;
+            // document.querySelector('input[type="text"]').required = true;
+            // document.querySelector('select[type="text"]').required = true;
+            // document.querySelector('textarea[type="text"]').required = true;
             send.addEventListener(
                 "click", () => {
-                    let eventType = document.getElementById("eventType").value;
+                    let eventType = document.getElementById("eventType").value.required;
                     let problematic = document.getElementById("problematic").value;
                     let influenceAndMass = document.getElementById("influenceAndMass").value;
                     let currentStatus = document.getElementById("currentStatus").value;
