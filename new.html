@@ -128,7 +128,7 @@
    </style>
 </head>
 <body>
-    <form action="action" method="post">
+    <form action="action">
         <!-- Тип события -->
         <div class="field-label">
             <label for="eventType"  ><b>Тип события:</b></label>
@@ -220,9 +220,9 @@
         send.addEventListener(
             "click", () => {
                 let eventType = document.getElementById("eventType").value;
-                eventType.addEventListener('invalid', () => {
-                    eventType.setCustomValidity('Заполни поле "Тип события"');
-                });
+                // eventType.addEventListener('invalid', () => {
+                //     eventType.setCustomValidity('Заполни поле "Тип события"');
+                // });
                 let problematic = document.getElementById("problematic").value;
                 let influenceAndMass = document.getElementById("influenceAndMass").value;
                 let currentStatus = document.getElementById("currentStatus").value;
