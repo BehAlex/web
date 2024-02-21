@@ -232,7 +232,7 @@
             // document.querySelector('textarea[type="text"]').required = true;
             send.addEventListener(
                 "click", () => {
-                    let eventType = document.getElementById("eventType").value.required;
+                    let eventType = document.getElementById("eventType").required.value;
                     let problematic = document.getElementById("problematic").value;
                     let influenceAndMass = document.getElementById("influenceAndMass").value;
                     let currentStatus = document.getElementById("currentStatus").value;
