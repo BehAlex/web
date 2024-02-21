@@ -137,7 +137,7 @@
             <!-- Тип события -->
             <div class="field-label">
                 <label for="eventType"  ><b>Тип события:</b></label>
-                <br><select name="eventType" id="eventType" required="required">
+                <br><select name="eventType" id="eventType" required>
                     <option></option>
                     <option value="#Инцидент"  id="incident">Инцидент</option>
                     <option value="#Авария" id="acident">Авария</option>
@@ -205,6 +205,7 @@
             <div class="field-label">
                 <br><label for="planOfAction"><b>План действий:</b></label>
                     <br><textarea name="planOfAction" id="planOfAction" rows="2" cols="30" placeholder="Подключение дежурных SRE, разработчика и владельца продукта."></textarea>
+            <div id="error"></div>
             </div>
                 <br><div class="button-wrapper">
                 <button style="height:30px;width:100px;background: brown;color: aliceblue" id ="send"><b>Отправить</b></button>
@@ -227,20 +228,41 @@
             // for (const input of inputs) {
             //   input.setAttribute('required', '');
             // }
-            document.querySelector('input[type="text"]').required = true;
+            // document.querySelector('input[type="text"]').required = true;
             // document.querySelector('select[type="text"]').required = true;
             // document.querySelector('textarea[type="text"]').required = true;
             // document.getElementById('eventType').setAttribute('required', '');
             send.addEventListener(
                 "click", () => {
+                    document.getElementById("error").innerText = '';
                     let eventType = document.getElementById("eventType").value;
+                    if(typeof eventType !== "undefined" || eventType !== null) {
+                        document.getElementById("eventType").innerText = 'eventType';
+                        return;
+                    }
                     let problematic = document.getElementById("problematic").value;
+                    if(typeof problematic !== "undefined" || problematic !== null) {
+                        document.getElementById("problematic").innerText = 'problematic';
+                        return;
+                    }
                     let influenceAndMass = document.getElementById("influenceAndMass").value;
+                     if(typeof influenceAndMass !== "undefined" || influenceAndMass !== null) {
+                        document.getElementById("influenceAndMass").innerText = 'influenceAndMass';
+                        return;
+                    }
                     let currentStatus = document.getElementById("currentStatus").value;
+                     if(typeof currentStatus !== "undefined" || currentStatus !== null) {
+                        document.getElementById("currentStatus").innerText = 'currentStatus';
+                        return;
+                    }
                     let startDate = document.getElementById("startDate").value;
                     let endDate = document.getElementById("endDate").value;
                     let restoration = document.getElementById("restoration").value;
                     let source = document.getElementById("source").value;
+                    if(typeof source !== "undefined" || source !== null) {
+                        document.getElementById("source").innerText = 'source';
+                        return;
+                    }
                     let checkboxes = document.querySelectorAll('input[type="checkbox"]:checked');
                     let impact = [];
                     checkboxes.forEach(checkbox => {
