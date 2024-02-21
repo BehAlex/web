@@ -1,85 +1,105 @@
 <!DOCTYPE html>
-<html lang="en">
+<html lang="en" xmlns="http://www.w3.org/1999/html" xmlns="http://www.w3.org/1999/html">
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>Event Type Form</title>
-    <style>
-        body {
-            text-align: center;
-            margin: 0;
+   <script src="https://telegram.org/js/telegram-web-app.js"></script> <!--Подключаем скрипт от телеграм-->
+   <style>
+      body{
+         color: var(--tg-theme-text-color);
+         background: var(--tg-theme-bg-color);
+         display: flex;
+         flex-direction: column;
+         align-items: center;
+         font-size: 18px;
+      }
+
+      input[type="text"] {
+        width: 200px;
         }
 
-        form {
-            display: block;
-            margin: auto;
-            width: 50%;
-        }
+      .hint{
+         color: var(--tg-theme-hint-color);
+      }
 
-        .field-label {
-            display: flex;
-            flex-direction: column;
-            margin-bottom: 10px;
-        }
+      .link{
+         color: var(--tg-theme-link-color);
+      }
 
-        .field-label label {
-            font-weight: bold;
-            margin-bottom: 5px;
-        }
-    </style>
+      .button-wrapper{
+	        display: flex;
+	        justify-content: center;
+      }
+
+      .button{
+         background: var(--tg-theme-button-color);
+         color: var(--tg-theme-button-text-color);
+         border: none;
+         font-size: 18px;
+      }
+
+      .button:not(:last-child){
+         margin-bottom: 20px;
+      }
+
+   </style>
 </head>
 <body>
     <form action="action">
         <!-- ИД сообщения -->
         <div class="field-label">
             <label for="idmess">Ид сообщения для корректировки</label>
-            <input type="text" name="idmess" placeholder="Ид сообщения" id="idmess">
+            <br><input type="text" name="idmess" placeholder="Ид сообщения" id="idmess">
         </div>
         <!-- Тип события -->
         <div class="field-label">
-            <label for="eventType" >Тип события</label>
-            <select name="eventType" id="eventType">
+            <label for="eventType" ><b>Тип события:</b></label>
+            <br><select name="eventType" id="eventType">
+                <option value="- Выберите значение -">- Выберите значение -</option>
                 <option value="#Авария" id="acident">Авария</option>
                 <option value="#Инцидент" id="incident">Инцидент</option>
-            </select>
+            </select></br>
         </div>
         <!-- Проблематика -->
         <div class="field-label">
-            <label for="problematic">Проблематика</label>
-            <input type="text" name="problematic" placeholder="Проблематика" id="problematic">
+            <label for="problematic"><b>Проблематика:</b></label>
+            <br><textarea id="problematic" name="problematic" rows="2" cols="30" placeholder="Проблематика"></textarea>
         </div>
         <!-- Оказанное влияние и массовость -->
         <div class="field-label">
-            <label for="influenceAndMass">Оказанное влияние и массовость</label>
-            <input type="text" name="influenceAndMass" placeholder="Оказанное влияние и массовость" id="influenceAndMass">
+            <label for="influenceAndMass"><b>Оказанное влияние и массовость:</b></label>
+            <br><textarea name="influenceAndMass" id="influenceAndMass" rows="2" cols="30" placeholder="Оказанное влияние и массовость"></textarea>
         </div>
         <!-- Текущий статус -->
         <div class="field-label">
-            <label for="currentStatus">Текущий статус</label>
-            <select name="currentStatus" id="currentStatus">
+            <label for="currentStatus"><b>Текущий статус:</b></label>
+            <br><select name="currentStatus" id="currentStatus">
+                <option value="- Выберите значение -">- Выберите значение -</option>
                 <option value="В работе">В работе</option>
                 <option value="Завершён">Завершён</option>
             </select>
         </div>
         <!-- Начало события -->
         <div class="field-label">
-            <label for="startDate">Начало события</label>
-            <input type="datetime-local" name="startDate" id="startDate">
+            <label for="startDate"><b>Начало события:</b></label>
+            <br><input type="datetime-local" name="startDate" id="startDate">
         </div>
         <!-- Конец события -->
         <div class="field-label">
-            <label for="endDate">Конец события</label>
-            <input type="datetime-local" name="endDate" id="endDate">
+            <label for="endDate"><b>Конец события:</b></label>
+            <br><input type="datetime-local" name="endDate" id="endDate">
         </div>
         <!-- Восстановление -->
         <div class="field-label">
-            <label for="restoration">Восстановление</label>
-            <input type="datetime-local" name="restoration" placeholder="Восстановление" id="restoration">
+            <label for="restoration"><b>Восстановление:</b></label>
+            <br><input type="datetime-local" name="restoration" placeholder="Восстановление" id="restoration">
         </div>
         <!-- Источник -->
         <div class="field-label">
-            <label for="source">Источник</label>
-            <select name="source" id="source">
+            <label for="source"><b>Источник:</b></label>
+            <br><select name="source" id="source">
+                <option value="- Выберите значение -">- Выберите значение -</option>
                 <option value="Мониторинг">Мониторинг</option>
                 <option value="Заявка от пользователя">Заявка от пользователя</option>
                 <option value="Заявка от партнера">Заявка от партнера</option>
@@ -87,7 +107,7 @@
         </div>
         <!-- Влияние -->
         <div class="field-label">
-            <label for="impact">Влияние</label>
+            <label for="impact"><b>Влияние:</b></label>
             <div class="dropdown-checkbox form-group">
                 <input type="checkbox"  name="place" value="Сайт" id="1"> Сайт
                 <input type="checkbox"  name="place" value="МП" id="2"> МП
@@ -95,19 +115,21 @@
                 <input type="checkbox"  name="place" value="КЦ" id="4"> КЦ
                 <input type="checkbox"  name="place" value="БО" id="5"> БО
                 <input type="checkbox"  name="place" value="ВМС" id="6"> ВМС
-                <input type="checkbox"  name="place" value="Логистика" id="7"> Логистика
+                <br><input type="checkbox"  name="place" value="Логистика" id="7"> Логистика
                 <input type="checkbox"  name="place" value="Курьерская служба" id="8"> Курьерская служба
                 <input type="checkbox"  name="place" value="Промо" id="9"> Промо
             </div>
         </div>
         <!-- План действий -->
         <div class="field-label">
-            <label for="planOfAction">План действий</label>
-            <input type="text" id="planOfAction" name="planOfAction" placeholder="Подключение дежурных SRE, разработчика и владельца продукта.">
+            <label for="planOfAction"><b>План действий:</b></label>
+                <br><textarea name="planOfAction" id="planOfAction" rows="2" cols="30" placeholder="Подключение дежурных SRE, разработчика и владельца продукта."></textarea>
+
         </div>
-        <button id ="send">Отправить</button>
+        <br><br><div class="button-wrapper">
+        <button style="height:30px;width:100px;background: brown;color: aliceblue" id ="send"><b>Отправить</b></button>
+        </div>
     </form>
-    <script src="https://telegram.org/js/telegram-web-app.js"></script>
     <script>
         let tg = window.Telegram.WebApp;
         let send = document.getElementById("send");
@@ -128,9 +150,7 @@
                   impact.push(checkbox.value);
                 });
                 let planOfAction = document.getElementById("planOfAction").value;
-                let idmess = document.getElementById("idmess").value;
                 let data = {
-                    idmess: idmess,
                     eventType: eventType,
                     "Проблематика": problematic,
                     "Оказанное влияние и массовость": influenceAndMass,
