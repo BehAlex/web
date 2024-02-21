@@ -223,10 +223,10 @@
                     checkList.classList.add('visible');
               }
             // document.getElementById("eventType").required = true;
+            send.setAttribute('required', '');
             send.addEventListener(
                 "click", () => {
                     let eventType = document.getElementById("eventType").value;
-                    eventType.setAttribute('required', '');
                     let problematic = document.getElementById("problematic").value;
                     let influenceAndMass = document.getElementById("influenceAndMass").value;
                     let currentStatus = document.getElementById("currentStatus").value;
