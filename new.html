@@ -87,7 +87,6 @@
             color: var(--tg-theme-button-text-color);
             border: none;
             font-size: 20px;
-            margin-top: 1rem;
         }
         .validation-message {
             display: block;
@@ -223,11 +222,11 @@
                     checkList.classList.add('visible');
               }
             // document.getElementById("eventType").required = true;
-            let eventType = document.getElementById("eventType").value;
-            eventType.setAttribute('required', '');
+
+            document.getElementById("eventType").value.setAttribute('required', '');
             send.addEventListener(
                 "click", () => {
-                    // let eventType = document.getElementById("eventType").value;
+                    let eventType = document.getElementById("eventType").value;
                     // eventType.setAttribute('required', '');
                     let problematic = document.getElementById("problematic").value;
                     let influenceAndMass = document.getElementById("influenceAndMass").value;
