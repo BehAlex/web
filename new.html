@@ -222,13 +222,13 @@
                 else
                     checkList.classList.add('visible');
               }
-            document.getElementById("eventType").required = true;
+            // document.getElementById("eventType").required = true;
             send.addEventListener(
                 "click", () => {
-                    let eventType = document.getElementById("eventType").value;
-                    // eventType.addEventListener('invalid', () => {
-                    //     eventType.setCustomValidity('Заполни поле "Тип события"');
-                    // });
+                    let eventType = document.getElementById("eventType").value.required = true;
+                    eventType.addEventListener('invalid', () => {
+                        eventType.setCustomValidity('Заполни поле "Тип события"');
+                    });
                     let problematic = document.getElementById("problematic").value;
                     let influenceAndMass = document.getElementById("influenceAndMass").value;
                     let currentStatus = document.getElementById("currentStatus").value;
