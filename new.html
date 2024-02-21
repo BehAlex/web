@@ -137,7 +137,7 @@
             <!-- Тип события -->
             <div class="field-label">
                 <label for="eventType"  ><b>Тип события:</b></label>
-                <br><select name="eventType" id="eventType" required="required">
+                <br><select name="eventType" id="eventType" required="required" class="field">
                     <option></option>
                     <option value="#Инцидент" id="incident">Инцидент</option>
                     <option value="#Авария" id="acident">Авария</option>
@@ -146,12 +146,12 @@
             <!-- Проблематика -->
             <div class="field-label">
                 <br><label for="problematic"><b>Проблематика:</b></label>
-                <br><textarea id="problematic" name="problematic" rows="2" cols="30" placeholder="Проблематика" required></textarea>
+                <br><textarea id="problematic" class="field" name="problematic" rows="2" cols="30" placeholder="Проблематика" required></textarea>
             </div>
             <!-- Оказанное влияние и массовость -->
             <div class="field-label">
                 <br><label for="influenceAndMass"><b>Оказанное влияние и массовость:</b></label>
-                <br><textarea name="influenceAndMass" id="influenceAndMass" rows="2" cols="30" placeholder="Оказанное влияние и массовость" required></textarea>
+                <br><textarea name="influenceAndMass" class="field" id="influenceAndMass" rows="2" cols="30" placeholder="Оказанное влияние и массовость" required></textarea>
             </div>
             <!-- Текущий статус -->
             <div class="field-label">
@@ -164,7 +164,7 @@
             <!-- Начало события -->
             <div class="field-label">
                 <br><label for="startDate"><b>Начало события:</b></label>
-                <br><input type="datetime-local" name="startDate" id="startDate" required>
+                <br><input type="datetime-local" name="startDate" id="startDate" class="field" required>
             </div>
             <!-- Конец события -->
             <div class="field-label">
@@ -179,7 +179,7 @@
             <!-- Источник -->
             <div class="field-label">
                 <br><label for="source"><b>Источник:</b></label>
-                <br><select name="source" id="source" required>
+                <br><select name="source" id="source" class="field" required>
                     <option></option>
                     <option value="Мониторинг">Мониторинг</option>
                     <option value="Заявка от пользователя">Заявка от пользователя</option>
@@ -222,12 +222,14 @@
                     checkList.classList.add('visible');
               }
             // document.getElementById("eventType").required = true;
+            const inputs = document.querySelectorAll('.field');
 
-            document.getElementById("eventType").value.setAttribute('required', '');
+            for (const input of inputs) {
+              input.setAttribute('required', '');
+            }
             send.addEventListener(
                 "click", () => {
                     let eventType = document.getElementById("eventType").value;
-                    // eventType.setAttribute('required', '');
                     let problematic = document.getElementById("problematic").value;
                     let influenceAndMass = document.getElementById("influenceAndMass").value;
                     let currentStatus = document.getElementById("currentStatus").value;
