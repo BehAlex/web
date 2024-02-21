@@ -110,7 +110,14 @@
 
     .form-control {
       border: 1px solid;
-        }
+    }
+
+    select:invalid {
+        border: 2px dashed red;
+    }
+    select:valid {
+        border: 2px solid black;
+    }
    </style>
 </head>
 <body>
@@ -192,31 +199,6 @@
         </div>
     </form>
     <script>
-        window.onload = function() {
-              let form = document.querySelector('.form');
-              form.addEventListener('submit', function(event) {
-                let controls = this.querySelectorAll('.form-control');
-                let isValid = true;
-                controls.forEach(control => {
-                  control.classList.remove('invalid-control');
-                  if (control.classList.contains('required') && !control.value) {
-                    control.classList.add('invalid-control');
-                    isValid = false;
-                  }
-                });
-
-                if (!isValid) {
-                  event.preventDefault();
-                }
-              });
-        }
-        var checkList = document.getElementById('impact');
-          checkList.getElementsByClassName('anchor')[0].onclick = function(evt) {
-            if (checkList.classList.contains('visible'))
-              checkList.classList.remove('visible');
-            else
-              checkList.classList.add('visible');
-          }
         let tg = window.Telegram.WebApp;
         let send = document.getElementById("send");
         tg.expand();

@@ -191,13 +191,6 @@
         </div>
     </form>
     <script>
-        var checkList = document.getElementById('impact');
-          checkList.getElementsByClassName('anchor')[0].onclick = function(evt) {
-            if (checkList.classList.contains('visible'))
-              checkList.classList.remove('visible');
-            else
-              checkList.classList.add('visible');
-          }
         let tg = window.Telegram.WebApp;
         let send = document.getElementById("send");
         tg.expand();
