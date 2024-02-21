@@ -15,6 +15,10 @@
          font-size: 18px;
       }
 
+      input[type="text"] {
+        width: 200px;
+        }
+
       .hint{
          color: var(--tg-theme-hint-color);
       }
@@ -28,10 +32,16 @@
          color: var(--tg-theme-button-text-color);
          border: none;
          font-size: 18px;
+          margin:0 auto;
+          height: 50px;
+        display:block;
+        position: relative;
+        border: 1px solid white;
       }
 
       .button:not(:last-child){
-         margin-bottom: 20px
+         margin-bottom: 20px;
+
       }
 
       #usercard{
@@ -112,7 +122,7 @@
             <input type="text" id="planOfAction" name="planOfAction" placeholder="Подключение дежурных SRE, разработчика и владельца продукта.">
         </div>
         <div>
-        <button style="height:100px;width:200px" id ="send">Отправить</button>
+        <button style="height:50px;width:100px" id ="send">Отправить</button>
         </div>
     </form>
 <!--    <script src="https://telegram.org/js/telegram-web-app.js"></script>-->
