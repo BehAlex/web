@@ -143,17 +143,19 @@
                     <option value="#Авария" id="acident">Авария</option>
                 </select></br>
             </div>
-            <div id="error"></div>
+            <div id="errorEventType"></div>
             <!-- Проблематика -->
             <div class="field-label">
                 <br><label for="problematic"><b>Проблематика:</b></label>
                 <br><textarea id="problematic" name="problematic" rows="2" cols="30" placeholder="Проблематика" required></textarea>
             </div>
+            <div id="errorProblematic"></div>
             <!-- Оказанное влияние и массовость -->
             <div class="field-label">
                 <br><label for="influenceAndMass"><b>Оказанное влияние и массовость:</b></label>
                 <br><textarea name="influenceAndMass" id="influenceAndMass" rows="2" cols="30" placeholder="Оказанное влияние и массовость" required></textarea>
             </div>
+            <div id="errorInfluenceAndMass"></div>
             <!-- Текущий статус -->
             <div class="field-label">
                 <br><label for="currentStatus"><b>Текущий статус:</b></label>
@@ -167,6 +169,7 @@
                 <br><label for="startDate"><b>Начало события:</b></label>
                 <br><input type="datetime-local" name="startDate" id="startDate" required>
             </div>
+            <div id="errorStartDate"></div>
             <!-- Конец события -->
             <div class="field-label">
                 <br><label for="endDate"><b>Конец события:</b></label>
@@ -187,6 +190,7 @@
                     <option value="Заявка от партнера">Заявка от партнера</option>
                 </select>
             </div>
+            <div id="errorSource"></div>
             <!-- Влияние -->
             <div id="impact" class="dropdown-check-list" tabindex="100">
                 <br><span class="anchor"><b>Влияние:</b></span>
@@ -202,6 +206,7 @@
                   <li><input type="checkbox"  name="place" value="Промо">-Промо</li>
                 </ul>
             </div>
+            <div id="errorImpact"></div>
             <!-- План действий -->
             <div class="field-label">
                 <br><label for="planOfAction"><b>План действий:</b></label>
@@ -234,33 +239,38 @@
             // document.getElementById('eventType').setAttribute('required', '');
             send.addEventListener(
                 "click", () => {
-                    document.getElementById("error").innerText = '';
+                    document.getElementById("errorEventType").innerText = '';
+                    document.getElementById("errorProblematic").innerText = '';
+                    document.getElementById("errorInfluenceAndMass").innerText = '';
+                    document.getElementById("errorStartDate").innerText = '';
+                    document.getElementById("errorSource").innerText = '';
+                    document.getElementById("errorImpact").innerText = '';
                     let eventType = document.getElementById("eventType").value;
                     if(eventType.length < 1) {
-                        document.getElementById("error").innerText = 'eventType';
+                        document.getElementById("errorEventType").innerText = 'Заполни!';
                         return;
                     }
                     let problematic = document.getElementById("problematic").value;
                     if(problematic.length < 1) {
-                        document.getElementById("error").innerText = 'problematic';
+                        document.getElementById("errorProblematic").innerText = 'Заполни!';
                         return;
                     }
                     let influenceAndMass = document.getElementById("influenceAndMass").value;
                      if(influenceAndMass.length < 1) {
-                        document.getElementById("error").innerText = 'influenceAndMass';
+                        document.getElementById("errorInfluenceAndMass").innerText = 'Заполни!';
                         return;
                     }
                     let currentStatus = document.getElementById("currentStatus").value;
-                     if(currentStatus.length < 1) {
-                        document.getElementById("error").innerText = 'currentStatus';
+                    let startDate = document.getElementById("startDate").value;
+                    if(startDate.length < 1) {
+                        document.getElementById("errorStartDate").innerText = 'Заполни!';
                         return;
                     }
-                    let startDate = document.getElementById("startDate").value;
                     let endDate = document.getElementById("endDate").value;
                     let restoration = document.getElementById("restoration").value;
                     let source = document.getElementById("source").value;
                     if(source.length < 1) {
-                        document.getElementById("error").innerText = 'source';
+                        document.getElementById("errorSource").innerText = 'Заполни!';
                         return;
                     }
                     let checkboxes = document.querySelectorAll('input[type="checkbox"]:checked');
@@ -269,6 +279,10 @@
                       impact.push(checkbox.value);
                     });
                     let planOfAction = document.getElementById("planOfAction").value;
+                    if(impact.length < 1) {
+                        document.getElementById("errorImpact").innerText = 'Заполни!';
+                        return;
+                    }
                     let data = {
                         "Событие": eventType,
                         "Проблематика": problematic,
