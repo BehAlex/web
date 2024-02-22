@@ -198,15 +198,15 @@
             <div id="impact" class="dropdown-check-list" tabindex="100">
                 <br><span class="anchor"><b>Влияние:</b></span>
                 <ul class="items">
-                  <li><input type="checkbox"  name="place" value="Сайт">-Сайт</li>
-                  <li><input type="checkbox"  name="place" value="МП">-МП</li>
-                  <li><input type="checkbox"  name="place" value="Поиск">-Поиск</li>
-                  <li><input type="checkbox"  name="place" value="КЦ">-КЦ</li>
-                  <li><input type="checkbox"  name="place" value="БО">-БО</li>
-                  <li><input type="checkbox"  name="place" value="ВМС">-ВМС</li>
-                  <li><input type="checkbox"  name="place" value="Логистика">-Логистика</li>
-                  <li><input type="checkbox"  name="place" value="Курьерская служба">-Курьерская служба</li>
-                  <li><input type="checkbox"  name="place" value="Промо">-Промо</li>
+                  <li><input type="checkbox"  name="place" value="Сайт" id="1" required>-Сайт</li>
+                  <li><input type="checkbox"  name="place" value="МП" id="2" required>-МП</li>
+                  <li><input type="checkbox"  name="place" value="Поиск" id="3" required>-Поиск</li>
+                  <li><input type="checkbox"  name="place" value="КЦ" id="4" required>-КЦ</li>
+                  <li><input type="checkbox"  name="place" value="БО" id="5" required>-БО</li>
+                  <li><input type="checkbox"  name="place" value="ВМС" id="6" required>-ВМС</li>
+                  <li><input type="checkbox"  name="place" value="Логистика" id="7" required>-Логистика</li>
+                  <li><input type="checkbox"  name="place" value="Курьерская служба" id="8" required>-Курьерская служба</li>
+                  <li><input type="checkbox"  name="place" value="Промо" id="9" required>-Промо</li>
                 </ul>
             </div>
 <!--            <div id="errorImpact"></div>-->
@@ -242,30 +242,44 @@
                     // document.getElementById("errorPlanOfAction").innerText = '';
                     let eventType = document.getElementById("eventType").value;
                     if(eventType.length < 1) {
-                        document.getElementById("errorEventType").innerText = 'Заполни Событие!';
+                        document.getElementById("errorEventType").innerText = 'Заполни: Событие!';
                         return;
                     }
                     let problematic = document.getElementById("problematic").value;
                     if(problematic.length === 0) {
-                        document.getElementById("errorProblematic").innerText = 'Заполни Проблематику!';
+                        document.getElementById("errorProblematic").innerText = 'Заполни: Проблематику!';
                         return;
                     }
                     let influenceAndMass = document.getElementById("influenceAndMass").value;
                     if(influenceAndMass.length === 0) {
-                        document.getElementById("errorInfluenceAndMass").innerText = 'Заполни Массовость!';
+                        document.getElementById("errorInfluenceAndMass").innerText = 'Заполни: Массовость!';
                         return;
                     }
                     let currentStatus = document.getElementById("currentStatus").value;
                     let startDate = document.getElementById("startDate").value;
                     if(startDate.length < 1) {
-                        document.getElementById("errorStartDate").innerText = 'Заполни Старт!';
+                        document.getElementById("errorStartDate").innerText = 'Заполни: Старт!';
                         return;
                     }
                     let endDate = document.getElementById("endDate").value;
                     let restoration = document.getElementById("restoration").value;
                     let source = document.getElementById("source").value;
                     if(source.length < 1) {
-                        document.getElementById("errorSource").innerText = 'Заполни Источник!';
+                        document.getElementById("errorSource").innerText = 'Заполни: Источник!';
+                        return;
+                    }
+                    let website = document.getElementById("1").value;
+                    let mp = document.getElementById("2").value;
+                    let search = document.getElementById("3").value;
+                    let cc = document.getElementById("4").value;
+                    let bo = document.getElementById("5").value;
+                    let wms = document.getElementById("6").value;
+                    let logistics = document.getElementById("7").value;
+                    let courier = document.getElementById("8").value;
+                    let promo = document.getElementById("9").value;
+                    if(website.length === 0 || mp.length === 0 || search.length === 0 || cc.length === 0 || bo.length === 0 ||
+                     wms.length === 0 || logistics.length === 0 || courier.length === 0 || promo.length === 0) {
+                        document.getElementById("errorImpact").innerText = 'Заполни: Влияние!';
                         return;
                     }
                     let checkboxes = document.querySelectorAll('input[type="checkbox"]:checked');
