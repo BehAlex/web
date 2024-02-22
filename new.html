@@ -139,7 +139,7 @@
                 <label for="eventType"  ><b>Тип события:</b></label>
                 <br><select name="eventType" id="eventType" required>
                     <option></option>
-                    <option value="#Инцидент"  id="incident">Инцидент</option>
+                    <option value="#Инцидент" id="incident">Инцидент</option>
                     <option value="#Авария" id="acident">Авария</option>
                 </select>
             </div>
@@ -235,10 +235,11 @@
                     document.getElementById("errorInfluenceAndMass").innerText = '';
                     document.getElementById("errorStartDate").innerText = '';
                     document.getElementById("errorSource").innerText = '';
-                    document.getElementById("errorImpact").innerText = '';
+                    // document.getElementById("errorImpact").innerText = '';
+                    // document.getElementById("errorPlanOfAction").innerText = '';
                     let eventType = document.getElementById("eventType").value;
                     if(eventType.length < 5) {
-                        document.getElementById("errorEventType").innerText = 'Заполни Тип!';
+                        document.getElementById("errorEventType").innerText = 'Заполни Событие!';
                         return;
                     }
                     let problematic = document.getElementById("problematic").value;
@@ -247,14 +248,14 @@
                         return;
                     }
                     let influenceAndMass = document.getElementById("influenceAndMass").value;
-                     if(influenceAndMass.length < 5) {
+                    if(influenceAndMass.length < 5) {
                         document.getElementById("errorInfluenceAndMass").innerText = 'Заполни Массовость!';
                         return;
                     }
                     let currentStatus = document.getElementById("currentStatus").value;
                     let startDate = document.getElementById("startDate").value;
                     if(startDate.length < 1) {
-                        document.getElementById("errorStartDate").innerText = 'Заполни Дату начала!';
+                        document.getElementById("errorStartDate").innerText = 'Заполни Старт!';
                         return;
                     }
                     let endDate = document.getElementById("endDate").value;
@@ -264,19 +265,18 @@
                         document.getElementById("errorSource").innerText = 'Заполни Источник!';
                         return;
                     }
-                    // let test = document.getElementsByTagName('place');
-                    // if(test.length < 1) {
-                    //     document.getElementById("errorImpact").innerText = 'Заполни Влияние!';
+                    let checkboxes = document.querySelectorAll('input[type="checkbox"]:checked');
+                    // if(checkboxes.length < 1) {
+                    //     document.getElementById("errorImpact").innerText = 'Заполни!';
                     //     return;
                     // }
-                    let checkboxes = document.querySelectorAll('input[type="checkbox"]:checked');
                     let impact = [];
                     checkboxes.forEach(checkbox => {
-                        impact.push(checkbox.value);
+                      impact.push(checkbox.value);
                     });
                     let planOfAction = document.getElementById("planOfAction").value;
-                    // if(impact.length < 1) {
-                    //     document.getElementById("errorImpact").innerText = 'Заполни Влияние!';
+                    // if(planOfAction.length < 1) {
+                    //     document.getElementById("errorPlanOfAction").innerText = 'Заполни!';
                     //     return;
                     // }
                     let data = {
