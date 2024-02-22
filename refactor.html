@@ -255,17 +255,17 @@
                         return;
                     }
                     let eventType = document.getElementById("eventType").value;
-                    if(eventType.length < 5) {
+                    if(eventType.length  < 1) {
                         document.getElementById("errorEventType").innerText = 'Заполни Событие!';
                         return;
                     }
                     let problematic = document.getElementById("problematic").value;
-                    if(problematic.length < 5) {
+                    if(problematic.length === 0) {
                         document.getElementById("errorProblematic").innerText = 'Заполни Проблематику!';
                         return;
                     }
                     let influenceAndMass = document.getElementById("influenceAndMass").value;
-                    if(influenceAndMass.length < 5) {
+                    if(influenceAndMass.length === 0) {
                         document.getElementById("errorInfluenceAndMass").innerText = 'Заполни Массовость!';
                         return;
                     }
@@ -286,10 +286,17 @@
                         return;
                     }
                     let source = document.getElementById("source").value;
-                    if(source.length < 5) {
+                    if(source.length < 1) {
                         document.getElementById("errorSource").innerText = 'Заполни Источник!';
                         return;
                     }
+
+                    let planOfAction = document.getElementById("planOfAction").value;
+                    if(planOfAction.length === 0) {
+                        document.getElementById("errorPlanOfAction").innerText = 'Заполни!';
+                        return;
+                    }
+
                     let checkboxes = document.querySelectorAll('input[type="checkbox"]:checked');
                     // if(checkboxes.length < 1) {
                     //     document.getElementById("errorImpact").innerText = 'Заполни!';
@@ -299,11 +306,7 @@
                     checkboxes.forEach(checkbox => {
                       impact.push(checkbox.value);
                     });
-                    let planOfAction = document.getElementById("planOfAction").value;
-                    // if(planOfAction.length < 1) {
-                    //     document.getElementById("errorPlanOfAction").innerText = 'Заполни!';
-                    //     return;
-                    // }
+
                     let data = {
                     	"idmess": idmess,
                         "Событие": eventType,

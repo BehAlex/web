@@ -251,7 +251,7 @@
                         return;
                     }
                     let influenceAndMass = document.getElementById("influenceAndMass").value;
-                    if(influenceAndMass.length < 5) {
+                    if(influenceAndMass.length === 0) {
                         document.getElementById("errorInfluenceAndMass").innerText = 'Заполни Массовость!';
                         return;
                     }
@@ -264,7 +264,7 @@
                     let endDate = document.getElementById("endDate").value;
                     let restoration = document.getElementById("restoration").value;
                     let source = document.getElementById("source").value;
-                    if(source.length < 5) {
+                    if(source.length < 1) {
                         document.getElementById("errorSource").innerText = 'Заполни Источник!';
                         return;
                     }
