@@ -194,19 +194,20 @@
                 </select>
             </div>
             <div id="errorSource"></div>
+            <div id="errorImpact"></div>
             <!-- Влияние -->
             <div id="impact" class="dropdown-check-list" tabindex="100">
                 <br><span class="anchor"><b>Влияние:</b></span>
                 <ul class="items">
-                  <li><input type="checkbox"  name="place" value="Сайт">-Сайт</li>
-                  <li><input type="checkbox"  name="place" value="МП">-МП</li>
-                  <li><input type="checkbox"  name="place" value="Поиск">-Поиск</li>
-                  <li><input type="checkbox"  name="place" value="КЦ">-КЦ</li>
-                  <li><input type="checkbox"  name="place" value="БО">-БО</li>
-                  <li><input type="checkbox"  name="place" value="ВМС">-ВМС</li>
-                  <li><input type="checkbox"  name="place" value="Логистика">-Логистика</li>
-                  <li><input type="checkbox"  name="place" value="Курьерская служба">-Курьерская служба</li>
-                  <li><input type="checkbox"  name="place" value="Промо">-Промо</li>
+                  <li><label><input type="checkbox"  name="place" value="Сайт"></label>-Сайт</li>
+                  <li><label><input type="checkbox"  name="place" value="МП"></label>-МП</li>
+                  <li><label><input type="checkbox"  name="place" value="Поиск"></label>-Поиск</li>
+                  <li><label><input type="checkbox"  name="place" value="КЦ"></label>-КЦ</li>
+                  <li><label><input type="checkbox"  name="place" value="БО"></label>-БО</li>
+                  <li><label><input type="checkbox"  name="place" value="ВМС"></label>-ВМС</li>
+                  <li><label><input type="checkbox"  name="place" value="Логистика"></label>-Логистика</li>
+                  <li><label><input type="checkbox"  name="place" value="Курьерская служба"></label>-Курьерская служба</li>
+                  <li><label><input type="checkbox"  name="place" value="Промо"></label>-Промо</li>
                 </ul>
             </div>
             <script>
@@ -218,7 +219,7 @@
                     checkList.classList.add('visible');
                 }
             </script>
-            <div id="errorImpact"></div>
+
             <!-- План действий -->
             <div class="field-label">
                 <br><label for="planOfAction"><b>План действий:</b></label>
@@ -233,7 +234,6 @@
             let tg = window.Telegram.WebApp;
             tg.expand();
             let send = document.getElementById("send");
-
             send.addEventListener(
                 "click", () => {
                     document.getElementById("errorEventType").innerText = '';
@@ -272,11 +272,11 @@
                         return;
                     }
                     let checkboxes = document.querySelectorAll('input[type="checkbox"]:checked');
-                    if(checkboxes.length === 0) {
+                    let impact = [];
+                    if(impact.length === 0) {
                         document.getElementById("errorImpact").innerText = 'Заполни: Влияние!';
                         return;
                     }
-                    let impact = [];
                     checkboxes.forEach(checkbox => {
                       impact.push(checkbox.value);
                     });
