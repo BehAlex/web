@@ -290,10 +290,10 @@
                         return;
                     }
                     let checkboxes = document.querySelectorAll('input[type="checkbox"]:checked');
-                    if(checkboxes.length < 1) {
-                        document.getElementById("errorImpact").innerText = 'Заполни!';
-                        return;
-                    }
+                    // if(checkboxes.length < 1) {
+                    //     document.getElementById("errorImpact").innerText = 'Заполни!';
+                    //     return;
+                    // }
                     let impact = [];
                     checkboxes.forEach(checkbox => {
                       impact.push(checkbox.value);

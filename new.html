@@ -220,18 +220,6 @@
         <script>
             let tg = window.Telegram.WebApp;
             tg.expand();
-            function atLeastOneChecked(checkboxGroup) {
-              // Loop through each checkbox in the group
-              for (let i = 0; i < checkboxGroup.length; i++) {
-                // Check if the current checkbox is checked
-                if (checkboxGroup[i].checked) {
-                  // If any checkbox is checked, return true
-                  return true;
-                }
-              }
-              // If no checkboxes are checked, return false
-              return false;
-            }
             let send = document.getElementById("send");
             let checkList = document.getElementById('impact');
             checkList.getElementsByClassName('anchor')[0].onclick = function(evt) {
@@ -240,7 +228,6 @@
                 else
                     checkList.classList.add('visible');
                 }
-
             send.addEventListener(
                 "click", () => {
                     document.getElementById("errorEventType").innerText = '';
@@ -283,11 +270,6 @@
                     //     return;
                     // }
                     let checkboxes = document.querySelectorAll('input[type="checkbox"]:checked');
-                    const isValid = atLeastOneChecked(checkboxGroup);
-
-                    if (!isValid) {
-                        document.getElementById("errorImpact").innerText = 'Заполни Влияние!';
-                    }
                     let impact = [];
                     checkboxes.forEach(checkbox => {
                         impact.push(checkbox.value);
