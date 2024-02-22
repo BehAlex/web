@@ -136,12 +136,12 @@
         <form action="action">
             <!-- Тип события -->
             <div class="field-label">
-                <label for="eventType"  ><b>Тип события:</b></label>
+               <label for="eventType"><b>Тип события:</b></label>
                 <br><select name="eventType" id="eventType" required>
                     <option></option>
-                    <option value="#Инцидент" id="incident">Инцидент</option>
+                    <option value="#Инцидент"  id="incident">Инцидент</option>
                     <option value="#Авария" id="acident">Авария</option>
-                </select>
+                </select></br>
             </div>
             <div id="errorEventType"></div>
             <!-- Проблематика -->
@@ -161,7 +161,7 @@
                 <br><label for="currentStatus"><b>Текущий статус:</b></label>
                 <br><select name="currentStatus" id="currentStatus">
                     <option value="В работе">В работе</option>
-                    <option value="Завершён">Завершён</option>
+                	<option value="Завершён">Завершён</option>
                 </select>
             </div>
             <!-- Начало события -->
@@ -175,11 +175,13 @@
                 <br><label for="endDate"><b>Конец события:</b></label>
                 <br><input type="datetime-local" name="endDate" id="endDate">
             </div>
+            <div id="errorEndDate"></div>
             <!-- Восстановление -->
             <div class="field-label">
                 <br><label for="restoration"><b>Восстановление:</b></label>
-                <br><input type="datetime-local" name="restoration" placeholder="Восстановление" id="restoration">
+                <br><input type="datetime-local" name="restoration" id="restoration">
             </div>
+            <div id="errorRestoration"></div>
             <!-- Источник -->
             <div class="field-label">
                 <br><label for="source"><b>Источник:</b></label>
@@ -191,10 +193,9 @@
                 </select>
             </div>
             <div id="errorSource"></div>
-<!--            <div id="errorImpact"></div>-->
             <!-- Влияние -->
             <div id="impact" class="dropdown-check-list" tabindex="100">
-                <br><span style="background-color: brown" class="anchor"><b>Влияние:</b></span>
+                <br><span class="anchor"><b>Влияние:</b></span>
                 <ul class="items">
                   <li><input type="checkbox"  name="place" value="Сайт">-Сайт</li>
                   <li><input type="checkbox"  name="place" value="МП">-МП</li>
@@ -207,12 +208,13 @@
                   <li><input type="checkbox"  name="place" value="Промо">-Промо</li>
                 </ul>
             </div>
+<!--            <div id="errorImpact"></div>-->
             <!-- План действий -->
             <div class="field-label">
                 <br><label for="planOfAction"><b>План действий:</b></label>
-                    <br><textarea name="planOfAction" id="planOfAction" rows="2" cols="30"></textarea>
+                    <br><textarea name="planOfAction" id="planOfAction" rows="2" cols="30" placeholder="Опиши план действий."></textarea>
             </div>
-            <!-- Кнопка отправить -->
+            <div id="errorPlanOfAction"></div>
                 <br><div class="button-wrapper">
                 <button style="height:30px;width:100px;background: brown;color: aliceblue" id ="send"><b>Отправить</b></button>
             </div>
