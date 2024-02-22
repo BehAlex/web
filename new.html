@@ -206,12 +206,12 @@
                   <li><input type="checkbox"  name="place" value="Промо">-Промо</li>
                 </ul>
             </div>
-            <div id="errorImpact"></div>
             <!-- План действий -->
             <div class="field-label">
                 <br><label for="planOfAction"><b>План действий:</b></label>
-                    <br><textarea name="planOfAction" id="planOfAction" rows="2" cols="30" placeholder="Подключение дежурных SRE, разработчика и владельца продукта."></textarea>
+                    <br><textarea name="planOfAction" id="planOfAction" rows="2" cols="30">Подключение дежурных SRE, DBA, разработчика и владельца продукта. На данный момент проводится анализ возникновения аварии. Статус будет обновлен через 15 минут.</textarea>
             </div>
+            <div id="errorImpact"></div>
                 <br><div class="button-wrapper">
                 <button style="height:30px;width:100px;background: brown;color: aliceblue" id ="send"><b>Отправить</b></button>
             </div>
@@ -237,42 +237,42 @@
                     document.getElementById("errorImpact").innerText = '';
                     let eventType = document.getElementById("eventType").value;
                     if(eventType.length < 5) {
-                        document.getElementById("errorEventType").innerText = 'Заполни!';
+                        document.getElementById("errorEventType").innerText = 'Заполни Тип!';
                         return;
                     }
                     let problematic = document.getElementById("problematic").value;
                     if(problematic.length < 5) {
-                        document.getElementById("errorProblematic").innerText = 'Заполни!';
+                        document.getElementById("errorProblematic").innerText = 'Заполни Проблематику!';
                         return;
                     }
                     let influenceAndMass = document.getElementById("influenceAndMass").value;
                      if(influenceAndMass.length < 5) {
-                        document.getElementById("errorInfluenceAndMass").innerText = 'Заполни!';
+                        document.getElementById("errorInfluenceAndMass").innerText = 'Заполни Массовость!';
                         return;
                     }
                     let currentStatus = document.getElementById("currentStatus").value;
                     let startDate = document.getElementById("startDate").value;
                     if(startDate.length < 1) {
-                        document.getElementById("errorStartDate").innerText = 'Заполни!';
+                        document.getElementById("errorStartDate").innerText = 'Заполни Дату начала!';
                         return;
                     }
                     let endDate = document.getElementById("endDate").value;
                     let restoration = document.getElementById("restoration").value;
                     let source = document.getElementById("source").value;
                     if(source.length < 5) {
-                        document.getElementById("errorSource").innerText = 'Заполни!';
+                        document.getElementById("errorSource").innerText = 'Заполни Источник!';
                         return;
                     }
                     let checkboxes = document.querySelectorAll('input[type="checkbox"]:checked');
-                    if($('div.checkbox-group.required :checkbox:checked').length > 0) {
-                        document.getElementById("errorImpact").innerText = 'Заполни!';
-                        return;
-                    }
                     let impact = [];
                     checkboxes.forEach(checkbox => {
                       impact.push(checkbox.value);
                     });
                     let planOfAction = document.getElementById("planOfAction").value;
+                    if(checkboxes.length < 1) {
+                        document.getElementById("errorImpact").innerText = 'Заполни Влияние!';
+                        return;
+                    }
                     let data = {
                         "Событие": eventType,
                         "Проблематика": problematic,
