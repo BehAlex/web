@@ -136,13 +136,13 @@
         <form action="action">
 	        <!-- ИД сообщения -->
 	        <div class="field-label">
-	            <label for="idmess">Ид сообщения для корректировки</label>
+                <label for="idmess"><b>Ид сообщения для корректировки</b></label>
 	            <br><input type="text" name="idmess" placeholder="Ид сообщения" id="idmess" required>
 	        </div>
 	        <div id="errorId"></div>
             <!-- Тип события -->
             <div class="field-label">
-                <label for="eventType"  ><b>Тип события:</b></label>
+               <br> <label for="eventType"  ><b>Тип события:</b></label>
                 <br><select name="eventType" id="eventType" required>
                     <option></option>
                     <option value="#Инцидент"  id="incident">Инцидент</option>
@@ -179,13 +179,13 @@
             <!-- Конец события -->
             <div class="field-label">
                 <br><label for="endDate"><b>Конец события:</b></label>
-                <br><input type="datetime-local" name="endDate" id="endDate">
+                <br><input type="datetime-local" name="endDate" id="endDate" required>
             </div>
             <div id="errorEndDate"></div>
             <!-- Восстановление -->
             <div class="field-label">
                 <br><label for="restoration"><b>Восстановление:</b></label>
-                <br><input type="datetime-local" name="restoration" placeholder="Восстановление" id="restoration">
+                <br><input type="datetime-local" name="restoration" id="restoration" required>
             </div>
             <div id="errorRestoration"></div>
             <!-- Источник -->
