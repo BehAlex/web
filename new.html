@@ -212,6 +212,7 @@
                     <br><textarea name="planOfAction" id="planOfAction" rows="2" cols="30">Подключение дежурных SRE, DBA, разработчика и владельца продукта. На данный момент проводится анализ возникновения аварии. Статус будет обновлен через 15 минут.</textarea>
             </div>
             <div id="errorImpact"></div>
+            <!-- Кнопка отправить -->
                 <br><div class="button-wrapper">
                 <button style="height:30px;width:100px;background: brown;color: aliceblue" id ="send"><b>Отправить</b></button>
             </div>
@@ -263,16 +264,21 @@
                         document.getElementById("errorSource").innerText = 'Заполни Источник!';
                         return;
                     }
-                    let checkboxes = document.querySelectorAll('input[type="checkbox"]:checked');
-                    let impact = [];
-                    checkboxes.forEach(checkbox => {
-                      impact.push(checkbox.value);
-                    });
-                    let planOfAction = document.getElementById("planOfAction").value;
-                    if(checkboxes.length < 1) {
+                    let test = document.getElementsByTagName('place');
+                    if(test.length < 1) {
                         document.getElementById("errorImpact").innerText = 'Заполни Влияние!';
                         return;
                     }
+                    let checkboxes = document.querySelectorAll('input[type="checkbox"]:checked');
+                    let impact = [];
+                    checkboxes.forEach(checkbox => {
+                        impact.push(checkbox.value);
+                    });
+                    let planOfAction = document.getElementById("planOfAction").value;
+                    // if(impact.length < 1) {
+                    //     document.getElementById("errorImpact").innerText = 'Заполни Влияние!';
+                    //     return;
+                    // }
                     let data = {
                         "Событие": eventType,
                         "Проблематика": problematic,
