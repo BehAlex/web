@@ -228,6 +228,18 @@
                 else
                     checkList.classList.add('visible');
                 }
+            function atLeastOneChecked(checkboxGroup) {
+              // Loop through each checkbox in the group
+              for (let i = 0; i < checkboxGroup.length; i++) {
+                // Check if the current checkbox is checked
+                if (checkboxGroup[i].checked) {
+                  // If any checkbox is checked, return true
+                  return true;
+                }
+              }
+              // If no checkboxes are checked, return false
+              return false;
+            }
             send.addEventListener(
                 "click", () => {
                     document.getElementById("errorEventType").innerText = '';
@@ -264,12 +276,17 @@
                         document.getElementById("errorSource").innerText = 'Заполни Источник!';
                         return;
                     }
-                    let test = document.getElementsByTagName('place');
-                    if(test.length < 1) {
-                        document.getElementById("errorImpact").innerText = 'Заполни Влияние!';
-                        return;
-                    }
+                    // let test = document.getElementsByTagName('place');
+                    // if(test.length < 1) {
+                    //     document.getElementById("errorImpact").innerText = 'Заполни Влияние!';
+                    //     return;
+                    // }
                     let checkboxes = document.querySelectorAll('input[type="checkbox"]:checked');
+                    const isValid = atLeastOneChecked(checkboxGroup);
+
+                    if (!isValid) {
+                        document.getElementById("errorImpact").innerText = 'Заполни Влияние!';
+                    }
                     let impact = [];
                     checkboxes.forEach(checkbox => {
                         impact.push(checkbox.value);
