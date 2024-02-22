@@ -227,16 +227,6 @@
                 else
                     checkList.classList.add('visible');
                 }
-            // document.getElementById("eventType").required = true;
-            // const inputs = document.querySelectorAll('.field');
-            //
-            // for (const input of inputs) {
-            //   input.setAttribute('required', '');
-            // }
-            // document.querySelector('input[type="text"]').required = true;
-            // document.querySelector('select[type="text"]').required = true;
-            // document.querySelector('textarea[type="text"]').required = true;
-            // document.getElementById('eventType').setAttribute('required', '');
             send.addEventListener(
                 "click", () => {
                     document.getElementById("errorEventType").innerText = '';
@@ -274,15 +264,15 @@
                         return;
                     }
                     let checkboxes = document.querySelectorAll('input[type="checkbox"]:checked');
+                    if(checkboxes.length < 1) {
+                        document.getElementById("errorImpact").innerText = 'Заполни!';
+                        return;
+                    }
                     let impact = [];
                     checkboxes.forEach(checkbox => {
                       impact.push(checkbox.value);
                     });
                     let planOfAction = document.getElementById("planOfAction").value;
-                    // if(impact.length === 0) {
-                    //     document.getElementById("errorImpact").innerText = 'Заполни!';
-                    //     return;
-                    // }
                     let data = {
                         "Событие": eventType,
                         "Проблематика": problematic,
