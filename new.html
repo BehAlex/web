@@ -241,12 +241,12 @@
                     // document.getElementById("errorImpact").innerText = '';
                     // document.getElementById("errorPlanOfAction").innerText = '';
                     let eventType = document.getElementById("eventType").value;
-                    if(eventType.length < 5) {
+                    if(eventType.length < 1) {
                         document.getElementById("errorEventType").innerText = 'Заполни Событие!';
                         return;
                     }
                     let problematic = document.getElementById("problematic").value;
-                    if(problematic.length < 5) {
+                    if(problematic.length === 0) {
                         document.getElementById("errorProblematic").innerText = 'Заполни Проблематику!';
                         return;
                     }
