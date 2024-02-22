@@ -220,14 +220,6 @@
         <script>
             let tg = window.Telegram.WebApp;
             tg.expand();
-            let send = document.getElementById("send");
-            let checkList = document.getElementById('impact');
-            checkList.getElementsByClassName('anchor')[0].onclick = function(evt) {
-                if (checkList.classList.contains('visible'))
-                    checkList.classList.remove('visible');
-                else
-                    checkList.classList.add('visible');
-                }
             function atLeastOneChecked(checkboxGroup) {
               // Loop through each checkbox in the group
               for (let i = 0; i < checkboxGroup.length; i++) {
@@ -240,6 +232,15 @@
               // If no checkboxes are checked, return false
               return false;
             }
+            let send = document.getElementById("send");
+            let checkList = document.getElementById('impact');
+            checkList.getElementsByClassName('anchor')[0].onclick = function(evt) {
+                if (checkList.classList.contains('visible'))
+                    checkList.classList.remove('visible');
+                else
+                    checkList.classList.add('visible');
+                }
+
             send.addEventListener(
                 "click", () => {
                     document.getElementById("errorEventType").innerText = '';
