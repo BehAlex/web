@@ -148,13 +148,13 @@
             <!-- Проблематика -->
             <div class="field-label">
                 <br><label for="problematic"><b>Проблематика:</b></label>
-                <br><textarea id="problematic" name="problematic" rows="2" cols="30" placeholder="Проблематика" required></textarea>
+                <br><textarea id="problematic" name="problematic" rows="3" cols="40" placeholder="Проблематика" required></textarea>
             </div>
             <div id="errorProblematic"></div>
             <!-- Оказанное влияние и массовость -->
             <div class="field-label">
                 <br><label for="influenceAndMass"><b>Оказанное влияние и массовость:</b></label>
-                <br><textarea name="influenceAndMass" id="influenceAndMass" rows="2" cols="30" placeholder="Оказанное влияние и массовость" required></textarea>
+                <br><textarea name="influenceAndMass" id="influenceAndMass" rows="3" cols="40" placeholder="Оказанное влияние и массовость" required></textarea>
             </div>
             <div id="errorInfluenceAndMass"></div>
             <!-- Текущий статус -->
@@ -223,7 +223,11 @@
             <!-- План действий -->
             <div class="field-label">
                 <br><label for="planOfAction"><b>План действий:</b></label>
-                    <br><textarea name="planOfAction" id="planOfAction" rows="2" cols="30" placeholder="Опиши план действий."></textarea>
+                    <br><textarea name="planOfAction" id="planOfAction" rows="6" cols="40" placeholder="Опиши план действий."
+            >Подключение дежурных:
+SRE, DBA, разработчика и владельца продукта.
+На данный момент проводится анализ возникновения аварии.
+Статус будет обновлен через 15 минут. </textarea>
             </div>
             <div id="errorPlanOfAction"></div>
                 <br><div class="button-wrapper">
@@ -241,7 +245,7 @@
                     document.getElementById("errorInfluenceAndMass").innerText = '';
                     document.getElementById("errorStartDate").innerText = '';
                     document.getElementById("errorSource").innerText = '';
-                    // document.getElementById("errorImpact").innerText = '';
+                    document.getElementById("errorImpact").innerText = '';
                     // document.getElementById("errorPlanOfAction").innerText = '';
                     let eventType = document.getElementById("eventType").value;
                     if(eventType.length < 1) {
@@ -273,13 +277,13 @@
                     }
                     let checkboxes = document.querySelectorAll('input[type="checkbox"]:checked');
                     let impact = [];
+                    checkboxes.forEach(checkbox => {
+                      impact.push(checkbox.value);
+                    });
                     if(impact.length === 0) {
                         document.getElementById("errorImpact").innerText = 'Заполни: Влияние!';
                         return;
                     }
-                    checkboxes.forEach(checkbox => {
-                      impact.push(checkbox.value);
-                    });
                     let planOfAction = document.getElementById("planOfAction").value;
                     // if(planOfAction.length < 1) {
                     //     document.getElementById("errorPlanOfAction").innerText = 'Заполни!';
