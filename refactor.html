@@ -214,7 +214,7 @@
                   <li><input type="checkbox"  name="place" value="Промо">-Промо</li>
                 </ul>
             </div>
-            <div id="errorImpact"></div>
+<!--            <div id="errorImpact"></div>-->
             <!-- План действий -->
             <div class="field-label">
                 <br><label for="planOfAction"><b>План действий:</b></label>
@@ -246,47 +246,47 @@
                     document.getElementById("errorEndDate").innerText = '';
                     document.getElementById("errorRestoration").innerText = '';
                     document.getElementById("errorSource").innerText = '';
-                    document.getElementById("errorImpact").innerText = '';
+                    // document.getElementById("errorImpact").innerText = '';
                     document.getElementById("errorPlanOfAction").innerText = '';
                     let idmess = document.getElementById("idmess").value;
                     if(idmess.length < 1) {
-                        document.getElementById("errorId").innerText = 'Заполни!';
+                        document.getElementById("errorId").innerText = 'Заполни id!';
                         return;
                     }
                     let eventType = document.getElementById("eventType").value;
                     if(eventType.length < 5) {
-                        document.getElementById("errorEventType").innerText = 'Заполни!';
+                        document.getElementById("errorEventType").innerText = 'Заполни Событие!';
                         return;
                     }
                     let problematic = document.getElementById("problematic").value;
                     if(problematic.length < 5) {
-                        document.getElementById("errorProblematic").innerText = 'Заполни!';
+                        document.getElementById("errorProblematic").innerText = 'Заполни Проблематику!';
                         return;
                     }
                     let influenceAndMass = document.getElementById("influenceAndMass").value;
-                     if(influenceAndMass.length < 5) {
-                        document.getElementById("errorInfluenceAndMass").innerText = 'Заполни!';
+                    if(influenceAndMass.length < 5) {
+                        document.getElementById("errorInfluenceAndMass").innerText = 'Заполни Массовость!';
                         return;
                     }
                     let currentStatus = document.getElementById("currentStatus").value;
                     let startDate = document.getElementById("startDate").value;
                     if(startDate.length < 1) {
-                        document.getElementById("errorStartDate").innerText = 'Заполни!';
+                        document.getElementById("errorStartDate").innerText = 'Заполни Старт!';
                         return;
                     }
                     let endDate = document.getElementById("endDate").value;
                     if(endDate.length < 1) {
-                        document.getElementById("errorEndDate").innerText = 'Заполни!';
+                        document.getElementById("errorEndDate").innerText = 'Заполни Окончание!';
                         return;
                     }
                     let restoration = document.getElementById("restoration").value;
                     if(restoration.length < 1) {
-                        document.getElementById("errorRestoration").innerText = 'Заполни!';
+                        document.getElementById("errorRestoration").innerText = 'Заполни Восстановление!';
                         return;
                     }
                     let source = document.getElementById("source").value;
                     if(source.length < 5) {
-                        document.getElementById("errorSource").innerText = 'Заполни!';
+                        document.getElementById("errorSource").innerText = 'Заполни Источник!';
                         return;
                     }
                     let checkboxes = document.querySelectorAll('input[type="checkbox"]:checked');
@@ -299,10 +299,10 @@
                       impact.push(checkbox.value);
                     });
                     let planOfAction = document.getElementById("planOfAction").value;
-                    if(planOfAction.length < 1) {
-                        document.getElementById("errorPlanOfAction").innerText = 'Заполни!';
-                        return;
-                    }
+                    // if(planOfAction.length < 1) {
+                    //     document.getElementById("errorPlanOfAction").innerText = 'Заполни!';
+                    //     return;
+                    // }
                     let data = {
                     	"idmess": idmess,
                         "Событие": eventType,
