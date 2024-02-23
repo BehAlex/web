@@ -134,7 +134,7 @@
     </style>
 </head>
     <body>
-        <form action="action">
+        <form id="contact-form" method="POST" action="https://script.google.com/macros/s/AKfycbxncJ_GfaJI5AR9wvMchNEc7A1AI-i21hZ1Oo3nCDH8n4arUVh3qavJ3QVgSZQ_agAOhg/exec">
 	        <!-- ИД сообщения -->
 	        <div class="field-label">
                 <label for="idmess"><b>Ид сообщения для корректировки</b></label>
@@ -145,7 +145,7 @@
             <div class="field-label">
                <br> <label for="eventType"  ><b>Тип события:</b></label>
                 <br><select name="eventType" id="eventType" required>
-                    <option></option>
+                    <option id="oldEventType"></option>
                     <option value="#Инцидент"  id="incident">Инцидент</option>
                     <option value="#Авария" id="acident">Авария</option>
                 </select></br>
@@ -167,6 +167,7 @@
             <div class="field-label">
                 <br><label for="currentStatus"><b>Текущий статус:</b></label>
                 <br><select name="currentStatus" id="currentStatus">
+                    <option id="oldCurrentStatus"></option>
                 	<option value="Завершён">Завершён</option>
                     <option value="В работе">В работе</option>
                 </select>
@@ -193,7 +194,7 @@
             <div class="field-label">
                 <br><label for="source"><b>Источник:</b></label>
                 <br><select name="source" id="source" required>
-                    <option></option>
+                    <option id="oldSource"></option>
                     <option value="Мониторинг">Мониторинг</option>
                     <option value="Заявка от пользователя">Заявка от пользователя</option>
                     <option value="Заявка от партнера">Заявка от партнера</option>
@@ -204,15 +205,15 @@
             <div id="impact" class="dropdown-check-list" tabindex="100">
                 <br><span class="anchor"><b>Влияние:</b></span>
                 <ul class="items">
-                  <li><input type="checkbox"  name="place" value="Сайт">-Сайт</li>
-                  <li><input type="checkbox"  name="place" value="МП">-МП</li>
-                  <li><input type="checkbox"  name="place" value="Поиск">-Поиск</li>
-                  <li><input type="checkbox"  name="place" value="КЦ">-КЦ</li>
-                  <li><input type="checkbox"  name="place" value="БО">-БО</li>
-                  <li><input type="checkbox"  name="place" value="ВМС">-ВМС</li>
-                  <li><input type="checkbox"  name="place" value="Логистика">-Логистика</li>
-                  <li><input type="checkbox"  name="place" value="Курьерская служба">-Курьерская служба</li>
-                  <li><input type="checkbox"  name="place" value="Промо">-Промо</li>
+                  <li><input type="checkbox"  name="place" value="Сайт" id="Сайт">-Сайт</li>
+                  <li><input type="checkbox"  name="place" value="МП" id="МП">-МП</li>
+                  <li><input type="checkbox"  name="place" value="Поиск" id="Поиск">-Поиск</li>
+                  <li><input type="checkbox"  name="place" value="КЦ" id="КЦ">-КЦ</li>
+                  <li><input type="checkbox"  name="place" value="БО" id="БО">-БО</li>
+                  <li><input type="checkbox"  name="place" value="ВМС" id="ВМС">-ВМС</li>
+                  <li><input type="checkbox"  name="place" value="Логистика" id="Логистика">-Логистика</li>
+                  <li><input type="checkbox"  name="place" value="Курьерская служба" id="Курьерская служба">-Курьерская служба</li>
+                  <li><input type="checkbox"  name="place" value="Промо" id="Промо">-Промо</li>
                 </ul>
             </div>
 <!--            <div id="errorImpact"></div>-->
@@ -229,6 +230,24 @@
         <script>
             let tg = window.Telegram.WebApp;
             tg.expand();
+            let app = "https://script.google.com/macros/s/AKfycbxncJ_GfaJI5AR9wvMchNEc7A1AI-i21hZ1Oo3nCDH8n4arUVh3qavJ3QVgSZQ_agAOhg/exec";
+            const xhr = new XMLHttpRequest()
+            xhr.open('GET', app, true);
+            xhr.setRequestHeader('Content-type', 'application/x-www-form-urlencoded');
+            xhr.responseType = "json"
+            xhr.onload = () => {
+                document.getElementById('oldEventType').innerHTML = xhr.response["oldEventType"];
+                document.getElementById('problematic').innerHTML = xhr.response["problematic"];
+                document.getElementById('influenceAndMass').innerHTML = xhr.response["influenceAndMass"];
+                document.getElementById('oldCurrentStatus').innerHTML = xhr.response["oldCurrentStatus"];
+                let dateControl = document.querySelector('input[id="startDate"]');
+                dateControl.value = xhr.response["startDate"];
+                document.getElementById('oldSource').innerHTML = xhr.response["oldSource"];
+                xhr.response["impact"].split(', ').forEach((item) => {
+                    document.getElementById(item).checked = true;
+                });
+            }
+            xhr.send()
             let send = document.getElementById("send");
             let checkList = document.getElementById('impact');
             checkList.getElementsByClassName('anchor')[0].onclick = function(evt) {
