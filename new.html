@@ -5,6 +5,16 @@
     <meta name="viewport" content="width=device-width, initial-scale=1.0, maximum-scale=1.0">
     <title>Event Type Form</title>
     <script src="https://telegram.org/js/telegram-web-app.js"></script> <!--Подключаем скрипт от телеграм-->
+        <script>
+        let app = "https://script.google.com/macros/s/AKfycbzsX4bFW8Yq-cfa7SzL5yQcta_5tyHCS4_cAoZ4ZJNg31xAgVEZnr9oEmdNZwfnDAXFAA/exec";
+        const xhr = new XMLHttpRequest()
+        xhr.open('GET', app, true);
+        xhr.responseType = "json"
+        xhr.onload = () => {
+            console.log('Запрос выполнен успешно.')
+        }
+        xhr.send()
+    </script>
     <style>
         textarea { font-size: 18px;
             resize:vertical;
