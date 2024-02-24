@@ -1,8 +1,8 @@
 <!DOCTYPE html>
-<html lang="en" xmlns="http://www.w3.org/1999/html" xmlns="http://www.w3.org/1999/html">
+<html lang="ru">
 <head>
     <meta charset="UTF-8">
-    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0, maximum-scale=1.0">
     <title>Event Type Form</title>
     <script src="https://telegram.org/js/telegram-web-app.js"></script> <!--Подключаем скрипт от телеграм-->
     <style>
@@ -134,15 +134,15 @@
     </style>
 </head>
     <body>
-        <form id="contact-form" method="POST" action="https://script.google.com/macros/s/AKfycbwQB22R8otNjkuVdSWAf_N473WxBanrB1NAuskanewfxNpljg0YZMepHKV5_kRcq06BRA/exec">
+        <form id="contact-form" method="POST" action="https://script.google.com/macros/s/AKfycbxmZ-YXWiK3vcp1ZAuObkywdUMceNv7EOdA1ctJ5GFRD0iXdZDNmB8sWW_CsPqbtSKzkw/exec">
             <!-- Тип события -->
             <div class="field-label">
                <label for="eventType"><b>Тип события:</b></label>
                 <br><select name="eventType" id="eventType" required>
                     <option></option>
                     <option value="#Инцидент"  id="incident">Инцидент</option>
-                    <option value="#Авария" id="acident">Авария</option>
-                </select></br>
+                    <option value="#Авария" id="accident">Авария</option>
+                </select>
             </div>
             <div id="errorEventType"></div>
             <!-- Проблематика -->
@@ -199,20 +199,21 @@
             <div id="impact" class="dropdown-check-list" tabindex="100">
                 <br><span class="anchor"><b>Влияние:</b></span>
                 <ul class="items">
-                  <li><label><input type="checkbox"  name="place" value="Сайт"></label>-Сайт</li>
-                  <li><label><input type="checkbox"  name="place" value="МП"></label>-МП</li>
-                  <li><label><input type="checkbox"  name="place" value="Поиск"></label>-Поиск</li>
-                  <li><label><input type="checkbox"  name="place" value="КЦ"></label>-КЦ</li>
-                  <li><label><input type="checkbox"  name="place" value="БО"></label>-БО</li>
-                  <li><label><input type="checkbox"  name="place" value="ВМС"></label>-ВМС</li>
-                  <li><label><input type="checkbox"  name="place" value="Логистика"></label>-Логистика</li>
-                  <li><label><input type="checkbox"  name="place" value="Курьерская служба"></label>-Курьерская служба</li>
-                  <li><label><input type="checkbox"  name="place" value="Промо"></label>-Промо</li>
+                  <li><input type="checkbox"  name="place" value="Сайт" id="Сайт"><label for="Сайт">-Сайт</label></li>
+                  <li><input type="checkbox"  name="place" value="МП" id="МП"><label for="МП">-МП</label></li>
+                  <li><input type="checkbox"  name="place" value="Поиск" id="Поиск"><label for="Поиск">-Поиск</label></li>
+                  <li><input type="checkbox"  name="place" value="КЦ" id="КЦ"><label for="КЦ">-КЦ</label></li>
+                  <li><input type="checkbox"  name="place" value="БО" id="БО"><label for="БО">-БО</label></li>
+                  <li><input type="checkbox"  name="place" value="ВМС" id="ВМС"><label for="ВМС">-ВМС</label></li>
+                  <li><input type="checkbox"  name="place" value="Логистика" id="Логистика"><label for="Логистика">-Логистика</label></li>
+                  <li><input type="checkbox"  name="place" value="Курьерская служба" id="Курьерская служба"><label
+                          for="Курьерская служба">-Курьерская служба</label></li>
+                  <li><input type="checkbox"  name="place" value="Промо" id="Промо"><label for="Промо">-Промо</label></li>
                 </ul>
             </div>
             <script>
                 let checkList = document.getElementById('impact');
-            checkList.getElementsByClassName('anchor')[0].onclick = function(evt) {
+            checkList.getElementsByClassName('anchor')[0].onclick = function() {
                 if (checkList.classList.contains('visible'))
                     checkList.classList.remove('visible');
                 else
