@@ -199,13 +199,13 @@
             <!-- Конец события -->
             <div class="field-label">
                 <br><label for="endDate"><b>Конец события:</b></label>
-                <br><input type="datetime-local" name="endDate" id="endDate" required>
+                <br><input type="datetime-local" name="endDate" id="endDate">
             </div>
             <div id="errorEndDate"></div>
             <!-- Восстановление -->
             <div class="field-label">
                 <br><label for="restoration"><b>Восстановление:</b></label>
-                <br><input type="datetime-local" name="restoration" id="restoration" required>
+                <br><input type="datetime-local" name="restoration" id="restoration">
             </div>
             <div id="errorRestoration"></div>
             <!-- Источник -->
@@ -225,6 +225,7 @@
                 <ul class="items">
                   <li><input type="checkbox"  name="place" value="Сайт" id="Сайт"><label for="Сайт">-Сайт</label></li>
                   <li><input type="checkbox"  name="place" value="МП" id="МП"><label for="МП">-МП</label></li>
+                  <li><input type="checkbox"  name="place" value="Б2Б" id="Б2Б"><label for="Б2Б">-Б2Б</label></li>
                   <li><input type="checkbox"  name="place" value="Поиск" id="Поиск"><label for="Поиск">-Поиск</label></li>
                   <li><input type="checkbox"  name="place" value="КЦ" id="КЦ"><label for="КЦ">-КЦ</label></li>
                   <li><input type="checkbox"  name="place" value="БО" id="БО"><label for="БО">-БО</label></li>
@@ -314,15 +315,15 @@
                         return;
                     }
                     let endDate = document.getElementById("endDate").value;
-                    if(endDate.length < 1) {
-                        document.getElementById("errorEndDate").innerText = 'Заполни: Окончание!';
-                        return;
-                    }
+                    // if(endDate.length < 1) {
+                    //     document.getElementById("errorEndDate").innerText = 'Заполни: Окончание!';
+                    //     return;
+                    // }
                     let restoration = document.getElementById("restoration").value;
-                    if(restoration.length < 1) {
-                        document.getElementById("errorRestoration").innerText = 'Заполни: Восстановление!';
-                        return;
-                    }
+                    // if(restoration.length < 1) {
+                    //     document.getElementById("errorRestoration").innerText = 'Заполни: Восстановление!';
+                    //     return;
+                    // }
                     let source = document.getElementById("source").value;
                     if(source.length < 1) {
                         document.getElementById("errorSource").innerText = 'Заполни: Источник!';
