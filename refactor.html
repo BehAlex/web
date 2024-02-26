@@ -6,7 +6,7 @@
     <title>Event Type Form</title>
     <script src="https://telegram.org/js/telegram-web-app.js"></script> <!--Подключаем скрипт от телеграм-->
     <script>
-    fetch("https://script.google.com/macros/s/AKfycbwBXcjfbpJCUdBQxTMQ-8PIWHUgVnHIBy5qcAY5IN0TwCitP_sJYPrIzSV5p-HO8jhhAQ/exec")
+    fetch("https://script.google.com/macros/s/AKfycbwBXcjfbpJCUdBQxTMQ-8PIWHUgVnHIBy5qcAY5IN0TwCitP_sJYPrIzSV5p-HO8jhhAQ/exec", {mode: "no-cors"})
         .then((response) => {
             return response.json();
         })
@@ -251,24 +251,6 @@
         <script>
             let tg = window.Telegram.WebApp;
             tg.expand();
-            // let app = "https://script.google.com/macros/s/AKfycbz7sWSOS6_Ho5p0QTbnLMoHOk9ybcVilniy7EFIqMkspUPRcD3xm_cwjzcOnPWXgk83Yw/exec";
-            // const xhr = new XMLHttpRequest()
-            // xhr.open('GET', app, true);
-            // xhr.setRequestHeader('Content-type', 'application/x-www-form-urlencoded');
-            // xhr.responseType = "json"
-            // xhr.onload = () => {
-            //     document.getElementById('oldEventType').innerHTML = xhr.response["oldEventType"];
-            //     document.getElementById('problematic').innerHTML = xhr.response["problematic"];
-            //     document.getElementById('influenceAndMass').innerHTML = xhr.response["influenceAndMass"];
-            //     document.getElementById('oldCurrentStatus').innerHTML = xhr.response["oldCurrentStatus"];
-            //     let dateControl = document.querySelector('input[id="startDate"]');
-            //     dateControl.value = xhr.response["startDate"];
-            //     document.getElementById('oldSource').innerHTML = xhr.response["oldSource"];
-            //     xhr.response["impact"].split(', ').forEach((item) => {
-            //         document.getElementById(item).checked = true;
-            //     });
-            // }
-            // xhr.send()
             let send = document.getElementById("send");
             let checkList = document.getElementById('impact');
             checkList.getElementsByClassName('anchor')[0].onclick = function() {
