@@ -8,6 +8,7 @@
     <style>
         textarea { font-size: 18px;
             resize:vertical;
+            border-radius: 10px;
         }
         .dropdown-check-list {
             display: inline-block;
@@ -20,6 +21,7 @@
             padding: 5px 50px 5px 10px;
             border: 1px solid #ccc;
             background-color: brown;
+            border-radius: 15px;
         }
 
         .dropdown-check-list .anchor:after {
@@ -97,15 +99,18 @@
 
         .button:not(:last-child){
             margin-bottom: 20px;
+
         }
         select {
             font-size: 20px;
+            border-radius: 10px;
         }
         select option {
             font-size: 20px;
         }
 
-        input { font-size: 20px;}
+        input { font-size: 20px;
+        border-radius: 10px;}
 
         .invalid-control {
             border-color: red !important;
@@ -234,8 +239,8 @@ SRE, DBA, разработчика и владельца продукта.
             </div>
             <div id="errorPlanOfAction"></div>
                 <br><div class="button-wrapper">
-                <button style="height:30px;width:100px;background: brown;color: aliceblue" id ="send"><b>Отправить</b></button>
-            </div>
+                <button style="height:40px;width:150px;background: brown;color: aliceblue;border-radius: 15px;font-size: 1em"
+                ><b>Отправить</b></button></div>
         </form>
         <script>
             let tg = window.Telegram.WebApp;
