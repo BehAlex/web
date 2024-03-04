@@ -144,7 +144,7 @@
             <!-- Тип события -->
             <div class="field-label">
                <label for="eventType"><b>Тип события:</b></label>
-                <br><select name="eventType" id="eventType" required>
+                <br><select name="eventType" id="eventType" tabindex="1" required>
                     <option></option>
                     <option value="#Инцидент"  id="incident">Инцидент</option>
                     <option value="#Авария" id="accident">Авария</option>
@@ -154,19 +154,19 @@
             <!-- Проблематика -->
             <div class="field-label">
                 <br><label for="problematic"><b>Проблематика:</b></label>
-                <br><textarea id="problematic" name="problematic" rows="3" cols="30" placeholder="Опиши проблематику..." required></textarea>
+                <br><textarea id="problematic" name="problematic" rows="3" cols="30" placeholder="Опиши проблематику..." tabindex="2" required></textarea>
             </div>
             <div id="errorProblematic"></div>
             <!-- Оказанное влияние и массовость -->
             <div class="field-label">
                 <br><label for="influenceAndMass"><b>Оказанное влияние и массовость:</b></label>
-                <br><textarea name="influenceAndMass" id="influenceAndMass" rows="3" cols="30" placeholder="Опиши влияние и массовость..." required></textarea>
+                <br><textarea name="influenceAndMass" id="influenceAndMass" rows="3" cols="30" placeholder="Опиши влияние и массовость..." tabindex="3" required></textarea>
             </div>
             <div id="errorInfluenceAndMass"></div>
             <!-- Текущий статус -->
             <div class="field-label">
                 <br><label for="currentStatus"><b>Текущий статус:</b></label>
-                <br><select name="currentStatus" id="currentStatus">
+                <br><select name="currentStatus" id="currentStatus" tabindex="4">
                     <option value="В работе">В работе</option>
                 	<option value="Завершён">Завершён</option>
                 </select>
@@ -174,25 +174,25 @@
             <!-- Начало события -->
             <div class="field-label">
                 <br><label for="startDate"><b>Начало события:</b></label>
-                <br><input type="datetime-local" name="startDate" id="startDate" required>
+                <br><input type="datetime-local" name="startDate" id="startDate" tabindex="5" required>
             </div>
             <div id="errorStartDate"></div>
             <!-- Конец события -->
             <div class="field-label">
                 <br><label for="endDate"><b>Конец события:</b></label>
-                <br><input type="datetime-local" name="endDate" id="endDate">
+                <br><input type="datetime-local" name="endDate" id="endDate" tabindex="6">
             </div>
             <div id="errorEndDate"></div>
             <!-- Восстановление -->
             <div class="field-label">
                 <br><label for="restoration"><b>Восстановление:</b></label>
-                <br><input type="datetime-local" name="restoration" id="restoration">
+                <br><input type="datetime-local" name="restoration" id="restoration" tabindex="7">
             </div>
             <div id="errorRestoration"></div>
             <!-- Источник -->
             <div class="field-label">
                 <br><label for="source"><b>Источник:</b></label>
-                <br><select name="source" id="source" required>
+                <br><select name="source" id="source" tabindex="8" required>
                     <option></option>
                     <option value="Мониторинг">Мониторинг</option>
                     <option value="Заявка от пользователя">Заявка от пользователя</option>
@@ -202,8 +202,8 @@
             <div id="errorSource"></div>
 <!--            <div id="errorImpact"></div>-->
             <!-- Влияние -->
-            <div id="impact" class="dropdown-check-list" tabindex="100">
-                <br><span class="anchor"><b>Влияние:</b></span>
+            <div id="impact" class="dropdown-check-list" >
+                <br><span class="anchor" tabindex="9"><b>Влияние:</b></span>
                 <ul class="items">
                     <li><input type="checkbox"  name="place" value="Сайт" id="Сайт"><label for="Сайт">-Сайт</label></li>
                     <li><input type="checkbox"  name="place" value="МП" id="МП"><label for="МП">-МП</label></li>
@@ -221,7 +221,7 @@
             <!-- План действий -->
             <div class="field-label">
                 <br><label for="planOfAction"><b>План действий:</b></label>
-                    <br><textarea name="planOfAction" id="planOfAction" rows="3" cols="30" placeholder="Опиши план действий..."
+                    <br><textarea name="planOfAction" id="planOfAction" rows="3" cols="30" tabindex="10" placeholder="Опиши план действий..."
             >Подключение дежурных:
 SRE, DBA, разработчика и владельца продукта.
 На данный момент проводится анализ возникновения аварии.
@@ -229,7 +229,7 @@ SRE, DBA, разработчика и владельца продукта.
             </div>
             <div id="errorPlanOfAction"></div>
                 <br><div class="button-wrapper">
-                <button style="height:40px;width:150px;background: brown;color: aliceblue;border-radius: 15px;font-size: 1em" id="send"><b>Отправить</b></button></div>
+                <button style="height:40px;width:150px;background: brown;color: aliceblue;border-radius: 15px;font-size: 1em" tabindex="11" id="send"><b>Отправить</b></button></div>
         </form>
         <script>
             let tg = window.Telegram.WebApp;
