@@ -249,12 +249,11 @@
                 </select>
             </div>
             <div id="errorSource"></div>
-<!--            <div id="errorImpact"></div>-->
             <!-- Влияние -->
             <div id="impact" class="dropdown-check-list" >
                 <br><span class="anchor" tabindex="9"><b>Влияние:</b></span>
                 <ul class="items">
-                    <li><input type="checkbox"  name="place" value="Сайт" id="Сайт"><label for="Сайт">-Сайт</label></li>
+                    <li><input type="checkbox"  name="place" value="Сайт" id="Сайт" required><label for="Сайт">-Сайт</label></li>
                     <li><input type="checkbox"  name="place" value="МП" id="МП"><label for="МП">-МП</label></li>
                     <li><input type="checkbox"  name="place" value="БО" id="БО"><label for="БО">-БО</label></li>
                     <li><input type="checkbox"  name="place" value="КЦ" id="КЦ"><label for="КЦ">-КЦ</label></li>
@@ -267,6 +266,7 @@
                     <li><input type="checkbox"  name="place" value="Курьерская служба" id="Курьерская служба"><label for="Курьерская служба">-Курьерская служба</label></li>
                 </ul>
             </div>
+            <div id="errorImpact"><b></b></div>
             <!-- План действий -->
             <div class="field-label">
                 <br><label for="planOfAction"><b>План действий:</b></label>
@@ -298,7 +298,7 @@ SRE, DBA, разработчика и владельца продукта.
                     document.getElementById("errorInfluenceAndMass").innerText = '';
                     document.getElementById("errorStartDate").innerText = '';
                     document.getElementById("errorSource").innerText = '';
-                    // document.getElementById("errorImpact").innerText = '';
+                    document.getElementById("errorImpact").innerText = '';
                     let eventType = document.getElementById("eventType").value;
                     if(eventType.length < 1) {
                         document.getElementById("errorEventType").innerText = 'Заполни: Событие!';
@@ -332,10 +332,12 @@ SRE, DBA, разработчика и владельца продукта.
                     checkboxes.forEach(checkbox => {
                       impact.push(checkbox.value);
                     });
-                    // if(impact.length === 0) {
-                    //     document.getElementById("errorImpact").innerText = 'Заполни: Влияние!';
-                    //     return;
-                    // }
+                    if(impact.length === 0) {
+                        document.getElementById("errorImpact").innerText = 'Заполни: Влияние!';
+                        return;
+                    } else {
+                        document.getElementById('Сайт').removeAttribute('required');
+                    }
                     let planOfAction = document.getElementById("planOfAction").value;
                     let data = {
                         "Событие": eventType,
