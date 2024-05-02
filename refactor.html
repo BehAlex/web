@@ -214,11 +214,13 @@
 	        <div id="errorId"></div>
             <!-- Тип события -->
             <div class="field-label">
-               <br> <label for="eventType"  ><b>Тип события:</b></label>
+               <br> <label for="eventType"  ><b>Критичность:</b></label>
                 <br><select name="eventType" id="eventType" tabindex="2" required>
                     <option id="oldEventType"></option>
-                    <option value="#Инцидент"  id="incident">Инцидент</option>
-                    <option value="#Авария" id="accident">Авария</option>
+                    <option value="1"  id="1">1</option>
+                    <option value="2" id="2">2</option>
+                    <option value="3" id="3">3</option>
+                    <option value="4" id="4">4</option>
                 </select>
             </div>
             <div id="errorEventType"></div>
@@ -331,7 +333,7 @@
                     }
                     let eventType = document.getElementById("eventType").value;
                     if(eventType.length  < 1) {
-                        document.getElementById("errorEventType").innerText = 'Заполни: Событие!';
+                        document.getElementById("errorEventType").innerText = 'Заполни: Критичность!';
                         return;
                     }
                     let problematic = document.getElementById("problematic").value;
@@ -384,7 +386,7 @@
 
                     let data = {
                     	"idmess": idmess,
-                        "Событие": eventType,
+                        "Критичность": eventType,
                         "Проблематика": problematic,
                         "Оказанное влияние и массовость": influenceAndMass,
                         "Текущий статус": currentStatus,
