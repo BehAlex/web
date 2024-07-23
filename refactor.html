@@ -6,7 +6,7 @@
     <title>Event Type Form</title>
     <script src="https://telegram.org/js/telegram-web-app.js"></script> <!--Подключаем скрипт от телеграм-->
     <script>
-    fetch("https://script.google.com/macros/s/AKfycbyW8gFXHRmGDZg3xt4uCFj9Mx0o0MIqG0s15Eq_4du0z3x9AGdqZL72GwdC98K3qUIxYw/exec")
+    fetch("https://script.google.com/macros/s/AKfycbwnQUOVkh5kgo1pRV-OtxUlTmbmlL0rJE_SyJpr34jkyZLNGHZNa5F0m4aCN3PbI58O0Q/exec")
         .then((response) => {
             return response.json();
         })
@@ -21,6 +21,8 @@
         json['impact'].split(', ').forEach((item) => {
             document.getElementById(item).checked = true;
         });
+        document.getElementById('PM').innerHTML = json['PM'];
+        document.getElementById('User').innerHTML = json['User'];
     })
     </script>
     <style>
@@ -299,6 +301,16 @@
                     <br><textarea name="planOfAction" tabindex="11" id="planOfAction" rows="2" cols="30" placeholder="Опиши план действий..." required></textarea>
             </div>
             <div id="errorPlanOfAction"></div>
+            <div class="field-label">
+                <label for="PM"><b>Ид инцидента</b></label>
+	            <br><input type="text" name="PM" placeholder="Ид инцидента" id="PM" tabindex="1" required>
+	        </div>
+	        <div id="errorPM"></div>
+            <div class="field-label">
+                <label for="User"><b>Имя в телеге</b></label>
+	            <br><input type="text" name="User" placeholder="Имя в телеге через @" id="User" tabindex="1" required>
+	        </div>
+	        <div id="errorUser"></div>
                 <br><div class="button-wrapper">
                 <button class="test" tabindex="12" id="send"
                 ><b>Отправить</b></button></div>
@@ -326,6 +338,8 @@
                     document.getElementById("errorSource").innerText = '';
                     // document.getElementById("errorImpact").innerText = '';
                     document.getElementById("errorPlanOfAction").innerText = '';
+                    document.getElementById("errorPM").innerText = '';
+                    document.getElementById("errorUser").innerText = '';
                     let idmess = document.getElementById("idmess").value;
                     if(idmess.length < 1) {
                         document.getElementById("errorId").innerText = 'Заполни: id!';
@@ -373,6 +387,16 @@
                         document.getElementById("errorPlanOfAction").innerText = 'Заполни: План действий!';
                         return;
                     }
+                    let PM = document.getElementById("PM").value;
+                    if(PM.length === 0) {
+                        document.getElementById("errorPlanOfAction").innerText = 'Заполни: id инцидента!';
+                        return;
+                    }
+                    let User = document.getElementById("User").value;
+                    if(User.length === 0) {
+                        document.getElementById("errorUser").innerText = 'Заполни: имя в телеге через @!';
+                        return;
+                    }
 
                     let checkboxes = document.querySelectorAll('input[type="checkbox"]:checked');
                     // if(checkboxes.length < 1) {
@@ -395,7 +419,9 @@
                         "Восстановление": restoration,
                         "Источник": source,
                         "Влияние": impact,
-                        "План действий": planOfAction
+                        "План действий": planOfAction,
+                        "PM": PM,
+                        "User": User
                     }
                     tg.sendData(JSON.stringify(data))
                     tg.close();
