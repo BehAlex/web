@@ -302,17 +302,17 @@
             </div>
             <div id="errorPlanOfAction"></div>
             <div class="field-label">
-                <label for="PM"><b>Ид инцидента</b></label>
-	            <br><input type="text" name="PM" placeholder="Ид инцидента" id="PM" tabindex="1" required>
-	        </div>
+                <br><label for="PM"><b>Инцидент:</b></label>
+                <br><textarea id="PM" name="problematic" rows="1" cols="10" placeholder="ID инцидента" tabindex="12" required></textarea>
+            </div>
 	        <div id="errorPM"></div>
             <div class="field-label">
-                <label for="User"><b>Имя в телеге</b></label>
-	            <br><input type="text" name="User" placeholder="Имя в телеге через @" id="User" tabindex="1" required>
+                <label for="User"><b>Создал:</b></label>
+	            <br><textarea id="User" name="problematic" rows="1" cols="20" placeholder="ID инцидента" tabindex="13" required></textarea>
 	        </div>
 	        <div id="errorUser"></div>
                 <br><div class="button-wrapper">
-                <button class="test" tabindex="12" id="send"
+                <button class="test" tabindex="14" id="send"
                 ><b>Отправить</b></button></div>
         </form>
         <script>
