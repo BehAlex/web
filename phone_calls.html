@@ -1,0 +1,183 @@
+<!DOCTYPE html>
+<html lang="ru">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0, maximum-scale=1.0">
+    <title>Event Type Form</title>
+    <script src="https://telegram.org/js/telegram-web-app.js"></script> <!--Подключаем скрипт от телеграм-->
+    <style>
+        @media (hover:hover){
+            /*input:hover {*/
+            /*    background-color: #a5ef79;*/
+			/*	border-radius: 10px;*/
+			/*	border: 1px solid black;*/
+            /*}*/
+            .dropdown-check-list ul.items li:hover {
+				display: block;
+				width: 100%;
+                background-color: #b6f395;
+				border-radius: 300px;
+				border: 2px solid black;
+				
+            }
+            .check-list ul.items2 li:hover {
+				display: block;
+				width: 40%;
+                background-color: #b6f395;
+				border-radius: 10px;
+				border: 1px solid black;
+				
+            }
+            .button-wrapper .test:hover{
+				display: block;
+				width: 160px;
+                background-color: #32751e;
+				border-radius: 30px;
+				border: 2px solid black;
+				
+            }
+        }
+        .dropdown-check-list .anchor {
+			display: block;
+			text-align: center;
+            width:180px;
+            background-color: #b6f395;
+            border-radius: 30px;
+			border: 2px solid black;
+        }
+        .check-list .anchor2 {
+			display: block;
+			text-align: center;
+            width:180px;
+            background-color: #b6f395;
+            border-radius: 30px;
+			border: 2px solid black;
+		}
+		
+		
+		body{
+            color: var(--tg-theme-text-color);
+            background: linear-gradient(to bottom right, darkgreen, lawngreen) no-repeat;
+			/*background: url("https://www.vprok.ru/src/upload/full/image/36/02/320236.svg") no-repeat top left;*/
+			object-fit: cover;
+			display: flex;
+            flex-direction: column;
+            align-items: center;
+            font-size: 20px;
+        }
+
+        .button-wrapper .test{
+            height:40px;
+            width:160px;
+            background: #b6f395;
+            color: #000000;
+            border-radius: 15px;
+            font-size: 1em
+        }
+		
+        div {
+          font-size: 0;
+          animation: ani 1s forwards;
+        }
+        @keyframes ani {
+          0% {font-size: 0;}
+          100% {font-size: 16px;}
+        }
+		.err {
+			color: red;
+			border: 1px solid black;
+			border-radius: 10px;
+			background: #4fbb2f;
+			display: flex;
+			align-items: center;
+			justify-content: center;
+			font-weight: bold;
+		}
+    </style>
+</head>
+    <body>
+        <form id="contact-form" class="wrapper">
+            <!-- Направление -->
+            <div id="direction" class="dropdown-check-list" >
+                <br><span class="anchor" tabindex="8" ><b>Направление:</b></span>
+                <ul class="items">
+                    <li><input type="checkbox"  name="place" value="Витрины Web" id="Витрины Web" required><label for="Витрины Web">-Витрины Web</label></li>
+                    <li><input type="checkbox"  name="place" value="МП Впрок" id="МП Впрок"><label for="МП Впрок">-МП Впрок</label></li>
+                    <li><input type="checkbox"  name="place" value="Клиентские сервисы" id="Клиентские сервисы"><label for="Клиентские сервисы">-Клиентские сервисы</label></li>
+                    <li><input type="checkbox"  name="place" value="Внутренние сервисы" id="Внутренние сервисы"><label for="Внутренние сервисы">-Внутренние сервисы</label></li>
+                    <li><input type="checkbox"  name="place" value="Курьерская доставка" id="Курьерская доставка"><label for="Курьерская доставка">-Курьерская доставка</label></li>
+                    <li><input type="checkbox"  name="place" value="Инфраструктура" id="Инфраструктура"><label for="Инфраструктура">-Инфраструктура</label></li>
+                    <li><input type="checkbox"  name="place" value="Тестирование" id="Тестирование"><label for="Тестирование">-Тестирование</label></li>
+                    <li><input type="checkbox"  name="place" value="Тестирование" id="X5D"><label for="X5D">-X5D</label></li>
+                </ul>
+            </div>
+            <div class="err" id="errorDirection"></div>
+            <!-- Призвать дежурного -->
+            <div id="Duty" class="check-list" >
+                <br><span class="anchor2" tabindex="2"><b>Призвать дежурного?</b></span>
+                <ul class="items2">
+                    <li><input type="checkbox"  name="place2" value="DEV" id="DEV"><label for="DEV">-DEV</label></li>
+                    <li><input type="checkbox"  name="place2" value="SRE" id="SRE"><label for="SRE">-SRE</label></li>
+                </ul>
+            </div>
+<!--            <div id="Duty2" class="check-list3" >-->
+<!--                <br><span class="anchor3" tabindex="2"><b>Призвать дежурного?</b></span>-->
+<!--                <ul class="items3">-->
+<!--                    <li><input type="checkbox"  name="place3" value="Витрины Web" id="DEV2" required><label for="DEV2">-DEV</label></li>-->
+<!--                </ul>-->
+<!--            </div>-->
+            <!-- Кнопка отправить -->
+             <br><div class="button-wrapper">
+                <button class="test" tabindex="3" id="send"><b>Позвонить...</b></button></div>
+        </form>
+        <script>
+            let tg = window.Telegram.WebApp;
+            tg.expand();
+            let send = document.getElementById("send");
+            let checkList = document.getElementById('direction');
+            checkList.getElementsByClassName('anchor')[0].onclick = function() {
+                if (checkList.classList.contains('visible'))
+                    checkList.classList.remove('visible');
+                else
+                    checkList.classList.add('visible');
+            }
+            let checkList2 = document.getElementById('Duty');
+            checkList2.getElementsByClassName('anchor2')[0].onclick = function() {
+                if (checkList2.classList.contains('visible'))
+                    checkList2.classList.remove('visible');
+                else
+                    checkList2.classList.add('visible');
+            }
+            send.addEventListener(
+                "click", () => {
+                    document.getElementById("errorDirection").innerText = '';
+                    let checkboxes_direction = document.querySelectorAll('input[name="place"]:checked');
+                    let direction = [];
+                    checkboxes_direction.forEach(checkbox => {
+                      direction.push(checkbox.value);
+                    });
+                    if(direction.length === 0) {
+                        document.getElementById("errorDirection").innerText = 'Заполни: Направление!';
+                        return;
+                    } else {
+                        document.getElementById('Витрины Web').removeAttribute('required');
+                    }
+                    let checkboxes_duty = document.querySelectorAll('input[name="place2"]:checked');
+                    let duty = [];
+                    checkboxes_duty.forEach(checkbox => {
+                      duty.push(checkbox.value);
+                    });
+
+                    let data = {
+                        "Направление": direction,
+                        "Призвать дежурного": duty
+                    }
+                    console.log(data)
+                    tg.sendData(JSON.stringify(data))
+                    console.log(data)
+                    tg.close();
+                }
+            )
+        </script>
+    </body>
+</html>
