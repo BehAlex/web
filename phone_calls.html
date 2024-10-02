@@ -55,47 +55,47 @@
             border-radius: 5px;
 			border: 2px solid black;
 		}
-		.anchor {
-			text-align: center;
-			margin-top: 100px;
-			font-weight: 10;
-			cursor: pointer;
-			position: relative;
-			padding: 1px;
-		}
+		/*.anchor {*/
+		/*	text-align: center;*/
+		/*	margin-top: 100px;*/
+		/*	font-weight: 10;*/
+		/*	cursor: pointer;*/
+		/*	position: relative;*/
+		/*	padding: 1px;*/
+		/*}*/
 		
-		.anchor::before {
-			content: 'Выбери направление по которому наблюдаются проблемы для оповещения ответственных.';
-			text-align: center;
-			background-color: #92928f;
-			color: rgb(0, 0, 0);
-			width: fit-content;
-			padding: 10px;
-			border-radius: 5px;
-			position: absolute;
-			bottom: 100%;
-			margin-left: 20px;
-			visibility: hidden;
-		}
+		/*.anchor::before {*/
+		/*	content: 'Выбери направление по которому наблюдаются проблемы для оповещения ответственных.';*/
+		/*	text-align: center;*/
+		/*	background-color: #b9b9b4;*/
+		/*	color: rgb(0, 0, 0);*/
+		/*	width: fit-content;*/
+		/*	padding: 10px;*/
+		/*	border-radius: 5px;*/
+		/*	position: absolute;*/
+		/*	bottom: 100%;*/
+		/*	margin-left: 20px;*/
+		/*	visibility: hidden;*/
+		/*}*/
 		
-		.anchor:hover::before {
-			visibility: visible;
-		}
+		/*.anchor:hover::before {*/
+		/*	visibility: visible;*/
+		/*}*/
 		
-		.anchor::after {
-			content: '';
-			border-left: 6px solid transparent;
-			border-right: 6px solid transparent;
-			border-top: 7px solid #b4e7a8;
-			position: absolute;
-			top: 0%;
-			margin-left: -60px;
-			visibility: hidden;
-		}
+		/*.anchor::after {*/
+		/*	content: '';*/
+		/*	border-left: 6px solid transparent;*/
+		/*	border-right: 6px solid transparent;*/
+		/*	border-top: 7px solid #b4e7a8;*/
+		/*	position: absolute;*/
+		/*	top: 0%;*/
+		/*	margin-left: -60px;*/
+		/*	visibility: hidden;*/
+		/*}*/
 		
-		.anchor:hover::after {
-			visibility: visible;
-		}
+		/*.anchor:hover::after {*/
+		/*	visibility: visible;*/
+		/*}*/
 		body{
             color: black;
             background: linear-gradient(to bottom right, darkgreen, lawngreen) no-repeat;
@@ -105,8 +105,9 @@
             flex-direction: column;
             align-items: center;
         }
-		.wrapper {
+		html {
 			height: 100vh;
+			transform: scale(1);
         }
 		
         .button-wrapper .test{
@@ -142,7 +143,7 @@
         <form id="contact-form" class="wrapper">
             <!-- Направление -->
             <div id="direction" class="dropdown-check-list" >
-                <br><span class="anchor" tabindex="8" ><b>Направление:</b></span>
+                <br><span class="anchor" tabindex="8" ><b>Выбери направление по которому наблюдаются проблемы для оповещения ответственных.</b></span>
 
                 <ul class="items">
                     <li><input type="checkbox"  name="place" value="Витрины Web" id="Витрины Web" required><label for="Витрины Web">- Витрины Web</label></li>
