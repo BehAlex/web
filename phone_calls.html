@@ -18,6 +18,7 @@
                 background-color: #b6f395;
 				border-radius: 300px;
 				border: 2px solid black;
+				transform: scale(1.5);
 				
             }
             .check-list ul.items2 li:hover {
@@ -26,6 +27,7 @@
                 background-color: #b6f395;
 				border-radius: 10px;
 				border: 1px solid black;
+				transform: scale(1.5);
 				
             }
             .button-wrapper .test:hover{
@@ -34,6 +36,7 @@
                 background-color: #32751e;
 				border-radius: 30px;
 				border: 2px solid black;
+				transform: scale(1.5);
 				
             }
         }
@@ -42,7 +45,7 @@
 			text-align: center;
             width:180px;
             background-color: #b6f395;
-            border-radius: 30px;
+            border-radius: 5px;
 			border: 2px solid black;
         }
         .check-list .anchor2 {
@@ -54,9 +57,8 @@
 			border: 2px solid black;
 		}
 		
-		
 		body{
-            color: var(--tg-theme-text-color);
+            color: black;
             background: linear-gradient(to bottom right, darkgreen, lawngreen) no-repeat;
 			/*background: url("https://www.vprok.ru/src/upload/full/image/36/02/320236.svg") no-repeat top left;*/
 			object-fit: cover;
@@ -64,8 +66,10 @@
             flex-direction: column;
             align-items: center;
             font-size: 20px;
+			width:1920px;
+			height:1080px;
         }
-
+		
         .button-wrapper .test{
             height:40px;
             width:160px;
@@ -99,7 +103,8 @@
         <form id="contact-form" class="wrapper">
             <!-- Направление -->
             <div id="direction" class="dropdown-check-list" >
-                <br><span class="anchor" tabindex="8" ><b>Выбрать направление:</b></span>
+                <br><span class="anchor" tabindex="8" ><b>Выбрать направление по которому наблюдаются проблемы:</b></span>
+
                 <ul class="items">
                     <li><input type="checkbox"  name="place" value="Витрины Web" id="Витрины Web" required><label for="Витрины Web">- Витрины Web</label></li>
                     <li><input type="checkbox"  name="place" value="МП Впрок" id="МП Впрок"><label for="МП Впрок">- МП Впрок</label></li>
