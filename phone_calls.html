@@ -23,7 +23,7 @@
             }
             .check-list ul.items2 li:hover {
 				display: block;
-				width: 40%;
+				width: 45%;
                 background-color: #b6f395;
 				border-radius: 10px;
 				border: 1px solid black;
@@ -34,16 +34,15 @@
 				display: block;
 				width: 160px;
                 background-color: #32751e;
-				border-radius: 30px;
+				border-radius: 15px;
 				border: 2px solid black;
 				transform: scale(1.5);
-				
             }
         }
         .dropdown-check-list .anchor {
 			display: block;
-			text-align: center;
-            width:180px;
+			text-align: left;
+            width:200px;
             background-color: #b6f395;
             border-radius: 5px;
 			border: 2px solid black;
@@ -51,12 +50,52 @@
         .check-list .anchor2 {
 			display: block;
 			text-align: center;
-            width:180px;
+            width:200px;
             background-color: #b6f395;
-            border-radius: 30px;
+            border-radius: 5px;
 			border: 2px solid black;
 		}
+		.anchor {
+			text-align: center;
+			margin-top: 100px;
+			font-weight: 10;
+			cursor: pointer;
+			position: relative;
+			padding: 1px;
+		}
 		
+		.anchor::before {
+			content: 'Выбери направление по которому наблюдаются проблемы для оповещения ответственных.';
+			text-align: center;
+			background-color: #92928f;
+			color: rgb(0, 0, 0);
+			width: fit-content;
+			padding: 10px;
+			border-radius: 5px;
+			position: absolute;
+			bottom: 100%;
+			margin-left: 20px;
+			visibility: hidden;
+		}
+		
+		.anchor:hover::before {
+			visibility: visible;
+		}
+		
+		.anchor::after {
+			content: '';
+			border-left: 6px solid transparent;
+			border-right: 6px solid transparent;
+			border-top: 7px solid #b4e7a8;
+			position: absolute;
+			top: 0%;
+			margin-left: -60px;
+			visibility: hidden;
+		}
+		
+		.anchor:hover::after {
+			visibility: visible;
+		}
 		body{
             color: black;
             background: linear-gradient(to bottom right, darkgreen, lawngreen) no-repeat;
@@ -65,9 +104,9 @@
 			display: flex;
             flex-direction: column;
             align-items: center;
-            font-size: 20px;
-			width:1920px;
-			height:1080px;
+        }
+		.wrapper {
+			height: 100vh;
         }
 		
         .button-wrapper .test{
@@ -75,7 +114,7 @@
             width:160px;
             background: #b6f395;
             color: #000000;
-            border-radius: 15px;
+            border-radius: 10px;
             font-size: 1em
         }
 		
@@ -103,7 +142,7 @@
         <form id="contact-form" class="wrapper">
             <!-- Направление -->
             <div id="direction" class="dropdown-check-list" >
-                <br><span class="anchor" tabindex="8" ><b>Выбрать направление по которому наблюдаются проблемы:</b></span>
+                <br><span class="anchor" tabindex="8" ><b>Направление:</b></span>
 
                 <ul class="items">
                     <li><input type="checkbox"  name="place" value="Витрины Web" id="Витрины Web" required><label for="Витрины Web">- Витрины Web</label></li>
