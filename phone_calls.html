@@ -7,14 +7,11 @@
     <script src="https://telegram.org/js/telegram-web-app.js"></script> <!--Подключаем скрипт от телеграм-->
     <style>
         @media (hover:hover){
-            /*input:hover {*/
-            /*    background-color: #a5ef79;*/
-			/*	border-radius: 10px;*/
-			/*	border: 1px solid black;*/
-            /*}*/
             .dropdown-check-list ul.items li:hover {
+				margin-left: 1px;
+				margin-right: 1px;
 				display: block;
-				width: 100%;
+				width: 85%;
                 background-color: #b6f395;
 				border-radius: 300px;
 				border: 2px solid black;
@@ -23,7 +20,9 @@
             }
             .check-list ul.items2 li:hover {
 				display: block;
-				width: 45%;
+				margin-left: 1px;
+				margin-right: 1px;
+				width: 40%;
                 background-color: #b6f395;
 				border-radius: 10px;
 				border: 1px solid black;
@@ -41,61 +40,26 @@
         }
         .dropdown-check-list .anchor {
 			display: block;
-			text-align: left;
-            width:200px;
+			margin-left: auto;
+			margin-right: auto;
+			text-align: center;
+            width:300px;
             background-color: #b6f395;
             border-radius: 5px;
 			border: 2px solid black;
+			transform: scale(1.5);
         }
         .check-list .anchor2 {
 			display: block;
+			margin-left: auto;
+			margin-right: auto;
+            width: 200px;
 			text-align: center;
-            width:200px;
             background-color: #b6f395;
             border-radius: 5px;
 			border: 2px solid black;
+			transform: scale(1.5);
 		}
-		/*.anchor {*/
-		/*	text-align: center;*/
-		/*	margin-top: 100px;*/
-		/*	font-weight: 10;*/
-		/*	cursor: pointer;*/
-		/*	position: relative;*/
-		/*	padding: 1px;*/
-		/*}*/
-		
-		/*.anchor::before {*/
-		/*	content: 'Выбери направление по которому наблюдаются проблемы для оповещения ответственных.';*/
-		/*	text-align: center;*/
-		/*	background-color: #b9b9b4;*/
-		/*	color: rgb(0, 0, 0);*/
-		/*	width: fit-content;*/
-		/*	padding: 10px;*/
-		/*	border-radius: 5px;*/
-		/*	position: absolute;*/
-		/*	bottom: 100%;*/
-		/*	margin-left: 20px;*/
-		/*	visibility: hidden;*/
-		/*}*/
-		
-		/*.anchor:hover::before {*/
-		/*	visibility: visible;*/
-		/*}*/
-		
-		/*.anchor::after {*/
-		/*	content: '';*/
-		/*	border-left: 6px solid transparent;*/
-		/*	border-right: 6px solid transparent;*/
-		/*	border-top: 7px solid #b4e7a8;*/
-		/*	position: absolute;*/
-		/*	top: 0%;*/
-		/*	margin-left: -60px;*/
-		/*	visibility: hidden;*/
-		/*}*/
-		
-		/*.anchor:hover::after {*/
-		/*	visibility: visible;*/
-		/*}*/
 		body{
             color: black;
             background: linear-gradient(to bottom right, darkgreen, lawngreen) no-repeat;
@@ -105,20 +69,31 @@
             flex-direction: column;
             align-items: center;
         }
+		li {
+			display: block;
+			font-size: 1.3em;
+			margin-left: auto;
+			margin-right: auto;
+			/*position: relative;*/
+		}
 		html {
 			height: 100vh;
 			transform: scale(1);
         }
 		
         .button-wrapper .test{
+			display: block;
+			margin-left: auto;
+			margin-right: auto;
             height:40px;
             width:160px;
             background: #b6f395;
             color: #000000;
             border-radius: 10px;
-            font-size: 1em
+            font-size: 1em;
+			transform: scale(1.5);
         }
-		
+
         div {
           font-size: 0;
           animation: ani 1s forwards;
@@ -144,7 +119,6 @@
             <!-- Направление -->
             <div id="direction" class="dropdown-check-list" >
                 <br><span class="anchor" tabindex="8" ><b>Выбери направление по которому наблюдаются проблемы для оповещения ответственных.</b></span>
-
                 <ul class="items">
                     <li><input type="checkbox"  name="place" value="Витрины Web" id="Витрины Web" required><label for="Витрины Web">- Витрины Web</label></li>
                     <li><input type="checkbox"  name="place" value="МП Впрок" id="МП Впрок"><label for="МП Впрок">- МП Впрок</label></li>
