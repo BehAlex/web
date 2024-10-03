@@ -5,6 +5,11 @@
     <meta name="viewport" content="width=device-width, initial-scale=1.0, maximum-scale=1.0">
     <title>Event Type Form</title>
     <style>
+		@media (hover:hover){
+            .home:hover {
+                background-color: #1d8c0a;
+				border: 2px solid black;
+            }}
 		body{
             color: black;
             background: linear-gradient(to bottom right, darkgreen, lawngreen) no-repeat;
@@ -12,46 +17,50 @@
 			display: flex;
             flex-direction: column;
             align-items: center;
+			
         }
 		.home{
-			display: block;
-            height:fit-content;
-            width:fit-content;
+			display: inline-block;
+			position: absolute;
+            height: 35px;
+            width: 150px;
             background: #b6f395;
             color: #000000;
             border-radius: 2px;
 			border: 2px solid black;
 			transform: scale(2.5);
-			font-size: 110%;
+			font-size: 100%;
 			text-decoration: none;
+			line-height: 35px;
+			text-align: center;
+			font-weight: bold;
         }
 
 		html {
 			height: 100vh;
 			transform: scale(1);
-			line-height: 500%;
+			line-height: 100%;
         }
-		.wrapper {
-			position: absolute;
-			top:  50%;
-			left: 50%;
-			transform: translate(-50%,-50%);
+		.page {
+			padding: 30px;
+			margin: 100px;
 		}
+
     </style>
 </head>
     <body>
 	<form id="contact-form" class="wrapper">
 		<!-- Переход на новое сообщение -->
 		<div class="page">
-		<lu><button><a class="home" href="https://behalex.github.io/web/new.html">Создать новое сообщение.</a></button></lu>
-			</div>
+			<button><a class="home" href="https://behalex.github.io/web/new.html">Новое сообщение</a></button>
+		</div>
 		<!-- Изменить предыдущее сообщение -->
 		<div class="page">
-		<br><lu><button><a class="home" href="https://behalex.github.io/web/refactor.html">Изменить сообщение.</a></button></lu>
+			<br><button><a class="home" href="https://behalex.github.io/web/refactor.html">Изменить сообщение</a></button>
 		</div>
 		<!-- Обзвон -->
 		<div class="page">
-		<br><lu><button><a class="home" href="https://behalex.github.io/web/phone_calls.html">Позвонить.</a></button></lu>
+			<br><button><a class="home" href="https://behalex.github.io/web/phone_calls.html">Позвонить</a></button>
 		</div>
         </form>
     </body>
