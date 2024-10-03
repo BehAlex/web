@@ -115,12 +115,12 @@
     </style>
 </head>
     <body>
-        <form id="contact-form" class="wrapper">
+		<form id="contact-form" class="wrapper">
             <!-- Направление -->
             <div id="direction" class="dropdown-check-list" >
                 <br><span class="anchor" tabindex="8" ><b>Выбери направление по которому наблюдаются проблемы для оповещения ответственных.</b></span>
 				<br><ul class="items">
-                    <li><input type="checkbox"  name="place" value="Витрины Web" id="Витрины Web" required><label for="Витрины Web">- Витрины Web</label></li>
+                    <li><input type="checkbox"  name="place" value="Витрины Web" id="Витрины Web"><label for="Витрины Web">- Витрины Web</label></li>
                     <li><input type="checkbox"  name="place" value="МП Впрок" id="МП Впрок"><label for="МП Впрок">- МП Впрок</label></li>
                     <li><input type="checkbox"  name="place" value="Клиентские сервисы" id="Клиентские сервисы"><label for="Клиентские сервисы">- Клиентские сервисы</label></li>
                     <li><input type="checkbox"  name="place" value="Внутренние сервисы" id="Внутренние сервисы"><label for="Внутренние сервисы">- Внутренние сервисы</label></li>
@@ -130,7 +130,7 @@
                     <li><input type="checkbox"  name="place" value="Тестирование" id="X5D"><label for="X5D">- X5D</label></li>
                 </ul>
             </div>
-            <div class="err" id="errorDirection"></div>
+<!--            <div class="err" id="errorDirection"></div>-->
             <!-- Призвать дежурного -->
 			<br><div id="Duty" class="check-list" >
                 <br><span class="anchor2" tabindex="4"><b>Призвать дежурного?</b></span>
@@ -142,17 +142,18 @@
                     <li><input type="checkbox"  name="place2" value="TS2" id="TS2"><label for="TS2">- TS2</label></li>
                 </ul>
             </div>
-<!--            <div id="Duty2" class="check-list3" >-->
-<!--                <br><span class="anchor3" tabindex="2"><b>Призвать дежурного?</b></span>-->
-<!--                <ul class="items3">-->
-<!--                    <li><input type="checkbox"  name="place3" value="Витрины Web" id="DEV2" required><label for="DEV2">-DEV</label></li>-->
+<!--            <div id="chat" class="where">-->
+<!--                <br><span class="where2" tabindex="2"><b>В какой чат позвать?</b></span>-->
+<!--                <ul class="where3">-->
+<!--                    <li><input type="checkbox"  name="place3" value="Проблемы Прода" id="Проблемы Прода"><label for="Проблемы Прода"> - Проблемы Прода</label></li>-->
+<!--			        <li><input type="checkbox"  name="place3" value="Проблемы Склада" id="Проблемы Склада"><label for="Проблемы Склада"> - Проблемы Склада</label></li>-->
 <!--                </ul>-->
 <!--            </div>-->
             <!-- Кнопка отправить -->
              <br><br><div class="button-wrapper">
                 <button class="test" tabindex="3" id="send"><b>Позвонить...</b></button></div>
         </form>
-        <script>
+		<script>
             let tg = window.Telegram.WebApp;
             tg.expand();
             let send = document.getElementById("send");
@@ -172,18 +173,18 @@
             }
             send.addEventListener(
                 "click", () => {
-                    document.getElementById("errorDirection").innerText = '';
+                    // document.getElementById("errorDirection").innerText = '';
                     let checkboxes_direction = document.querySelectorAll('input[name="place"]:checked');
                     let direction = [];
                     checkboxes_direction.forEach(checkbox => {
                       direction.push(checkbox.value);
                     });
-                    if(direction.length === 0) {
-                        document.getElementById("errorDirection").innerText = 'Заполни: Направление!';
-                        return;
-                    } else {
-                        document.getElementById('Витрины Web').removeAttribute('required');
-                    }
+                    // if(direction.length === 0) {
+                    //     document.getElementById("errorDirection").innerText = 'Заполни: Направление!';
+                    //     return;
+                    // } else {
+                    //     document.getElementById('Витрины Web').removeAttribute('required');
+                    // }
                     let checkboxes_duty = document.querySelectorAll('input[name="place2"]:checked');
                     let duty = [];
                     checkboxes_duty.forEach(checkbox => {
