@@ -9,48 +9,57 @@
         textarea { font-size: 18px;
             resize:vertical;
             border-radius: 10px;
+			background: linear-gradient(to bottom right, darkgreen, greenyellow ,lawngreen) no-repeat;
         }
 
         @media (hover:hover){
             textarea:hover {
-                background-color: antiquewhite;
+                background: linear-gradient(to bottom right, greenyellow ,lawngreen, darkgreen) no-repeat;
             }
             select:hover {
-                background-color: antiquewhite;
+                /*background-color: #a5ef79;*/
+				background: linear-gradient(to bottom right, greenyellow ,lawngreen, darkgreen) no-repeat;
             }
             input:hover {
-                background-color: antiquewhite;
+                /*background-color: antiquewhite;*/
+				background: linear-gradient(to bottom right, greenyellow ,lawngreen, darkgreen) no-repeat;
             }
             .dropdown-check-list ul.items li:hover {
-                background-color: antiquewhite;
+                /*background-color: antiquewhite;*/
+				background: linear-gradient(to bottom right, greenyellow ,lawngreen, darkgreen) no-repeat;
             }
             .button-wrapper .test:hover{
-                background-color: brown;
+				background: linear-gradient(to bottom right, greenyellow ,lawngreen, darkgreen) no-repeat;
+                /*background-color: brown;*/
             }
             .dropdown-check-list .anchor:hover {
-                background-color: brown;
+                /*background-color: brown;*/
+				background: linear-gradient(to bottom right, greenyellow ,lawngreen, darkgreen) no-repeat;
             }
+			.back {
+				background: linear-gradient(to bottom right, greenyellow ,lawngreen, darkgreen) no-repeat;
+			}
         }
-        @media (hover: none){
-            textarea:hover {
-                background-color: antiquewhite;
-            }
-            select:hover {
-                background-color: antiquewhite;
-            }
-            input:hover {
-                background-color: antiquewhite;
-            }
-            .dropdown-check-list ul.items li:hover {
-                background-color: antiquewhite;
-            }
-            .button-wrapper .test:hover{
-                background-color: brown;
-            }
-            .dropdown-check-list .anchor:hover {
-                background-color: brown;
-            }
-        }
+        /*@media (hover: none){*/
+        /*    textarea:hover {*/
+        /*        background-color: antiquewhite;*/
+        /*    }*/
+        /*    select:hover {*/
+        /*        background-color: antiquewhite;*/
+        /*    }*/
+        /*    input:hover {*/
+        /*        background-color: antiquewhite;*/
+        /*    }*/
+        /*    .dropdown-check-list ul.items li:hover {*/
+        /*        background-color: antiquewhite;*/
+        /*    }*/
+        /*    .button-wrapper .test:hover{*/
+        /*        background-color: brown;*/
+        /*    }*/
+        /*    .dropdown-check-list .anchor:hover {*/
+        /*        background-color: brown;*/
+        /*    }*/
+        /*}*/
         .dropdown-check-list {
             display: inline-block;
         }
@@ -60,8 +69,8 @@
             cursor: pointer;
             display: inline-block;
             padding: 5px 50px 5px 10px;
-            border: 1px solid #ccc;
-            background-color: palevioletred;
+            border: 1px solid #000000;
+            background: linear-gradient(to bottom right, darkgreen, greenyellow ,lawngreen) no-repeat;
             border-radius: 15px;
         }
 
@@ -89,37 +98,38 @@
             padding: 2px;
             display: none;
             margin: 0;
-            border: 1px solid #ccc;
+            border: 1px solid #000000;
             border-top: none;
+			border-radius: 15px;
         }
 
         .dropdown-check-list ul.items li {
             list-style: none;
         }
 
-        .dropdown-check-list.visible .anchor {
-            color: #0094ff;
-        }
+        /*.dropdown-check-list.visible .anchor {*/
+        /*    color: #0094ff;*/
+        /*}*/
 
         .dropdown-check-list.visible .items {
             display: block;
        }
 
         body{
-            color: var(--tg-theme-text-color);
-            background: var(--tg-theme-bg-color);
+            color: black;
+            background: linear-gradient(to bottom right, darkgreen, greenyellow ,lawngreen) no-repeat;
             display: flex;
             flex-direction: column;
             align-items: center;
             font-size: 20px;
         }
-        .hint{
-            color: var(--tg-theme-hint-color);
-        }
-
-        .link{
-            color: var(--tg-theme-link-color);
-        }
+        /*.hint{*/
+        /*    color: var(--tg-theme-hint-color);*/
+        /*}*/
+		
+        /*.link{*/
+        /*    color: var(--tg-theme-link-color);*/
+        /*}*/
 
         .button-wrapper{
             display: flex;
@@ -128,46 +138,48 @@
         .button-wrapper .test{
             height:40px;
             width:150px;
-            background: palevioletred;
-            color: aliceblue;
+            background: linear-gradient(to bottom right, darkgreen, greenyellow ,lawngreen) no-repeat;
+            color: #000000;
             border-radius: 15px;
             font-size: 1em
         }
 
-        .button{
-            background: var(--tg-theme-button-color);
-            color: var(--tg-theme-button-text-color);
-            border: none;
-            font-size: 20px;
-        }
-        .validation-message {
-            display: block;
-            padding-top: 0.4em;
-            color: red;
-        }
-
-        .button:not(:last-child){
-            margin-bottom: 20px;
-
-        }
+        /*.button{*/
+        /*    background: var(--tg-theme-button-color);*/
+        /*    color: var(--tg-theme-button-text-color);*/
+        /*    border: none;*/
+        /*    font-size: 20px;*/
+        /*}*/
+        /*.validation-message {*/
+        /*    display: block;*/
+        /*    padding-top: 0.4em;*/
+        /*    color: red;*/
+        /*}*/
+		
+        /*.button:not(:last-child){*/
+        /*    margin-bottom: 20px;*/
+		
+        /*}*/
         select {
             font-size: 20px;
             border-radius: 10px;
+			background: linear-gradient(to bottom right, darkgreen, greenyellow ,lawngreen) no-repeat;
         }
         select option {
             font-size: 20px;
         }
 
         input { font-size: 20px;
+			background: linear-gradient(to bottom right, darkgreen, greenyellow ,lawngreen) no-repeat;
         border-radius: 10px;}
 
-        .invalid-control {
-            border-color: red !important;
-        }
-
-        .form-control {
-            border: 1px solid;
-        }
+        /*.invalid-control {*/
+        /*    border-color: red !important;*/
+        /*}*/
+		
+        /*.form-control {*/
+        /*    border: 1px solid;*/
+        /*}*/
 
         input:invalid {
             border: 2px dashed red;
