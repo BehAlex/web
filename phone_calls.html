@@ -43,11 +43,12 @@
 			margin-left: auto;
 			margin-right: auto;
 			text-align: center;
-            width:260px;
+            width:240px;
             background-color: #b6f395;
             border-radius: 5px;
 			border: 2px solid black;
 			transform: scale(1.5);
+			font-size: 0.9em;
         }
         .check-list .anchor2 {
 			display: block;
@@ -79,6 +80,7 @@
 		html {
 			height: 100vh;
 			transform: scale(1);
+			line-height: 100%;
         }
 		
         .button-wrapper .test{
@@ -93,25 +95,7 @@
             font-size: 1em;
 			transform: scale(1.5);
         }
-
-        div {
-          font-size: 0;
-          animation: ani 1s forwards;
-        }
-        @keyframes ani {
-          0% {font-size: 0;}
-          100% {font-size: 16px;}
-        }
-		.err {
-			color: red;
-			border: 1px solid black;
-			border-radius: 10px;
-			background: #4fbb2f;
-			display: flex;
-			align-items: center;
-			justify-content: center;
-			font-weight: bold;
-		}
+		
 		.back {
 			float: right;
 			font-size: 1em;
@@ -157,7 +141,7 @@
              <br><br><div class="button-wrapper">
                 <button class="test" tabindex="3" id="send"><b>Позвонить...</b></button></div>
 			
-			<br><br><button class="back"><a href="javascript:history.back()">Вернуться назад</a></button>
+			<br><button class="back"><a href="javascript:history.back()">Вернуться назад</a></button>
         </form>
 		<script>
             let tg = window.Telegram.WebApp;
