@@ -185,6 +185,10 @@
         textarea:invalid {
             border: 2px dashed red;
         }
+		.back {
+			float: right;
+			font-size: 1em;
+		}
     </style>
 </head>
     <body>
@@ -277,6 +281,7 @@ SRE, DBA, разработчика и владельца продукта.
             <div id="errorPlanOfAction"></div>
                 <br><div class="button-wrapper">
                 <button class="test" tabindex="11" id="send"><b>Отправить</b></button></div>
+			<br><br><button class="back"><a href="javascript:history.back()">Вернуться назад</a></button>
         </form>
         <script>
             let tg = window.Telegram.WebApp;

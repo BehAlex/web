@@ -1,0 +1,56 @@
+<!DOCTYPE html>
+<html lang="ru">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0, maximum-scale=1.0">
+    <title>Event Type Form</title>
+    <style>
+		body{
+            color: black;
+            background: linear-gradient(to bottom right, darkgreen, lawngreen) no-repeat;
+			object-fit: cover;
+			display: flex;
+            flex-direction: column;
+            align-items: center;
+        }
+		.home{
+			display: flex;
+            height:fit-content;;
+            width:fit-content;
+            background: #b6f395;
+            color: #000000;
+            border-radius: 5px;
+			border: 1px solid black;
+			transform: scale(2.5);
+        }
+
+		html {
+			height: 100vh;
+			transform: scale(1);
+			line-height: 500%;
+        }
+		.wrapper {
+			position: absolute;
+			top:  50%;
+			left: 50%;
+			transform: translate(-50%,-50%);
+		}
+    </style>
+</head>
+    <body>
+	<form id="contact-form" class="wrapper">
+		<!-- Переход на новое сообщение -->
+		<div class="page">
+		<lu><button><a class="home" href="https://behalex.github.io/web/new.html">Создать новое сообщение.</a></button></lu>
+			</div>
+		<!-- Изменить предыдущее сообщение -->
+		<div class="page">
+		<br><lu><button><a class="home" href="https://behalex.github.io/web/refactor.html">Изменить сообщение.</a></button></lu>
+		</div>
+		<!-- Обзвон -->
+		<div class="page">
+		<br><lu><button><a class="home" href="https://behalex.github.io/web/phone_calls.html">Позвонить.</a></button></lu>
+		</div>
+        </form>
+    </body>
+</html>
