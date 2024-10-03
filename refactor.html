@@ -214,7 +214,7 @@
         }
 		.back {
 			float: right;
-			font-size: 1em;
+			font-size: 0.5em;
 			background: linear-gradient(to bottom right, darkgreen, greenyellow ,lawngreen) no-repeat;
 		}
     </style>
@@ -222,6 +222,7 @@
     <body>
 <!--        <form id="contact-form" method="POST" action="https://script.google.com/macros/s/AKfycbwBXcjfbpJCUdBQxTMQ-8PIWHUgVnHIBy5qcAY5IN0TwCitP_sJYPrIzSV5p-HO8jhhAQ/exec">-->
         <form id="contact-form">
+			<button class="back"><a href="javascript:history.back()">Вернуться назад</a></button>
 	        <!-- ИД сообщения -->
 	        <div class="field-label">
                 <label for="idmess"><b>Ид сообщения для корректировки</b></label>
@@ -322,9 +323,7 @@
 	        </div>
 	        <div id="errorUser"></div>
                 <br><div class="button-wrapper">
-                <button class="test" tabindex="14" id="send"
-                ><b>Отправить</b></button></div>
-			<br><br><button class="back"><a href="javascript:history.back()">Вернуться назад</a></button>
+                <button class="test" tabindex="14" id="send"><b>Отправить</b></button></div>
         </form>
         <script>
             let tg = window.Telegram.WebApp;

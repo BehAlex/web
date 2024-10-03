@@ -199,7 +199,8 @@
         }
 		.back {
 			float: right;
-			font-size: 1em;
+			font-size: 0.5em;
+			background: linear-gradient(to bottom right, darkgreen, greenyellow ,lawngreen) no-repeat;
 		}
     </style>
 </head>
@@ -207,6 +208,7 @@
 <!--        <form id="contact-form" method="POST" action="https://script.google.com/macros/s/AKfycbwBXcjfbpJCUdBQxTMQ-8PIWHUgVnHIBy5qcAY5IN0TwCitP_sJYPrIzSV5p-HO8jhhAQ/exec">-->
         <form id="contact-form">
             <!-- Тип события -->
+			<button class="back"><a href="javascript:history.back()">Вернуться назад</a></button>
             <div class="field-label">
                <label for="eventType"><b>Критичность:</b></label>
                 <br><select name="eventType" id="eventType" tabindex="1" required>
@@ -293,7 +295,6 @@ SRE, DBA, разработчика и владельца продукта.
             <div id="errorPlanOfAction"></div>
                 <br><div class="button-wrapper">
                 <button class="test" tabindex="11" id="send"><b>Отправить</b></button></div>
-			<br><br><button class="back"><a href="javascript:history.back()">Вернуться назад</a></button>
         </form>
         <script>
             let tg = window.Telegram.WebApp;
