@@ -111,9 +111,10 @@
 </head>
     <body>
 		<form id="contact-form" class="wrapper">
+			<button class="back"><a href="javascript:history.back()">Вернуться назад</a></button>
             <!-- Направление -->
             <div id="direction" class="dropdown-check-list" >
-                <br><span class="anchor" tabindex="8" ><b>Выбери направление по которому наблюдаются проблемы для оповещения ответственных.</b></span>
+                <br><br><span class="anchor" tabindex="8" ><b>Выбери направление по которому наблюдаются проблемы для оповещения ответственных.</b></span>
 				<br><ul class="items">
                     <li><input type="checkbox"  name="place" value="Витрины Web" id="Витрины Web"><label for="Витрины Web">- Витрины Web</label></li>
                     <li><input type="checkbox"  name="place" value="МП Впрок" id="МП Впрок"><label for="МП Впрок">- МП Впрок</label></li>
@@ -147,7 +148,6 @@
             <!-- Кнопка отправить -->
              <br><br><div class="button-wrapper">
                 <button class="test" tabindex="3" id="send"><b>Позвонить...</b></button></div>
-			<br><br><button class="back"><a href="javascript:history.back()">Вернуться назад</a></button>
         </form>
 		<script>
             let tg = window.Telegram.WebApp;
